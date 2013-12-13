@@ -1,0 +1,83 @@
+<div class="row">
+	<div class="col-sm-4 col-sm-push-7">
+		<!-- This is where the buttons will be lined up vertically -->
+    <p>
+    	<button id = "modal-create"class="btn btn-lg btn-success" data-toggle="modal" data-target="#create-entry">
+    		New Password
+    	</button>
+    </p>
+    <p>
+    	<button id = "modal-show" class="btn btn-lg btn-warning" data-toggle="modal" data-target="#show-entry">
+    		Show Detail
+    	</button>
+  	</p>
+    <p>
+    	<button id = "remove-entry" class="btn btn-lg btn-danger">
+    		Remove
+    	</button>
+    </p>
+	</div>
+
+	<div class="col-sm-4 col-sm-offset-2 col-sm-pull-4" >
+		<%=select("entry", "id", @user.entries.collect {|e| [ e.description, e.id ] },{}, {size: '20'}) %>
+	</div>	
+</div>
+
+<!-- Modal Show Box -->
+<div class="modal fade" id="show-entry" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Password Info</h4>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-sm-12">
+            <table class="table">
+            	<tr>
+            		<th>Description</th>
+            		<td id='desc-out'></td>
+            	</tr>
+            	<tr>
+            		<th>Username</th>
+            		<td id='user-out'></td>
+            	</tr>
+            	<tr>
+            		<th>Password</th>
+            		<td id='pass-out'></td>
+            	</tr>
+            </table>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
+
+
+<!-- Modal Create Box -->
+<div class="modal fade" id="create-entry" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+        <h4 class="modal-title" id="myModalLabel">Create a new password entry</h4>
+      </div>
+      <div class="modal-body">
+        <p>
+        	<%=text_field_tag(:description, nil, :class => 'form-control', :placeholder => "Description e.g. Facebook")%>
+        </p>      
+				<p><%=text_field_tag(:username, nil,  :class => 'form-control', :placeholder =>"Username or email")%></p>      
+				<p><%=password_field_tag(:password, nil, :class => 'form-control', :placeholder => "Password") %></p>      
+			</div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        <button id = "create-entry-submit" type="button" class="btn btn-primary" data-dismiss="modal">Save entry</button>
+      </div>
+    </div><!-- /.modal-content -->
+  </div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

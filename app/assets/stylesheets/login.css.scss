@@ -1,0 +1,33 @@
+// Place all the styles related to the Login controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+body 
+{
+	background-color: #d5d5d5
+}
+
+li.error{
+	color: red;
+}
+
+.error-field {
+	border-color: red;
+	-webkit-box-shadow: 0 0 1em red;
+					box-shadow: 0 0 1em red;
+	
+}
+
+.success-field {
+	
+	-webkit-box-shadow: none;
+					box-shadow: none;
+	
+}
+/*
+.error {
+	border-color: #66FFFF;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 0, 0, 0.6);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 0, 0, 0.6);
+}
+*/
