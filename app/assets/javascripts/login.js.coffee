@@ -17,6 +17,7 @@ $(document).ready ->
   err_email       = "Email is invalid. ex.: username@domain.com"
   err_user_exists = "You're already in our system. Did you forget your password? "
   err_user_exists += "<a href = '/login/forgot'>Forgot</a>"
+  err_user_not_exists = "What are you trying to pull? You're not a user!"
 
   ###
   Passwords onblur validation
@@ -34,19 +35,40 @@ $(document).ready ->
   ###
   email = $('#user_email')
   email.blur () -> 
-    validateEmail(email, emailRegEx)
+    validateEmail(email, emailRegEx, false)
   
   ###
-  Submit callback
+  Forgotton Email onblur validation
+  ###
+  f_email = $('#forgot_user_email')
+  f_email.blur () -> 
+    validateUserExists(f_email, true)
+  
+
+  ###
+  Signup submit callback
   ###
   $('#signup').submit (event) -> 
+    validateUserExists(email, false)
     val = validateForm()
-    if not val
+    if val
       event.preventDefault()
       return false
     else
       return true
-  
+  ###
+  Forgot password submit callback
+  This is what is submitted when the user enters
+  the email before the mailer is sent
+  ###
+  $('#forgot-email-form').submit (event) ->
+    validateUserExists(f_email, true)
+    if user_is_new
+      event.preventDefault()
+      return false
+    else
+      return true
+
   email_tag = '#err-email'
   pass_tag = '#err-pass'
   rep_pass_tag = '#err-match'
@@ -106,11 +128,12 @@ $(document).ready ->
     else
       removeErrorStyle(email)
       removeErrorMessage(email_tag)
-    validateUserExists(email)
+    validateUserExists(email, false)
     return passes
 
-  validateUserExists = (email) ->
-    result = false
+  validateUserExists = (email, we_want_user_to_exist) ->
+    user_exists = false
+    console.log "we_want_user_to_exist: "+we_want_user_to_exist
     $.ajax '/login/check_email_exists',
       type: 'POST'
       data: { email: $(email).val() }
@@ -120,18 +143,34 @@ $(document).ready ->
         alert("<b>Oops!</b><br><p>There was a server error validating your email:</p>" + errorThrown)
       success: (data, textStatus, jqXHR) -> 
         console.log "Request successful"
-        result = (data['response'] == "user_exists")
-        console.log "Request user_exists?: " + result
+        user_exists = (data['response'] == "user_exists")
+        console.log "Request user_exists?: " + user_exists
       complete: (jqXHR, textStatus) ->
         console.log "Request complete"
-        if not result
-          console.log "Complete result true"
-          user_is_new = true
+        if we_want_user_to_exist
+          console.log "we_want_user_to_exist"
+          if user_exists
+            console.log "Complete user_exists true"
+            user_is_new = false
+            removeErrorStyle(email)
+            removeErrorMessage(email_tag, err_user_not_exists)
+          else
+            console.log "Complete user_exists false"
+            addErrorStyle(email)
+            addErrorMessage(email_tag, err_user_not_exists)
+            user_is_new = true            
         else
-          console.log "Complete result false"
-          user_is_new = false
-          addErrorStyle(email)
-          addErrorMessage(email_tag, err_user_exists)
+          console.log "we_dont_want_user_to_exist"
+          if user_exists
+            console.log "Complete user_exists true"
+            user_is_new = false
+            removeErrorStyle(email)
+            removeErrorMessage(email_tag, err_user_exists)
+          else
+            console.log "Complete user_exists false"
+            user_is_new = true
+            addErrorStyle(email)
+            addErrorMessage(email_tag, err_user_exists)
   
 
   

@@ -47,8 +47,25 @@ class LoginController < ApplicationController
 		redirect_to(:controller=>'profile', :action =>'index')
 	end
 
-	private
+	def forgot_post
+		tmp = TempPassword.create(:email => params[:forgot_user_email])
+		if tmp
+			puts tmp.as_json
+			UserMailer.reset_password(tmp).deliver
+			render 'forgot_confirm'
+		else
+			flash[:notice] = "There was an error sending the email. Try again later."
+			redirect_to :index
+		end
+		
+	end
 
+	def change_password_from_email(uuid)
+		tmp = TempPassword.find_by_uuid(uuid)
+		@user = User.find_by_email(tmp.email)
+	end
+
+	private
   def user_params
     params.require(:user).permit(:email, :password)
   end

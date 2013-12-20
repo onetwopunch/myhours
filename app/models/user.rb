@@ -23,7 +23,6 @@ class User < ActiveRecord::Base
 	end
 
 	def self.get_hashed_password(password="")
-		puts 'in function' + password
 		if password != nil
 			Digest::SHA1.hexdigest(password)
 		else 
