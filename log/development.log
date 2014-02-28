@@ -49686,3 +49686,1401 @@ Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-02-28 14:54:49 -0800
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-28 14:54:49 -0800
+  [1m[36m (4.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" character varying(255) NOT NULL) [0m
+  [1m[35m (1.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateUsers (20131207190612)
+  [1m[35m (0.3ms)[0m  BEGIN
+  [1m[36m (7.2ms)[0m  [1mCREATE TABLE "users" ("id" serial primary key, "email" character varying(100), "password" character varying(255), "salt" character varying(255), "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.7ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20131207190612"]]
+  [1m[36m (0.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateEntries (20131207190814)
+  [1m[35m (15.9ms)[0m  BEGIN
+  [1m[36m (4.8ms)[0m  [1mCREATE TABLE "entries" ("id" serial primary key, "password" character varying(255), "description" character varying(255), "username" character varying(255), "is_active" boolean DEFAULT 't', "user_id" integer, "created_at" timestamp, "updated_at" timestamp) [0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ($1)  [["version", "20131207190814"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+Migrating to AddIndicies (20131210225414)
+  [1m[35m (0.5ms)[0m  BEGIN
+  [1m[36m (0.9ms)[0m  [1mCREATE INDEX "index_entries_on_user_id" ON "entries" ("user_id")[0m
+  [1m[35m (0.8ms)[0m  CREATE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20131210225414"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+Migrating to CreateTempPasswords (20131213160259)
+  [1m[36m (0.4ms)[0m  [1mBEGIN[0m
+  [1m[35m (4.5ms)[0m  CREATE TABLE "temp_passwords" ("id" serial primary key, "uuid" character varying(255), "hashed_uuid" character varying(255), "email" character varying(255), "created_at" timestamp, "updated_at" timestamp) 
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ($1)[0m  [["version", "20131213160259"]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/profile" for 127.0.0.1 at 2014-02-28 15:18:46 -0800
+Processing by ProfileController#index as HTML
+  [1m[35mUser Load (0.3ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'jrcanty@gmail.com' LIMIT 1
+  [1m[36mEntry Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM `entries` WHERE `entries`.`user_id` = 1 LIMIT 1[0m
+  [1m[35mEntry Load (0.5ms)[0m  SELECT `entries`.* FROM `entries` WHERE `entries`.`user_id` = 1
+  Rendered profile/index.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 89ms (Views: 30.2ms | ActiveRecord: 42.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-28 15:18:46 -0800
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-02-28 15:18:46 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-28 15:18:46 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-28 15:18:46 -0800
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2014-02-28 15:18:46 -0800
+
+
+Started GET "/assets/profile.css?body=1" for 127.0.0.1 at 2014-02-28 15:18:46 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-28 15:18:46 -0800
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-02-28 15:18:46 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-02-28 15:18:46 -0800
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-02-28 15:18:46 -0800
+
+
+Started GET "/assets/profile.js?body=1" for 127.0.0.1 at 2014-02-28 15:18:46 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-28 15:18:46 -0800
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-02-28 15:18:46 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-28 15:19:18 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by LoginController#signup as HTML
+  Rendered login/signup.html.erb within layouts/application (35.4ms)
+Completed 200 OK in 321ms (Views: 235.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-28 15:19:18 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-28 15:19:18 -0800
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-02-28 15:19:18 -0800
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2014-02-28 15:19:18 -0800
+
+
+Started GET "/assets/profile.css?body=1" for 127.0.0.1 at 2014-02-28 15:19:18 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-28 15:19:18 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-28 15:19:18 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-02-28 15:19:18 -0800
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-02-28 15:19:18 -0800
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-02-28 15:19:18 -0800
+
+
+Started GET "/assets/profile.js?body=1" for 127.0.0.1 at 2014-02-28 15:19:18 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-28 15:19:18 -0800
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-02-28 15:19:18 -0800
+
+
+Started GET "/login/logout" for 127.0.0.1 at 2014-02-28 15:19:29 -0800
+Processing by LoginController#logout as HTML
+  Rendered login/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-02-28 15:19:29 -0800
+
+
+Started POST "/login/authenticate" for 127.0.0.1 at 2014-02-28 15:19:38 -0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FrTDAxxwOrARHti3ZSAyd6nEjB+jVWGMLg4toXY/XjM=", "email"=>"jrcanty@gmail.com", "password"=>"[FILTERED]", "commit"=>"Sign in"}
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'jrcanty@gmail.com' LIMIT 1
+Redirected to http://localhost:3000/login
+Completed 302 Found in 15ms (ActiveRecord: 0.9ms)
+
+
+Started GET "/login" for 127.0.0.1 at 2014-02-28 15:19:38 -0800
+Processing by LoginController#index as HTML
+  Rendered login/index.html.erb within layouts/application (1.5ms)
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-28 15:19:38 -0800
+
+
+Started GET "/assets/profile.css?body=1" for 127.0.0.1 at 2014-02-28 15:19:38 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-28 15:19:38 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-28 15:19:38 -0800
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2014-02-28 15:19:38 -0800
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-02-28 15:19:38 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-28 15:19:38 -0800
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-02-28 15:19:38 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-02-28 15:19:38 -0800
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-02-28 15:19:38 -0800
+
+
+Started GET "/assets/profile.js?body=1" for 127.0.0.1 at 2014-02-28 15:19:38 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-28 15:19:38 -0800
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-02-28 15:19:38 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mUser Exists (1.0ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE "users"."email" = 'jrcanty@gmail.com' LIMIT 1[0m
+  [1m[35mSQL (4.4ms)[0m  INSERT INTO "users" ("created_at", "email", "password", "salt", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"  [["created_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["email", "jrcanty@gmail.com"], ["password", "5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8"], ["salt", "c090b230-82fc-0131-bfb8-3c07542e5dcb"], ["updated_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00]]
+  [1m[36m (15.9ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (31.6ms)[0m  [1mINSERT INTO "entries" ("created_at", "description", "password", "updated_at", "user_id", "username") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["description", "JR Description0"], ["password", "MmAEKM0/v0xdWvG4ogZk1w==$XsRMPv66nQkxGI4F676DIA=="], ["updated_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["user_id", 1], ["username", "JR Username0"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "entries" ("created_at", "description", "password", "updated_at", "user_id", "username") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["description", "JR Description1"], ["password", "9Wd3NubZN62ejItYFH9dgg==$rUA/1rCRayDDL0Ans7bYuQ=="], ["updated_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["user_id", 1], ["username", "JR Username1"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "entries" ("created_at", "description", "password", "updated_at", "user_id", "username") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["description", "JR Description2"], ["password", "XK7gDtfKvpuucrfX4MLpSg==$KTddXiuyE5+jMZnwJhc1/Q=="], ["updated_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["user_id", 1], ["username", "JR Username2"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "entries" ("created_at", "description", "password", "updated_at", "user_id", "username") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["description", "JR Description3"], ["password", "1ylG7K56TVNZ3Aw7paAXaA==$4GEGItF9LKgaV+W+5CzDvw=="], ["updated_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["user_id", 1], ["username", "JR Username3"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "entries" ("created_at", "description", "password", "updated_at", "user_id", "username") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["description", "JR Description4"], ["password", "KJvbZS35TWalCdIEGr50mQ==$I8w6US4jbiX0Q5vGlhkzkA=="], ["updated_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["user_id", 1], ["username", "JR Username4"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "entries" ("created_at", "description", "password", "updated_at", "user_id", "username") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["description", "JR Description5"], ["password", "LrUA6RAeSRxYakiOOrPRQQ==$f7vtvm7hiHJ0ljCHEXpVAA=="], ["updated_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["user_id", 1], ["username", "JR Username5"]]
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "entries" ("created_at", "description", "password", "updated_at", "user_id", "username") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["description", "JR Description6"], ["password", "7YhSYQViMuK4Npoas5+XeQ==$lcrAc6T1q/RrUC59v/+dZg=="], ["updated_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["user_id", 1], ["username", "JR Username6"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "entries" ("created_at", "description", "password", "updated_at", "user_id", "username") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["description", "JR Description7"], ["password", "m9gHsew1yMqys7sPHGNy0g==$s2HcdaK5DsgQuQ5zmU/H6Q=="], ["updated_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["user_id", 1], ["username", "JR Username7"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "entries" ("created_at", "description", "password", "updated_at", "user_id", "username") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["description", "JR Description8"], ["password", "dqWHxNSz7T7widvRldG2GA==$kr9X/wJhJikGE0DQVOAXxg=="], ["updated_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["user_id", 1], ["username", "JR Username8"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "entries" ("created_at", "description", "password", "updated_at", "user_id", "username") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["description", "JR Description9"], ["password", "8mxNloU64rHeeqIFmIqrug==$BkLMCSmlwTfUmApcGjY4BA=="], ["updated_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["user_id", 1], ["username", "JR Username9"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "entries" ("created_at", "description", "password", "updated_at", "user_id", "username") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["description", "JR Description10"], ["password", "pyzQkaYu5VztmDlcwKQfLQ==$IgMZT//FP+Q3Xwr1uLYtdw=="], ["updated_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["user_id", 1], ["username", "JR Username10"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "entries" ("created_at", "description", "password", "updated_at", "user_id", "username") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["description", "JR Description11"], ["password", "vxwyC12H8L+BwO028btImg==$niiABpO0krMSz4l1Xp5Paw=="], ["updated_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["user_id", 1], ["username", "JR Username11"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "entries" ("created_at", "description", "password", "updated_at", "user_id", "username") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["description", "JR Description12"], ["password", "u3MIqHoJLucp5TxFi9rVBA==$YPee10+YtcV2MixvFhcTlA=="], ["updated_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["user_id", 1], ["username", "JR Username12"]]
+  [1m[35m (0.6ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "entries" ("created_at", "description", "password", "updated_at", "user_id", "username") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["description", "JR Description13"], ["password", "fV5XQqHelf9ax31SxJ3sUw==$jsxYRH0hgZnGkgW1XelXkw=="], ["updated_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["user_id", 1], ["username", "JR Username13"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "entries" ("created_at", "description", "password", "updated_at", "user_id", "username") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["description", "JR Description14"], ["password", "cF0EYqNZfIvqA7gxZlh4Rw==$JFpX8HFomPKY+zEGvIdTOA=="], ["updated_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["user_id", 1], ["username", "JR Username14"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'katherine@gmail.com' LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "password", "salt", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["email", "katherine@gmail.com"], ["password", "5baa61e4c9b93f3f0682250b6cf8331b7ee68fd8"], ["salt", "c0a345f0-82fc-0131-23a3-3c07542e5dcb"], ["updated_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "entries" ("created_at", "description", "password", "updated_at", "user_id", "username") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["description", " KC Description0"], ["password", "e2LUDePC52eaISIjnfv+3w==$HVg2EUKjEtKJujXwJG4E9Q=="], ["updated_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["user_id", 2], ["username", "KC Username0"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "entries" ("created_at", "description", "password", "updated_at", "user_id", "username") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["description", " KC Description1"], ["password", "3igkpjPZx/lwbSMi1ZkzCA==$7OBlf3P5KWi3glncla6jCw=="], ["updated_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["user_id", 2], ["username", "KC Username1"]]
+  [1m[35m (0.3ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "entries" ("created_at", "description", "password", "updated_at", "user_id", "username") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["description", " KC Description2"], ["password", "udjQFGYkl8a+zeG1aecm8w==$ZVMGrBQcDLNUPdW0YlhsnA=="], ["updated_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["user_id", 2], ["username", "KC Username2"]]
+  [1m[36m (0.7ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "entries" ("created_at", "description", "password", "updated_at", "user_id", "username") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["description", " KC Description3"], ["password", "ZZ6c4z+W3suGpmqRjszWgg==$jycQMEIw9TvvQjRdqeUbxA=="], ["updated_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["user_id", 2], ["username", "KC Username3"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "entries" ("created_at", "description", "password", "updated_at", "user_id", "username") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["description", " KC Description4"], ["password", "QFOqQnWznR09Njp/wKHUsA==$nQTd4shokBqcqgJkRHJ1zg=="], ["updated_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["user_id", 2], ["username", "KC Username4"]]
+  [1m[36m (0.3ms)[0m  [1mCOMMIT[0m
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "entries" ("created_at", "description", "password", "updated_at", "user_id", "username") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["description", " KC Description5"], ["password", "4z4svQBhiPh6TANBuxKKZA==$g1ta7FXFElrJKV5ZjO8arg=="], ["updated_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["user_id", 2], ["username", "KC Username5"]]
+  [1m[35m (0.4ms)[0m  COMMIT
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "entries" ("created_at", "description", "password", "updated_at", "user_id", "username") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["description", " KC Description6"], ["password", "jZTgOhht5oiRYfGoagiLRA==$Oxxarf7VKu7J4KqiyWtY4Q=="], ["updated_at", Fri, 28 Feb 2014 23:19:53 UTC +00:00], ["user_id", 2], ["username", "KC Username6"]]
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+
+
+Started GET "/login" for 127.0.0.1 at 2014-02-28 15:19:56 -0800
+Processing by LoginController#index as HTML
+  Rendered login/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 6ms (Views: 5.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-28 15:19:56 -0800
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2014-02-28 15:19:56 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-28 15:19:56 -0800
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-02-28 15:19:56 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-28 15:19:56 -0800
+
+
+Started GET "/assets/profile.css?body=1" for 127.0.0.1 at 2014-02-28 15:19:56 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-28 15:19:56 -0800
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-02-28 15:19:56 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-02-28 15:19:56 -0800
+
+
+Started GET "/assets/profile.js?body=1" for 127.0.0.1 at 2014-02-28 15:19:56 -0800
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-02-28 15:19:56 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-28 15:19:56 -0800
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-02-28 15:19:56 -0800
+
+
+Started POST "/login/authenticate" for 127.0.0.1 at 2014-02-28 15:20:02 -0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FrTDAxxwOrARHti3ZSAyd6nEjB+jVWGMLg4toXY/XjM=", "email"=>"jrcanty@gmail.com", "password"=>"[FILTERED]", "commit"=>"Sign in"}
+  [1m[36mUser Load (30.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'jrcanty@gmail.com' LIMIT 1[0m
+Redirected to http://localhost:3000/profile
+Completed 302 Found in 33ms (ActiveRecord: 30.4ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2014-02-28 15:20:02 -0800
+Processing by ProfileController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'jrcanty@gmail.com' LIMIT 1
+  [1m[36mEntry Exists (2.2ms)[0m  [1mSELECT 1 AS one FROM "entries" WHERE "entries"."user_id" = $1 LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mEntry Load (0.4ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1  [["user_id", 1]]
+  Rendered profile/index.html.erb within layouts/application (31.1ms)
+Completed 200 OK in 120ms (Views: 35.7ms | ActiveRecord: 4.6ms)
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-28 15:20:02 -0800
+
+
+Started GET "/assets/profile.css?body=1" for 127.0.0.1 at 2014-02-28 15:20:02 -0800
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2014-02-28 15:20:02 -0800
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-02-28 15:20:02 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-28 15:20:02 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-28 15:20:02 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-02-28 15:20:02 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-28 15:20:02 -0800
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-02-28 15:20:02 -0800
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-02-28 15:20:02 -0800
+
+
+Started GET "/assets/profile.js?body=1" for 127.0.0.1 at 2014-02-28 15:20:02 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-28 15:20:02 -0800
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-02-28 15:20:02 -0800
+
+
+Started POST "/profile/show" for 127.0.0.1 at 2014-02-28 15:20:25 -0800
+Processing by ProfileController#show as */*
+  Parameters: {"entry_id"=>"15"}
+  [1m[36mEntry Load (0.5ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."id" = $1 LIMIT 1[0m  [["id", "15"]]
+  [1m[35mUser Load (0.9ms)[0m  SELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 7ms (Views: 0.3ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/profile/hide" for 127.0.0.1 at 2014-02-28 15:20:28 -0800
+Processing by ProfileController#hide as */*
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2014-02-28 15:27:31 -0800
+Processing by ProfileController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'jrcanty@gmail.com' LIMIT 1[0m
+  [1m[35mEntry Exists (0.3ms)[0m  SELECT 1 AS one FROM "entries" WHERE "entries"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mEntry Load (0.2ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered profile/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 45ms (Views: 42.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-28 15:27:31 -0800
+
+
+Started GET "/assets/profile.css?body=1" for 127.0.0.1 at 2014-02-28 15:27:31 -0800
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-02-28 15:27:31 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-28 15:27:31 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-28 15:27:31 -0800
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2014-02-28 15:27:31 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-28 15:27:31 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-02-28 15:27:31 -0800
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-02-28 15:27:31 -0800
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-02-28 15:27:31 -0800
+
+
+Started GET "/assets/profile.js?body=1" for 127.0.0.1 at 2014-02-28 15:27:31 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-28 15:27:31 -0800
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-02-28 15:27:31 -0800
+
+
+Started GET "/profile" for 127.0.0.1 at 2014-02-28 15:27:43 -0800
+Processing by ProfileController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'jrcanty@gmail.com' LIMIT 1
+  [1m[36mEntry Exists (0.3ms)[0m  [1mSELECT 1 AS one FROM "entries" WHERE "entries"."user_id" = $1 LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mEntry Load (0.3ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1  [["user_id", 1]]
+  Rendered profile/index.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 19ms (Views: 15.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-28 15:27:43 -0800
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-02-28 15:27:43 -0800
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2014-02-28 15:27:43 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-28 15:27:43 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-28 15:27:43 -0800
+
+
+Started GET "/assets/profile.css?body=1" for 127.0.0.1 at 2014-02-28 15:27:44 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-28 15:27:44 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-02-28 15:27:44 -0800
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-02-28 15:27:44 -0800
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-02-28 15:27:44 -0800
+
+
+Started GET "/assets/profile.js?body=1" for 127.0.0.1 at 2014-02-28 15:27:44 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-28 15:27:44 -0800
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-02-28 15:27:44 -0800
+
+
+Started GET "/profile" for 127.0.0.1 at 2014-02-28 15:29:10 -0800
+Processing by ProfileController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'jrcanty@gmail.com' LIMIT 1[0m
+  [1m[35mEntry Exists (0.2ms)[0m  SELECT 1 AS one FROM "entries" WHERE "entries"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mEntry Load (0.3ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered profile/index.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 10ms (Views: 7.3ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-28 15:29:10 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-28 15:29:10 -0800
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2014-02-28 15:29:10 -0800
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-02-28 15:29:10 -0800
+
+
+Started GET "/assets/profile.css?body=1" for 127.0.0.1 at 2014-02-28 15:29:10 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-28 15:29:10 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-28 15:29:10 -0800
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-02-28 15:29:10 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-02-28 15:29:10 -0800
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-02-28 15:29:10 -0800
+
+
+Started GET "/assets/profile.js?body=1" for 127.0.0.1 at 2014-02-28 15:29:10 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-28 15:29:10 -0800
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-02-28 15:29:10 -0800
+
+
+Started GET "/profile" for 127.0.0.1 at 2014-02-28 15:30:07 -0800
+Processing by ProfileController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'jrcanty@gmail.com' LIMIT 1
+  [1m[36mEntry Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "entries" WHERE "entries"."user_id" = $1 LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mEntry Load (0.4ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1  [["user_id", 1]]
+  Rendered profile/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 41ms (Views: 38.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-28 15:30:07 -0800
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-02-28 15:30:07 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-28 15:30:07 -0800
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2014-02-28 15:30:07 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-28 15:30:07 -0800
+
+
+Started GET "/assets/profile.css?body=1" for 127.0.0.1 at 2014-02-28 15:30:07 -0800
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-02-28 15:30:07 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-28 15:30:07 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-02-28 15:30:07 -0800
+
+
+Started GET "/assets/profile.js?body=1" for 127.0.0.1 at 2014-02-28 15:30:07 -0800
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-02-28 15:30:07 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-28 15:30:07 -0800
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-02-28 15:30:07 -0800
+
+
+Started GET "/profile" for 127.0.0.1 at 2014-02-28 15:30:36 -0800
+Processing by ProfileController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'jrcanty@gmail.com' LIMIT 1[0m
+  [1m[35mEntry Exists (0.2ms)[0m  SELECT 1 AS one FROM "entries" WHERE "entries"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mEntry Load (0.4ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered profile/index.html.erb within layouts/application (2.6ms)
+Completed 200 OK in 10ms (Views: 7.1ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-28 15:30:36 -0800
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-02-28 15:30:36 -0800
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2014-02-28 15:30:36 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-28 15:30:36 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-28 15:30:36 -0800
+
+
+Started GET "/assets/profile.css?body=1" for 127.0.0.1 at 2014-02-28 15:30:36 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-28 15:30:36 -0800
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-02-28 15:30:36 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-02-28 15:30:36 -0800
+
+
+Started GET "/assets/profile.js?body=1" for 127.0.0.1 at 2014-02-28 15:30:36 -0800
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-02-28 15:30:36 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-28 15:30:36 -0800
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-02-28 15:30:36 -0800
+
+
+Started GET "/profile" for 127.0.0.1 at 2014-02-28 15:31:04 -0800
+Processing by ProfileController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'jrcanty@gmail.com' LIMIT 1
+  [1m[36mEntry Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "entries" WHERE "entries"."user_id" = $1 LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mEntry Load (0.3ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1  [["user_id", 1]]
+  Rendered profile/index.html.erb within layouts/application (3.2ms)
+Completed 200 OK in 12ms (Views: 8.2ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2014-02-28 15:31:04 -0800
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-02-28 15:31:04 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-28 15:31:04 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-28 15:31:04 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-28 15:31:04 -0800
+
+
+Started GET "/assets/profile.css?body=1" for 127.0.0.1 at 2014-02-28 15:31:04 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-28 15:31:04 -0800
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-02-28 15:31:04 -0800
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-02-28 15:31:04 -0800
+
+
+Started GET "/assets/profile.js?body=1" for 127.0.0.1 at 2014-02-28 15:31:04 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-28 15:31:04 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-02-28 15:31:04 -0800
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-02-28 15:31:04 -0800
+
+
+Started GET "/profile" for 127.0.0.1 at 2014-02-28 15:33:22 -0800
+Processing by ProfileController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'jrcanty@gmail.com' LIMIT 1[0m
+  [1m[35mEntry Exists (0.1ms)[0m  SELECT 1 AS one FROM "entries" WHERE "entries"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mEntry Load (0.4ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered profile/index.html.erb within layouts/application (3.0ms)
+Completed 200 OK in 11ms (Views: 7.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-28 15:33:22 -0800
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2014-02-28 15:33:22 -0800
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-02-28 15:33:22 -0800
+
+
+Started GET "/assets/profile.css?body=1" for 127.0.0.1 at 2014-02-28 15:33:22 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-28 15:33:22 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-28 15:33:22 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-28 15:33:22 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-02-28 15:33:22 -0800
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-02-28 15:33:22 -0800
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-02-28 15:33:22 -0800
+
+
+Started GET "/assets/profile.js?body=1" for 127.0.0.1 at 2014-02-28 15:33:22 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-28 15:33:22 -0800
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-02-28 15:33:22 -0800
+
+
+Started GET "/profile" for 127.0.0.1 at 2014-02-28 15:35:27 -0800
+Processing by ProfileController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'jrcanty@gmail.com' LIMIT 1
+  [1m[36mEntry Exists (0.1ms)[0m  [1mSELECT 1 AS one FROM "entries" WHERE "entries"."user_id" = $1 LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mEntry Load (0.2ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1  [["user_id", 1]]
+  Rendered profile/index.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 49ms (Views: 46.2ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-28 15:35:27 -0800
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-02-28 15:35:27 -0800
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2014-02-28 15:35:27 -0800
+
+
+Started GET "/assets/profile.css?body=1" for 127.0.0.1 at 2014-02-28 15:35:27 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-28 15:35:27 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-28 15:35:27 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-28 15:35:27 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-02-28 15:35:27 -0800
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-02-28 15:35:27 -0800
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-02-28 15:35:27 -0800
+
+
+Started GET "/assets/profile.js?body=1" for 127.0.0.1 at 2014-02-28 15:35:27 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-28 15:35:27 -0800
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-02-28 15:35:27 -0800
+
+
+Started GET "/profile" for 127.0.0.1 at 2014-02-28 15:39:00 -0800
+Processing by ProfileController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'jrcanty@gmail.com' LIMIT 1[0m
+  [1m[35mEntry Exists (0.2ms)[0m  SELECT 1 AS one FROM "entries" WHERE "entries"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mEntry Load (0.2ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered profile/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 17ms (Views: 13.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-28 15:39:00 -0800
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-02-28 15:39:00 -0800
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2014-02-28 15:39:00 -0800
+
+
+Started GET "/assets/profile.css?body=1" for 127.0.0.1 at 2014-02-28 15:39:00 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-28 15:39:00 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-28 15:39:00 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-28 15:39:00 -0800
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-02-28 15:39:00 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-02-28 15:39:00 -0800
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-02-28 15:39:00 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-28 15:39:00 -0800
+
+
+Started GET "/assets/profile.js?body=1" for 127.0.0.1 at 2014-02-28 15:39:00 -0800
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-02-28 15:39:00 -0800
+
+
+Started GET "/assets/woodback.jpg" for 127.0.0.1 at 2014-02-28 15:39:00 -0800
+
+
+Started POST "/profile/show" for 127.0.0.1 at 2014-02-28 15:39:24 -0800
+Processing by ProfileController#show as */*
+  Parameters: {"entry_id"=>"9"}
+  [1m[35mEntry Load (0.4ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."id" = $1 LIMIT 1  [["id", "9"]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/profile/hide" for 127.0.0.1 at 2014-02-28 15:39:27 -0800
+Processing by ProfileController#hide as */*
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/profile/create" for 127.0.0.1 at 2014-02-28 15:39:40 -0800
+Processing by ProfileController#create as */*
+  Parameters: {"description"=>"Facebook", "username"=>"jrcaanty", "password"=>"[FILTERED]"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'jrcanty@gmail.com' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (1.9ms)[0m  INSERT INTO "entries" ("created_at", "description", "password", "updated_at", "user_id", "username") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"  [["created_at", Fri, 28 Feb 2014 23:39:40 UTC +00:00], ["description", "Facebook"], ["password", "axqenkbZBoNQyG5hpATLmg==$ShhQEfF4IssN2r0AndTOqkR6CV325O63JmtiN6QBlb8="], ["updated_at", Fri, 28 Feb 2014 23:39:40 UTC +00:00], ["user_id", 1], ["username", "jrcaanty"]]
+  [1m[36m (1.1ms)[0m  [1mCOMMIT[0m
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 3.6ms)
+
+
+Started POST "/profile/show" for 127.0.0.1 at 2014-02-28 15:39:43 -0800
+Processing by ProfileController#show as */*
+  Parameters: {"entry_id"=>"23"}
+  [1m[35mEntry Load (0.4ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."id" = $1 LIMIT 1  [["id", "23"]]
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."id" = $1 ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 3ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/profile/hide" for 127.0.0.1 at 2014-02-28 15:39:46 -0800
+Processing by ProfileController#hide as */*
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2014-02-28 15:42:23 -0800
+Processing by ProfileController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'jrcanty@gmail.com' LIMIT 1
+  [1m[36mEntry Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "entries" WHERE "entries"."user_id" = $1 LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mEntry Load (0.3ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1  [["user_id", 1]]
+  Rendered profile/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 81ms (Views: 77.8ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-28 15:42:23 -0800
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-02-28 15:42:23 -0800
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2014-02-28 15:42:23 -0800
+
+
+Started GET "/assets/profile.css?body=1" for 127.0.0.1 at 2014-02-28 15:42:23 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-28 15:42:23 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-28 15:42:23 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-02-28 15:42:23 -0800
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-02-28 15:42:23 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-28 15:42:23 -0800
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-02-28 15:42:23 -0800
+
+
+Started GET "/assets/profile.js?body=1" for 127.0.0.1 at 2014-02-28 15:42:23 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-28 15:42:23 -0800
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-02-28 15:42:23 -0800
+
+
+Started GET "/assets/woodback.jpg" for 127.0.0.1 at 2014-02-28 15:42:23 -0800
+
+
+Started GET "/profile" for 127.0.0.1 at 2014-02-28 15:42:36 -0800
+Processing by ProfileController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'jrcanty@gmail.com' LIMIT 1[0m
+  [1m[35mEntry Exists (0.2ms)[0m  SELECT 1 AS one FROM "entries" WHERE "entries"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mEntry Load (0.3ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered profile/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 54ms (Views: 51.0ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-28 15:42:36 -0800
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-02-28 15:42:36 -0800
+
+
+Started GET "/assets/profile.css?body=1" for 127.0.0.1 at 2014-02-28 15:42:36 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-28 15:42:36 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-28 15:42:36 -0800
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2014-02-28 15:42:36 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-28 15:42:36 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-02-28 15:42:36 -0800
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-02-28 15:42:36 -0800
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-02-28 15:42:36 -0800
+
+
+Started GET "/assets/profile.js?body=1" for 127.0.0.1 at 2014-02-28 15:42:36 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-28 15:42:36 -0800
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-02-28 15:42:36 -0800
+
+
+Started GET "/profile" for 127.0.0.1 at 2014-02-28 15:43:07 -0800
+Processing by ProfileController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'jrcanty@gmail.com' LIMIT 1
+  [1m[36mEntry Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "entries" WHERE "entries"."user_id" = $1 LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mEntry Load (0.2ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1  [["user_id", 1]]
+  Rendered profile/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 26ms (Views: 23.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-28 15:43:07 -0800
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2014-02-28 15:43:07 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-28 15:43:07 -0800
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-02-28 15:43:07 -0800
+
+
+Started GET "/assets/profile.css?body=1" for 127.0.0.1 at 2014-02-28 15:43:07 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-28 15:43:07 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-28 15:43:07 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-02-28 15:43:07 -0800
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-02-28 15:43:07 -0800
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-02-28 15:43:07 -0800
+
+
+Started GET "/assets/profile.js?body=1" for 127.0.0.1 at 2014-02-28 15:43:07 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-28 15:43:07 -0800
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-02-28 15:43:08 -0800
+
+
+Started GET "/profile" for 127.0.0.1 at 2014-02-28 15:43:15 -0800
+Processing by ProfileController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'jrcanty@gmail.com' LIMIT 1[0m
+  [1m[35mEntry Exists (0.2ms)[0m  SELECT 1 AS one FROM "entries" WHERE "entries"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mEntry Load (0.2ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered profile/index.html.erb within layouts/application (31.7ms)
+Completed 200 OK in 57ms (Views: 53.7ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-28 15:43:15 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-28 15:43:15 -0800
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-02-28 15:43:15 -0800
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2014-02-28 15:43:15 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-28 15:43:15 -0800
+
+
+Started GET "/assets/profile.css?body=1" for 127.0.0.1 at 2014-02-28 15:43:15 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-28 15:43:15 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-02-28 15:43:15 -0800
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-02-28 15:43:15 -0800
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-02-28 15:43:15 -0800
+
+
+Started GET "/assets/profile.js?body=1" for 127.0.0.1 at 2014-02-28 15:43:15 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-28 15:43:15 -0800
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-02-28 15:43:15 -0800
+
+
+Started GET "/profile" for 127.0.0.1 at 2014-02-28 15:43:28 -0800
+Processing by ProfileController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'jrcanty@gmail.com' LIMIT 1
+  [1m[36mEntry Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "entries" WHERE "entries"."user_id" = $1 LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mEntry Load (0.2ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1  [["user_id", 1]]
+  Rendered profile/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 25ms (Views: 21.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-28 15:43:28 -0800
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-02-28 15:43:28 -0800
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2014-02-28 15:43:28 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-28 15:43:28 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-28 15:43:28 -0800
+
+
+Started GET "/assets/profile.css?body=1" for 127.0.0.1 at 2014-02-28 15:43:28 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-28 15:43:28 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-02-28 15:43:28 -0800
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-02-28 15:43:28 -0800
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-02-28 15:43:28 -0800
+
+
+Started GET "/assets/profile.js?body=1" for 127.0.0.1 at 2014-02-28 15:43:28 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-28 15:43:28 -0800
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-02-28 15:43:28 -0800
+
+
+Started GET "/profile" for 127.0.0.1 at 2014-02-28 15:46:02 -0800
+Processing by ProfileController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'jrcanty@gmail.com' LIMIT 1[0m
+  [1m[35mEntry Exists (0.2ms)[0m  SELECT 1 AS one FROM "entries" WHERE "entries"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mEntry Load (0.3ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered profile/index.html.erb within layouts/application (2.0ms)
+Completed 200 OK in 24ms (Views: 21.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-28 15:46:02 -0800
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-02-28 15:46:02 -0800
+
+
+Started GET "/assets/profile.css?body=1" for 127.0.0.1 at 2014-02-28 15:46:02 -0800
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2014-02-28 15:46:02 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-28 15:46:02 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-28 15:46:02 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-28 15:46:02 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-02-28 15:46:02 -0800
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-02-28 15:46:02 -0800
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-02-28 15:46:02 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-28 15:46:02 -0800
+
+
+Started GET "/assets/profile.js?body=1" for 127.0.0.1 at 2014-02-28 15:46:02 -0800
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-02-28 15:46:02 -0800
+
+
+Started GET "/profile" for 127.0.0.1 at 2014-02-28 15:46:38 -0800
+Processing by ProfileController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'jrcanty@gmail.com' LIMIT 1
+  [1m[36mEntry Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "entries" WHERE "entries"."user_id" = $1 LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mEntry Load (0.3ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1  [["user_id", 1]]
+  Rendered profile/index.html.erb within layouts/application (1.9ms)
+Completed 500 Internal Server Error in 73ms
+
+ActionView::Template::Error (Invalid CSS after "...ted='selected]'": expected "]", was "{"
+  (in /Users/ryancanty/Documents/JRCantyDev/passweb/app/assets/stylesheets/profile.css.scss:23)):
+    2: <html>
+    3: <head>
+    4:   <title>PassWeb</title>
+    5:   <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    6:   <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    7:   <%= csrf_meta_tags %>
+    8: </head>
+  app/assets/stylesheets/profile.css.scss:23
+  app/views/layouts/application.html.erb:5:in `_app_views_layouts_application_html_erb__737172248184420113_70103068639540'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.1ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (34.1ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2014-02-28 15:46:49 -0800
+Processing by ProfileController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'jrcanty@gmail.com' LIMIT 1[0m
+  [1m[35mEntry Exists (0.2ms)[0m  SELECT 1 AS one FROM "entries" WHERE "entries"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mEntry Load (0.2ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered profile/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 26ms (Views: 22.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-28 15:46:49 -0800
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-02-28 15:46:49 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-28 15:46:49 -0800
+
+
+Started GET "/assets/profile.css?body=1" for 127.0.0.1 at 2014-02-28 15:46:49 -0800
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2014-02-28 15:46:49 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-28 15:46:49 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-28 15:46:49 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-02-28 15:46:49 -0800
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-02-28 15:46:49 -0800
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-02-28 15:46:49 -0800
+
+
+Started GET "/assets/profile.js?body=1" for 127.0.0.1 at 2014-02-28 15:46:49 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-28 15:46:49 -0800
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-02-28 15:46:49 -0800
+
+
+Started GET "/profile" for 127.0.0.1 at 2014-02-28 15:48:38 -0800
+Processing by ProfileController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'jrcanty@gmail.com' LIMIT 1
+  [1m[36mEntry Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "entries" WHERE "entries"."user_id" = $1 LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mEntry Load (0.2ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1  [["user_id", 1]]
+  Rendered profile/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 55ms (Views: 50.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-28 15:48:38 -0800
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-02-28 15:48:38 -0800
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2014-02-28 15:48:38 -0800
+
+
+Started GET "/assets/profile.css?body=1" for 127.0.0.1 at 2014-02-28 15:48:38 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-28 15:48:38 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-28 15:48:38 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-28 15:48:38 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-02-28 15:48:38 -0800
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-02-28 15:48:38 -0800
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-02-28 15:48:38 -0800
+
+
+Started GET "/assets/profile.js?body=1" for 127.0.0.1 at 2014-02-28 15:48:38 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-28 15:48:38 -0800
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-02-28 15:48:38 -0800
+
+
+Started GET "/profile" for 127.0.0.1 at 2014-02-28 15:48:49 -0800
+Processing by ProfileController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'jrcanty@gmail.com' LIMIT 1[0m
+  [1m[35mEntry Exists (0.2ms)[0m  SELECT 1 AS one FROM "entries" WHERE "entries"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mEntry Load (0.3ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered profile/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 25ms (Views: 21.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-28 15:48:49 -0800
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-02-28 15:48:49 -0800
+
+
+Started GET "/assets/profile.css?body=1" for 127.0.0.1 at 2014-02-28 15:48:49 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-28 15:48:49 -0800
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2014-02-28 15:48:49 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-28 15:48:49 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-28 15:48:49 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-02-28 15:48:49 -0800
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-02-28 15:48:49 -0800
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-02-28 15:48:49 -0800
+
+
+Started GET "/assets/profile.js?body=1" for 127.0.0.1 at 2014-02-28 15:48:49 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-28 15:48:49 -0800
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-02-28 15:48:49 -0800
+
+
+Started GET "/profile" for 127.0.0.1 at 2014-02-28 15:48:53 -0800
+Processing by ProfileController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'jrcanty@gmail.com' LIMIT 1
+  [1m[36mEntry Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "entries" WHERE "entries"."user_id" = $1 LIMIT 1[0m  [["user_id", 1]]
+  [1m[35mEntry Load (0.2ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1  [["user_id", 1]]
+  Rendered profile/index.html.erb within layouts/application (1.8ms)
+Completed 200 OK in 40ms (Views: 36.6ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-28 15:48:53 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-28 15:48:53 -0800
+
+
+Started GET "/assets/profile.css?body=1" for 127.0.0.1 at 2014-02-28 15:48:53 -0800
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2014-02-28 15:48:53 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-28 15:48:53 -0800
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-02-28 15:48:53 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-28 15:48:53 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-02-28 15:48:53 -0800
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-02-28 15:48:53 -0800
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-02-28 15:48:53 -0800
+
+
+Started GET "/assets/profile.js?body=1" for 127.0.0.1 at 2014-02-28 15:48:53 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-28 15:48:53 -0800
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-02-28 15:48:53 -0800
+
+
+Started GET "/profile" for 127.0.0.1 at 2014-02-28 15:51:08 -0800
+Processing by ProfileController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'jrcanty@gmail.com' LIMIT 1[0m
+  [1m[35mEntry Exists (0.2ms)[0m  SELECT 1 AS one FROM "entries" WHERE "entries"."user_id" = $1 LIMIT 1  [["user_id", 1]]
+  [1m[36mEntry Load (0.2ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 1]]
+  Rendered profile/index.html.erb within layouts/application (1.7ms)
+Completed 200 OK in 240ms (Views: 236.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-28 15:51:08 -0800
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2014-02-28 15:51:08 -0800
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-02-28 15:51:08 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-28 15:51:08 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-28 15:51:08 -0800
+
+
+Started GET "/assets/profile.css?body=1" for 127.0.0.1 at 2014-02-28 15:51:08 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-28 15:51:08 -0800
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-02-28 15:51:08 -0800
+
+
+Started GET "/assets/profile.js?body=1" for 127.0.0.1 at 2014-02-28 15:51:08 -0800
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-02-28 15:51:08 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-02-28 15:51:08 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-28 15:51:08 -0800
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-02-28 15:51:08 -0800

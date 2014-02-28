@@ -25,7 +25,7 @@ $ ->
 	    username: un
 	    password: pw
 	    (data) -> 
-	    	$("#entry_id").append("<option value='"+data['entry_id']+"'>"+data['description']+"</option>")
+	    	$("#entry_id").prepend("<option value='"+data['entry_id']+"'>"+data['description']+"</option>")
 
 	$('#modal-show').click () ->
 		str_id = $('#entry_id option:selected').attr('value')

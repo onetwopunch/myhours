@@ -18,7 +18,9 @@ select
   border: 1px solid #555;
   border-radius: 5px;
   size: 20;
-  option.selected
+  background: #333;
+  color:#ddd;
+  & option[selected='selected']
   {
   	background: rgba(255,0,0,0.3);
   }
