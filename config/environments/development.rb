@@ -34,8 +34,8 @@ Passweb::Application.configure do
     address:              'smtp.gmail.com',
     port:                 587,
     domain:               'gmail.com',
-    user_name:            'ddarkeau@gmail.com',
-    password:             'Veritas5813',
+    user_name:            'passweb.mailer@gmail.com',
+    password:             '2d931510-d99f-494a-8c67-87feb05e1594',
     authentication:       'plain',
     enable_starttls_auto: true  }
   # ActionMailer::Base.default_url_options[:host] = "localhost:3000"

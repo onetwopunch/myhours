@@ -95,7 +95,7 @@ class LoginController < ApplicationController
 	end
 
 	def change_password_from_email
-		@tmp = TempPassword.validate_password(params[:id])
+		@tmp = TempPassword.validate_password(params[:guid])
 		if @tmp
 			render 'change_password'
 		else
