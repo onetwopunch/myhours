@@ -1,0 +1,4 @@
+prod:
+	hostname: ''
+dev:
+	hostname: 'localhost:3000'

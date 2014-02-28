@@ -6,6 +6,8 @@ class Entry < ActiveRecord::Base
 
 
 	def decrypted_password
+		puts "password : " + password
+		puts "key : " + key
 		AES.decrypt(password, key)
 	end
 

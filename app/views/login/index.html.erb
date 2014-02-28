@@ -7,7 +7,7 @@
           <%= link_to("Sign up", :controller=> 'login', :action => 'signup')%>
         </small>
       </h2>   
-      <%= flash[:notice] %>   
+      <div style = "color:red"><%= flash[:notice] %> </div>
       <p><%=text_field_tag(:email, nil, :class =>'form-control', :placeholder => "Email address")%></p>
       <p><%=password_field_tag(:password, nil, :class => 'form-control', :placeholder =>"Password") %></p>
       <p><%= link_to("Forgot Password", :action => 'forgot')%></p>

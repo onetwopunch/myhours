@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 20131213160259) do
 
   create_table "temp_passwords", force: true do |t|
     t.string   "uuid"
+    t.string   "hashed_uuid"
     t.string   "email"
     t.datetime "created_at"
     t.datetime "updated_at"

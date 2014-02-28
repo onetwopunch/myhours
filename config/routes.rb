@@ -14,7 +14,7 @@ Passweb::Application.routes.draw do
   # Example resource route (maps HTTP verbs to controller actions automatically):
   # resources :users
   # resources :entries
-
+  get '/login/change_password_from_email/:guid', to: 'login#change_password_from_email', as: 'password_change' 
 
   # Example resource route with options:
   #   resources :products do

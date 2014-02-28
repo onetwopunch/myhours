@@ -2,7 +2,7 @@
 # All this logic will automatically be available in application.js.
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
-$(document).ready ->
+$ ->
   ###
   RegEx
   ###
@@ -51,9 +51,13 @@ $(document).ready ->
   $('#signup').submit (event) -> 
     validateUserExists(email, false)
     val = validateForm()
-    if val
+    if not user_is_new
       event.preventDefault()
+      addErrorStyle(email)
+      addErrorMessage(email_tag, err_user_exists)
       return false
+    else if not val
+      event.preventDefault()
     else
       return true
   ###
@@ -68,6 +72,14 @@ $(document).ready ->
       return false
     else
       return true
+  # This is called when the user follows the link in their email 
+  # to change_password. They must have a valid new password.
+  $('#change-email-form').submit (event) ->
+    if validatePassword(password, false) && validateMatchingPasswords(password, rep_pass)
+      return true
+    else
+      event.preventDefault()
+      return false
 
   email_tag = '#err-email'
   pass_tag = '#err-pass'
@@ -75,10 +87,11 @@ $(document).ready ->
   user_is_new = true
 
   validateForm = () ->
-    return validateEmail(email) &&
-      validatePassword(password, false) &&
-      validateMatchingPasswords(password, rep_pass) &&
-      user_is_new
+    a = validateEmail(email)
+    b = validatePassword(password, false)
+    c = validateMatchingPasswords(password, rep_pass)
+    d = user_is_new
+    return a and b and c and d
 
   validateMatchingPasswords = (p1, p2) ->
     passes = true
@@ -118,14 +131,17 @@ $(document).ready ->
     return passes
     
   validateEmail = (email) ->
-    passes = true
     console.log('Email func')
     console.log($(email).val())
     if not emailRegEx.test($(email).val())
+      console.log 'invalid email'
       passes = false
+      console.log 'adding error style to ' + email.toString()
       addErrorStyle(email)
       addErrorMessage(email_tag, err_email)
     else
+      console.log 'valid email'
+      passes = true
       removeErrorStyle(email)
       removeErrorMessage(email_tag)
     validateUserExists(email, false)
@@ -164,13 +180,14 @@ $(document).ready ->
           if user_exists
             console.log "Complete user_exists true"
             user_is_new = false
-            removeErrorStyle(email)
-            removeErrorMessage(email_tag, err_user_exists)
+            addErrorStyle(email)
+            addErrorMessage(email_tag, err_user_exists)
           else
             console.log "Complete user_exists false"
             user_is_new = true
-            addErrorStyle(email)
-            addErrorMessage(email_tag, err_user_exists)
+            removeErrorStyle(email)
+            removeErrorMessage(email_tag, err_user_exists)
+            
   
 
   

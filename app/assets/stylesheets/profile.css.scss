@@ -15,6 +15,12 @@ button {
 select 
 {
 	width: 400px;
-  border: 1px solid #000;
+  border: 1px solid #555;
+  border-radius: 5px;
   size: 20;
+  option.selected
+  {
+  	background: rgba(255,0,0,0.3);
+  }
 }
+
