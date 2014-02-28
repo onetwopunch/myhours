@@ -48089,3 +48089,171 @@ Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-27 19:33:04
 
 
 Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-02-27 19:33:04 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-28 09:11:22 -0800
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by LoginController#signup as HTML
+  Rendered login/signup.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 122ms (Views: 92.6ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-28 09:11:22 -0800
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-02-28 09:11:22 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-28 09:11:22 -0800
+
+
+Started GET "/assets/profile.css?body=1" for 127.0.0.1 at 2014-02-28 09:11:22 -0800
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2014-02-28 09:11:22 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-28 09:11:22 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-28 09:11:22 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-02-28 09:11:22 -0800
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-02-28 09:11:22 -0800
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-02-28 09:11:22 -0800
+
+
+Started GET "/assets/profile.js?body=1" for 127.0.0.1 at 2014-02-28 09:11:22 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-28 09:11:22 -0800
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-02-28 09:11:22 -0800
+
+
+Started GET "/login" for 127.0.0.1 at 2014-02-28 09:11:26 -0800
+Processing by LoginController#index as HTML
+  Rendered login/index.html.erb within layouts/application (1.9ms)
+Completed 200 OK in 8ms (Views: 7.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-02-28 09:11:26 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-02-28 09:11:56 -0800
+Processing by LoginController#signup as HTML
+  Rendered login/signup.html.erb within layouts/application (27.0ms)
+Completed 200 OK in 32ms (Views: 31.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-02-28 09:11:56 -0800
+
+
+Started GET "/login" for 127.0.0.1 at 2014-02-28 09:12:13 -0800
+Processing by LoginController#index as HTML
+  Rendered login/index.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 6ms (Views: 5.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-02-28 09:12:13 -0800
+
+
+Started GET "/login/forgot" for 127.0.0.1 at 2014-02-28 09:12:16 -0800
+Processing by LoginController#forgot as HTML
+  Rendered login/forgot.html.erb within layouts/application (1.6ms)
+Completed 200 OK in 8ms (Views: 7.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-02-28 09:12:16 -0800
+
+
+Started POST "/login/forgot_post?method=post" for 127.0.0.1 at 2014-02-28 09:12:22 -0800
+Processing by LoginController#forgot_post as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FrTDAxxwOrARHti3ZSAyd6nEjB+jVWGMLg4toXY/XjM=", "forgot_user_email"=>"jrcanty@gmail.com", "commit"=>"Email me a new password", "method"=>"post"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'jrcanty@gmail.com' LIMIT 1
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `temp_passwords` (`created_at`, `email`, `hashed_uuid`, `updated_at`, `uuid`) VALUES ('2014-02-28 17:12:22', 'jrcanty@gmail.com', '61f20cb5be5c7aa4ed37f089fd42097e760df3ec', '2014-02-28 17:12:22', '693c38f0-82c9-0131-9ea6-3c07542e5dcb')
+  [1m[36m (0.4ms)[0m  [1mCOMMIT[0m
+  Rendered user_mailer/reset_password.html.erb (0.5ms)
+  Rendered user_mailer/reset_password.text.erb (0.3ms)
+
+Sent mail to jrcanty@gmail.com (4513.3ms)
+Date: Fri, 28 Feb 2014 09:12:22 -0800
+From: ddarkeau@gmail.com
+To: jrcanty@gmail.com
+Message-ID: <5310c376b86d2_14513fe47e2ca02c4065c@Ryans-MacBook-Pro-4.local.mail>
+Subject: Password Reset
+Mime-Version: 1.0
+Content-Type: multipart/alternative;
+ boundary="--==_mimepart_5310c376b6b72_14513fe47e2ca02c405b0";
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+
+----==_mimepart_5310c376b6b72_14513fe47e2ca02c405b0
+Content-Type: text/plain;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+Reset your password by clicking http://localhost:3000/login/change_password_from_email/693c38f0-82c9-0131-9ea6-3c07542e5dcb
+
+----==_mimepart_5310c376b6b72_14513fe47e2ca02c405b0
+Content-Type: text/html;
+ charset=UTF-8
+Content-Transfer-Encoding: 7bit
+
+<h2>Reset Your Passweb Password</h2>
+<p>
+	Reset your password by clicking 
+	<a href="http://localhost:3000/login/change_password_from_email/693c38f0-82c9-0131-9ea6-3c07542e5dcb">here.</a>
+</p>
+
+----==_mimepart_5310c376b6b72_14513fe47e2ca02c405b0--
+
+  Rendered login/forgot_confirm.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 5246ms (Views: 6.9ms | ActiveRecord: 20.8ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-02-28 09:12:27 -0800
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-02-28 09:12:27 -0800
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2014-02-28 09:12:27 -0800
+
+
+Started GET "/assets/profile.css?body=1" for 127.0.0.1 at 2014-02-28 09:12:27 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-02-28 09:12:27 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-02-28 09:12:27 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-02-28 09:12:27 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-02-28 09:12:27 -0800
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-02-28 09:12:27 -0800
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-02-28 09:12:27 -0800
+
+
+Started GET "/assets/profile.js?body=1" for 127.0.0.1 at 2014-02-28 09:12:27 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-02-28 09:12:27 -0800
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-02-28 09:12:27 -0800
