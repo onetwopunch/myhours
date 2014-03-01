@@ -2,27 +2,35 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-body 
-{
-	background-color: #d5d5d5
+body {
+  background-color: #343434;
 }
+
 button {
 	width:175px;
 }
-#entry-select
-{
-}
-select 
-{
-	width: 400px;
-  border: 1px solid #555;
-  border-radius: 5px;
-  size: 20;
-  background: #333;
-  color:#ddd;
-  & option[selected='selected']
-  {
-  	background: rgba(255,0,0,0.3);
+
+.entry-box{
+  display:block;
+  background:#5e5e5e;
+  padding: 10px 0 10px 0px;
+  height:500px;
+  overflow:scroll;
+  border-radius: 8px;
+  & ul{
+    list-style-type: none;
+    & .entry{
+      color: #eee;
+      border-radius: 5px;
+      cursor:pointer;
+      margin: 0 10px 0 -30px;
+      padding:2px 0 2px 20px;
+    }
+    & .selected {
+      background: #d9534f;
+      color: #333;
+      font-weight:bold;
+    }
   }
 }
 

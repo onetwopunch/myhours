@@ -136,9 +136,11 @@ $ ->
     if not emailRegEx.test($(email).val())
       console.log 'invalid email'
       passes = false
-      console.log 'adding error style to ' + email.toString()
+      console.log 'adding error style to ' 
+      console.log email
       addErrorStyle(email)
       addErrorMessage(email_tag, err_email)
+      
     else
       console.log 'valid email'
       passes = true

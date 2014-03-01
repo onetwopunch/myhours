@@ -1,9 +1,15 @@
 class LoginController < ApplicationController
 	
-	# before_filter :redirect_to_profile if session[:user_id], :only => [:signup, :index]
+	before_filter :logged_in?, :only => [:signup, :index]
 
 	def index
 		#log in form		
+	end
+
+	def logged_in?
+		if session[:user_id]
+			redirect_to(:controller=>'profile', :action =>'index')		
+		end
 	end
 
 	def authenticate
@@ -45,11 +51,11 @@ class LoginController < ApplicationController
 	
 	def create
 		user = User.create(user_params)
-		if not user
+		if user
 			session[:user_id] = user.email
 			redirect_to(:controller=>'profile', :action =>'index')
 		else
-			render json: {:response => "user_exists"}
+			redirect_to :back
 		end
 	end
 

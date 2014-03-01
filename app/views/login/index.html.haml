@@ -1,0 +1,12 @@
+.row
+  .col-sm-4.col-sm-offset-4.col-xs-5.col-xs-offset-5
+    = form_tag({controller: 'login', action:'authenticate'}, method: 'post', :class => 'form-signin well') do
+      %h2.form-signin-heading
+        Please log in
+        %small.pull-right
+          = link_to("Sign up", {:controller=> 'login', :action => 'signup'}, :class => "btn btn-small btn-warning")
+      %div{style: "color:red"}= flash[:notice]
+      %p= text_field_tag(:email, nil, :class =>'form-control', :placeholder => "Email address")
+      %p= password_field_tag(:password, nil, :class => 'form-control', :placeholder =>"Password")
+      %p= link_to("Forgot Password", :action => 'forgot')
+      %p= submit_tag("Log in", :class =>"btn btn-lg btn-danger btn-block")

@@ -16,7 +16,7 @@ $ ->
 		$.post '/profile/delete',
 	    entry_id: id
 	    (data) -> 
-	    	$("#entry_id option[value='"+id+"']").remove();
+	    	$(".entry.selected").remove();
 
 	
 	post_to_create = (desc, un, pw) ->
@@ -25,10 +25,14 @@ $ ->
 	    username: un
 	    password: pw
 	    (data) -> 
-	    	$("#entry_id").prepend("<option value='"+data['entry_id']+"'>"+data['description']+"</option>")
+	    	$(".entry-box ul").prepend("<li class='entry' id='"+data['entry_id']+"'>"+data['description']+"</li>")
+
+	$('.entry').click () ->
+		$('.entry.selected').removeClass('selected')
+		$(this).addClass('selected')
 
 	$('#modal-show').click () ->
-		str_id = $('#entry_id option:selected').attr('value')
+		str_id = $('.entry.selected').attr('id')
 		# alert(str_id)
 		int_id = parseInt(str_id,10)
 		post_to_show(int_id)
@@ -51,6 +55,6 @@ $ ->
 				console.log("password data removed from browser and server")
 
 	$('#remove-entry').click () ->
-		str_id = $('#entry_id option:selected').attr('value')
+		str_id = $('.entry.selected').attr('id')
 		int_id = parseInt(str_id,10)
 		post_to_remove(int_id)

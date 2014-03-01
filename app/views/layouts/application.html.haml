@@ -1,0 +1,29 @@
+!!!
+%html
+  %head
+    %title PassWeb
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  %body{style: "padding-top: 70px"}
+    .navbar.navbar-inverse.navbar-fixed-top{role: "navigation"}
+      .container
+        .navbar-header
+          / <a class="navbar-brand" href="#">PassWeb</a>
+          = link_to(image_tag(image_path("main-logo.png"), height: '50'), |
+            {:controller => 'profile', :action => 'index'})               |
+        .navbar-collapse.collapse
+          .navbar-form.navbar-right
+            - if session[:user_id]
+              = link_to('Log Out', {:controller => 'login', :action => 'logout'}, :class => 'btn btn-danger')
+            - else
+              = link_to('Log In', {:controller => 'login', :action => 'index'}, :class => 'btn btn-success')
+    - if (params[:action] == 'signup')
+      .banner
+        %img{:src => '/assets/macbook.png', :id => 'macbook-icon'}
+        %img{:src => '/assets/devices.png', :id => 'devices-icon'}
+        %h1 All your passwords secure on all your devices!
+
+    .container
+      .buffer
+      = yield

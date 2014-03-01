@@ -1,0 +1,64 @@
+.row
+  .col-sm-4.col-sm-push-7
+    / This is where the buttons will be lined up vertically
+    %p
+      %button#modal-create.btn.btn-lg.btn-success{"data-target" => "#create-entry", "data-toggle" => "modal"}
+        New Password
+    %p
+      %button#modal-show.btn.btn-lg.btn-warning{"data-target" => "#show-entry", "data-toggle" => "modal"}
+        Show Detail
+    %p
+      %button#remove-entry.btn.btn-lg.btn-danger
+        Remove
+  .col-sm-4.col-sm-offset-2.col-sm-pull-4
+    /= select("entry", "id", @user.entries.collect {|e| [ e.description, e.id ] },{}, {size: '20'})
+    .entry-box
+      %ul
+        - @user.entries.each do |e|
+          %li{:class => "entry", :id => e.id}
+            = e.description
+
+/ Modal Show Box
+#show-entry.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+        %h4#myModalLabel.modal-title Password Info
+      .modal-body
+        .row
+          .col-sm-12
+            %table.table
+              %tr
+                %th Description
+                %td#desc-out
+              %tr
+                %th Username
+                %td#user-out
+              %tr
+                %th Password
+                %td#pass-out
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+    /.modal-content
+  /.modal-dialog
+/.modal
+
+/ Modal Create Box
+#create-entry.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+        %h4#myModalLabel.modal-title Create a new password entry
+      .modal-body
+        %p
+          = text_field_tag(:description, nil, :class => 'form-control', :placeholder => "Description e.g. Facebook")
+        %p= text_field_tag(:username, nil,  :class => 'form-control', :placeholder =>"Username or email")
+        %p= password_field_tag(:password, nil, :class => 'form-control', :placeholder => "Password")
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+        %button#create-entry-submit.btn.btn-primary{"data-dismiss" => "modal", type: "button"} Save entry
+    /.modal-content
+  /.modal-dialog
+/.modal
