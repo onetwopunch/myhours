@@ -94,13 +94,13 @@ class LoginController < ApplicationController
 			if tmp
 				puts tmp.as_json
 				UserMailer.reset_password(tmp).deliver
-				render 'forgot_confirm'
+				redirect_to :action =>'forgot_confirm'
 			else
 				flash[:notice] = "There was an error sending the email. Try again later."
-				redirect_to(:action =>'index')
+				redirect_to :action => 'index'
 			end
 		else
-			redirect_to 'forgot'
+			redirect_to :action => 'forgot'
 		end
 	end
 

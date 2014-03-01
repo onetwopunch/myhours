@@ -12,6 +12,7 @@ class UserMailer < ActionMailer::Base
     host = Rails.configuration.hostname
     @path = 'http://' + host + password_change_path(tmp.uuid)
     mail(to: tmp.email,
-         subject: 'Password Reset')
+         from: 'passweb.mailer@gmail.com',
+         subject: 'Passweb Password Reset')
   end
 end

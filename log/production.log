@@ -601,3 +601,258 @@ ActionController::RoutingError (No route matches [GET] "/favicon.ico"):
   /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
 
 
+I, [2014-03-01T14:22:43.018859 #14471]  INFO -- : Started GET "/" for 127.0.0.1 at 2014-03-01 14:22:43 -0800
+I, [2014-03-01T14:22:43.033467 #14471]  INFO -- : Processing by LoginController#signup as HTML
+I, [2014-03-01T14:22:43.069507 #14471]  INFO -- :   Rendered login/signup.html.haml within layouts/application (8.7ms)
+I, [2014-03-01T14:22:43.101434 #14471]  INFO -- : Completed 200 OK in 68ms (Views: 42.2ms | ActiveRecord: 3.3ms)
+I, [2014-03-01T14:22:43.146613 #14471]  INFO -- : Started GET "/assets/macbook.png" for 127.0.0.1 at 2014-03-01 14:22:43 -0800
+I, [2014-03-01T14:22:43.153129 #14471]  INFO -- : Started GET "/assets/devices.png" for 127.0.0.1 at 2014-03-01 14:22:43 -0800
+I, [2014-03-01T14:22:47.805428 #14471]  INFO -- : Started GET "/login" for 127.0.0.1 at 2014-03-01 14:22:47 -0800
+I, [2014-03-01T14:22:47.807089 #14471]  INFO -- : Processing by LoginController#index as HTML
+I, [2014-03-01T14:22:47.811994 #14471]  INFO -- :   Rendered login/index.html.haml within layouts/application (3.4ms)
+I, [2014-03-01T14:22:47.813156 #14471]  INFO -- : Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.0ms)
+I, [2014-03-01T14:22:50.077395 #14471]  INFO -- : Started GET "/login/forgot" for 127.0.0.1 at 2014-03-01 14:22:50 -0800
+I, [2014-03-01T14:22:50.082042 #14471]  INFO -- : Processing by LoginController#forgot as HTML
+I, [2014-03-01T14:22:50.085528 #14471]  INFO -- :   Rendered login/forgot.html.haml within layouts/application (2.3ms)
+I, [2014-03-01T14:22:50.086677 #14471]  INFO -- : Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+I, [2014-03-01T14:22:54.959867 #14471]  INFO -- : Started POST "/login/forgot_post?method=post" for 127.0.0.1 at 2014-03-01 14:22:54 -0800
+I, [2014-03-01T14:22:54.960981 #14471]  INFO -- : Processing by LoginController#forgot_post as HTML
+I, [2014-03-01T14:22:54.961070 #14471]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"FrTDAxxwOrARHti3ZSAyd6nEjB+jVWGMLg4toXY/XjM=", "forgot_user_email"=>"jrcanty@gmail.com", "commit"=>"Email me a new password", "method"=>"post"}
+I, [2014-03-01T14:22:55.465726 #14471]  INFO -- :   Rendered user_mailer/reset_password.html.erb (1.2ms)
+I, [2014-03-01T14:22:55.467934 #14471]  INFO -- :   Rendered user_mailer/reset_password.text.erb (0.5ms)
+I, [2014-03-01T14:22:57.839759 #14471]  INFO -- : 
+Sent mail to jrcanty@gmail.com (2362.7ms)
+I, [2014-03-01T14:22:57.872299 #14471]  INFO -- :   Rendered login/forgot_confirm.html.haml within layouts/application (1.5ms)
+I, [2014-03-01T14:22:57.874412 #14471]  INFO -- : Completed 200 OK in 2913ms (Views: 34.1ms | ActiveRecord: 70.1ms)
+I, [2014-03-01T14:22:57.894185 #14471]  INFO -- : Started GET "/assets/application-03817d214ac6cc6af46c19fd406cd81c.js" for 127.0.0.1 at 2014-03-01 14:22:57 -0800
+I, [2014-03-01T14:24:10.923529 #14497]  INFO -- : Started GET "/login/forgot" for 127.0.0.1 at 2014-03-01 14:24:10 -0800
+I, [2014-03-01T14:24:10.939074 #14497]  INFO -- : Processing by LoginController#forgot as HTML
+I, [2014-03-01T14:24:10.964327 #14497]  INFO -- :   Rendered login/forgot.html.haml within layouts/application (3.1ms)
+I, [2014-03-01T14:24:10.968993 #14497]  INFO -- : Completed 200 OK in 30ms (Views: 9.4ms | ActiveRecord: 0.0ms)
+I, [2014-03-01T14:24:10.981739 #14497]  INFO -- : Started GET "/assets/application-6b873a38bb38047b1530e047c2ac4ec8.css" for 127.0.0.1 at 2014-03-01 14:24:10 -0800
+I, [2014-03-01T14:24:11.021202 #14497]  INFO -- : Started GET "/assets/main-logo-f53bfcc2cddc5929ba0060363c1c5b20.png" for 127.0.0.1 at 2014-03-01 14:24:11 -0800
+I, [2014-03-01T14:24:11.023849 #14497]  INFO -- : Started GET "/assets/application-03817d214ac6cc6af46c19fd406cd81c.js" for 127.0.0.1 at 2014-03-01 14:24:11 -0800
+I, [2014-03-01T14:24:14.981612 #14497]  INFO -- : Started POST "/login/check_email_exists" for 127.0.0.1 at 2014-03-01 14:24:14 -0800
+I, [2014-03-01T14:24:14.983287 #14497]  INFO -- : Processing by LoginController#check_email_exists as JSON
+I, [2014-03-01T14:24:14.983356 #14497]  INFO -- :   Parameters: {"email"=>"jrcanty@gmail.com"}
+I, [2014-03-01T14:24:14.994906 #14497]  INFO -- : Completed 200 OK in 11ms (Views: 0.2ms | ActiveRecord: 3.9ms)
+I, [2014-03-01T14:24:16.033566 #14497]  INFO -- : Started POST "/login/check_email_exists" for 127.0.0.1 at 2014-03-01 14:24:16 -0800
+I, [2014-03-01T14:24:16.035002 #14497]  INFO -- : Processing by LoginController#check_email_exists as JSON
+I, [2014-03-01T14:24:16.035099 #14497]  INFO -- :   Parameters: {"email"=>"jrcanty@gmail.com"}
+I, [2014-03-01T14:24:16.037367 #14497]  INFO -- : Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+I, [2014-03-01T14:24:16.044934 #14497]  INFO -- : Started POST "/login/forgot_post?method=post" for 127.0.0.1 at 2014-03-01 14:24:16 -0800
+I, [2014-03-01T14:24:16.046132 #14497]  INFO -- : Processing by LoginController#forgot_post as HTML
+I, [2014-03-01T14:24:16.046287 #14497]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"FrTDAxxwOrARHti3ZSAyd6nEjB+jVWGMLg4toXY/XjM=", "forgot_user_email"=>"jrcanty@gmail.com", "commit"=>"Email me a new password", "method"=>"post"}
+I, [2014-03-01T14:24:16.447770 #14497]  INFO -- :   Rendered user_mailer/reset_password.html.erb (0.6ms)
+I, [2014-03-01T14:24:16.448927 #14497]  INFO -- :   Rendered user_mailer/reset_password.text.erb (0.3ms)
+I, [2014-03-01T14:24:18.223496 #14497]  INFO -- : 
+Sent mail to jrcanty@gmail.com (1767.9ms)
+I, [2014-03-01T14:24:18.227330 #14497]  INFO -- :   Rendered login/forgot_confirm.html.haml within layouts/application (1.6ms)
+I, [2014-03-01T14:24:18.229819 #14497]  INFO -- : Completed 200 OK in 2183ms (Views: 5.7ms | ActiveRecord: 21.9ms)
+I, [2014-03-01T14:24:18.241934 #14497]  INFO -- : Started GET "/assets/application-6b873a38bb38047b1530e047c2ac4ec8.css" for 127.0.0.1 at 2014-03-01 14:24:18 -0800
+I, [2014-03-01T14:24:18.244544 #14497]  INFO -- : Started GET "/assets/application-03817d214ac6cc6af46c19fd406cd81c.js" for 127.0.0.1 at 2014-03-01 14:24:18 -0800
+I, [2014-03-01T14:24:18.246818 #14497]  INFO -- : Started GET "/assets/main-logo-f53bfcc2cddc5929ba0060363c1c5b20.png" for 127.0.0.1 at 2014-03-01 14:24:18 -0800
+I, [2014-03-01T14:26:28.391379 #14526]  INFO -- : Started GET "/" for 127.0.0.1 at 2014-03-01 14:26:28 -0800
+I, [2014-03-01T14:26:28.404635 #14526]  INFO -- : Processing by LoginController#signup as HTML
+I, [2014-03-01T14:26:28.444207 #14526]  INFO -- :   Rendered login/signup.html.haml within layouts/application (9.8ms)
+I, [2014-03-01T14:26:28.477627 #14526]  INFO -- : Completed 200 OK in 73ms (Views: 44.9ms | ActiveRecord: 3.3ms)
+I, [2014-03-01T14:26:28.510595 #14526]  INFO -- : Started GET "/assets/application-03817d214ac6cc6af46c19fd406cd81c.js" for 127.0.0.1 at 2014-03-01 14:26:28 -0800
+I, [2014-03-01T14:26:28.529557 #14526]  INFO -- : Started GET "/assets/main-logo-f53bfcc2cddc5929ba0060363c1c5b20.png" for 127.0.0.1 at 2014-03-01 14:26:28 -0800
+I, [2014-03-01T14:26:28.532127 #14526]  INFO -- : Started GET "/assets/application-6b873a38bb38047b1530e047c2ac4ec8.css" for 127.0.0.1 at 2014-03-01 14:26:28 -0800
+I, [2014-03-01T14:26:28.542995 #14526]  INFO -- : Started GET "/assets/macbook.png" for 127.0.0.1 at 2014-03-01 14:26:28 -0800
+I, [2014-03-01T14:26:28.547337 #14526]  INFO -- : Started GET "/assets/devices.png" for 127.0.0.1 at 2014-03-01 14:26:28 -0800
+I, [2014-03-01T14:26:31.201421 #14526]  INFO -- : Started GET "/login" for 127.0.0.1 at 2014-03-01 14:26:31 -0800
+I, [2014-03-01T14:26:31.202980 #14526]  INFO -- : Processing by LoginController#index as HTML
+I, [2014-03-01T14:26:31.207455 #14526]  INFO -- :   Rendered login/index.html.haml within layouts/application (3.0ms)
+I, [2014-03-01T14:26:31.208605 #14526]  INFO -- : Completed 200 OK in 6ms (Views: 5.0ms | ActiveRecord: 0.0ms)
+I, [2014-03-01T14:26:31.216843 #14526]  INFO -- : Started GET "/assets/main-logo-f53bfcc2cddc5929ba0060363c1c5b20.png" for 127.0.0.1 at 2014-03-01 14:26:31 -0800
+I, [2014-03-01T14:26:32.564424 #14526]  INFO -- : Started GET "/login/forgot" for 127.0.0.1 at 2014-03-01 14:26:32 -0800
+I, [2014-03-01T14:26:32.568721 #14526]  INFO -- : Processing by LoginController#forgot as HTML
+I, [2014-03-01T14:26:32.572193 #14526]  INFO -- :   Rendered login/forgot.html.haml within layouts/application (2.2ms)
+I, [2014-03-01T14:26:32.573301 #14526]  INFO -- : Completed 200 OK in 4ms (Views: 4.0ms | ActiveRecord: 0.0ms)
+I, [2014-03-01T14:26:32.579896 #14526]  INFO -- : Started GET "/assets/main-logo-f53bfcc2cddc5929ba0060363c1c5b20.png" for 127.0.0.1 at 2014-03-01 14:26:32 -0800
+I, [2014-03-01T14:26:36.521321 #14526]  INFO -- : Started POST "/login/forgot_post?method=post" for 127.0.0.1 at 2014-03-01 14:26:36 -0800
+I, [2014-03-01T14:26:36.522430 #14526]  INFO -- : Processing by LoginController#forgot_post as HTML
+I, [2014-03-01T14:26:36.522511 #14526]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"FrTDAxxwOrARHti3ZSAyd6nEjB+jVWGMLg4toXY/XjM=", "forgot_user_email"=>"jrcanty@gmail.com", "commit"=>"Email me a new password", "method"=>"post"}
+I, [2014-03-01T14:26:36.924862 #14526]  INFO -- :   Rendered user_mailer/reset_password.html.erb (0.5ms)
+I, [2014-03-01T14:26:36.926097 #14526]  INFO -- :   Rendered user_mailer/reset_password.text.erb (0.3ms)
+I, [2014-03-01T14:26:38.604544 #14526]  INFO -- : 
+Sent mail to jrcanty@gmail.com (1671.7ms)
+I, [2014-03-01T14:26:38.607852 #14526]  INFO -- :   Rendered login/forgot_confirm.html.haml within layouts/application (1.4ms)
+I, [2014-03-01T14:26:38.610258 #14526]  INFO -- : Completed 200 OK in 2088ms (Views: 5.2ms | ActiveRecord: 21.8ms)
+I, [2014-03-01T14:26:38.623728 #14526]  INFO -- : Started GET "/assets/application-6b873a38bb38047b1530e047c2ac4ec8.css" for 127.0.0.1 at 2014-03-01 14:26:38 -0800
+I, [2014-03-01T14:26:38.627872 #14526]  INFO -- : Started GET "/assets/main-logo-f53bfcc2cddc5929ba0060363c1c5b20.png" for 127.0.0.1 at 2014-03-01 14:26:38 -0800
+I, [2014-03-01T14:26:38.628722 #14526]  INFO -- : Started GET "/assets/application-03817d214ac6cc6af46c19fd406cd81c.js" for 127.0.0.1 at 2014-03-01 14:26:38 -0800
+I, [2014-03-01T14:30:53.936851 #14526]  INFO -- : Started GET "/login/forgot_confirm" for 127.0.0.1 at 2014-03-01 14:30:53 -0800
+I, [2014-03-01T14:30:53.941957 #14526]  INFO -- : Processing by LoginController#forgot_confirm as HTML
+I, [2014-03-01T14:30:53.942970 #14526]  INFO -- :   Rendered login/forgot_confirm.html.haml within layouts/application (0.1ms)
+I, [2014-03-01T14:30:53.944361 #14526]  INFO -- : Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.0ms)
+I, [2014-03-01T14:30:53.955565 #14526]  INFO -- : Started GET "/assets/application-6b873a38bb38047b1530e047c2ac4ec8.css" for 127.0.0.1 at 2014-03-01 14:30:53 -0800
+I, [2014-03-01T14:30:53.958473 #14526]  INFO -- : Started GET "/assets/main-logo-f53bfcc2cddc5929ba0060363c1c5b20.png" for 127.0.0.1 at 2014-03-01 14:30:53 -0800
+I, [2014-03-01T14:30:53.960701 #14526]  INFO -- : Started GET "/assets/application-03817d214ac6cc6af46c19fd406cd81c.js" for 127.0.0.1 at 2014-03-01 14:30:53 -0800
+I, [2014-03-01T14:31:40.613000 #14581]  INFO -- : Started GET "/login/forgot_confirm" for 127.0.0.1 at 2014-03-01 14:31:40 -0800
+I, [2014-03-01T14:31:40.628769 #14581]  INFO -- : Processing by LoginController#forgot_confirm as HTML
+I, [2014-03-01T14:31:40.655480 #14581]  INFO -- :   Rendered login/forgot_confirm.html.haml within layouts/application (1.1ms)
+I, [2014-03-01T14:31:40.660134 #14581]  INFO -- : Completed 200 OK in 31ms (Views: 7.4ms | ActiveRecord: 0.0ms)
+I, [2014-03-01T14:31:40.671706 #14581]  INFO -- : Started GET "/assets/application-6b873a38bb38047b1530e047c2ac4ec8.css" for 127.0.0.1 at 2014-03-01 14:31:40 -0800
+I, [2014-03-01T14:31:40.722814 #14581]  INFO -- : Started GET "/assets/application-03817d214ac6cc6af46c19fd406cd81c.js" for 127.0.0.1 at 2014-03-01 14:31:40 -0800
+I, [2014-03-01T14:31:40.731915 #14581]  INFO -- : Started GET "/assets/main-logo-f53bfcc2cddc5929ba0060363c1c5b20.png" for 127.0.0.1 at 2014-03-01 14:31:40 -0800
+I, [2014-03-01T14:32:15.617203 #14581]  INFO -- : Started GET "/login/forgot_confirm" for 127.0.0.1 at 2014-03-01 14:32:15 -0800
+I, [2014-03-01T14:32:15.619253 #14581]  INFO -- : Processing by LoginController#forgot_confirm as HTML
+I, [2014-03-01T14:32:15.620279 #14581]  INFO -- :   Rendered login/forgot_confirm.html.haml within layouts/application (0.1ms)
+I, [2014-03-01T14:32:15.621684 #14581]  INFO -- : Completed 200 OK in 2ms (Views: 1.7ms | ActiveRecord: 0.0ms)
+I, [2014-03-01T14:32:15.634181 #14581]  INFO -- : Started GET "/assets/application-6b873a38bb38047b1530e047c2ac4ec8.css" for 127.0.0.1 at 2014-03-01 14:32:15 -0800
+I, [2014-03-01T14:32:15.636712 #14581]  INFO -- : Started GET "/assets/application-03817d214ac6cc6af46c19fd406cd81c.js" for 127.0.0.1 at 2014-03-01 14:32:15 -0800
+I, [2014-03-01T14:32:15.639416 #14581]  INFO -- : Started GET "/assets/main-logo-f53bfcc2cddc5929ba0060363c1c5b20.png" for 127.0.0.1 at 2014-03-01 14:32:15 -0800
+I, [2014-03-01T14:32:34.606155 #14606]  INFO -- : Started GET "/login/forgot_confirm" for 127.0.0.1 at 2014-03-01 14:32:34 -0800
+I, [2014-03-01T14:32:34.621039 #14606]  INFO -- : Processing by LoginController#forgot_confirm as HTML
+I, [2014-03-01T14:32:34.644344 #14606]  INFO -- :   Rendered login/forgot_confirm.html.haml within layouts/application (1.3ms)
+I, [2014-03-01T14:32:34.649116 #14606]  INFO -- : Completed 200 OK in 28ms (Views: 7.6ms | ActiveRecord: 0.0ms)
+I, [2014-03-01T14:32:34.661796 #14606]  INFO -- : Started GET "/assets/application-6b873a38bb38047b1530e047c2ac4ec8.css" for 127.0.0.1 at 2014-03-01 14:32:34 -0800
+I, [2014-03-01T14:32:34.670833 #14606]  INFO -- : Started GET "/assets/application-03817d214ac6cc6af46c19fd406cd81c.js" for 127.0.0.1 at 2014-03-01 14:32:34 -0800
+I, [2014-03-01T14:32:34.678689 #14606]  INFO -- : Started GET "/assets/main-logo-f53bfcc2cddc5929ba0060363c1c5b20.png" for 127.0.0.1 at 2014-03-01 14:32:34 -0800
+I, [2014-03-01T14:34:04.023918 #14625]  INFO -- : Started GET "/login/forgot_confirm" for 127.0.0.1 at 2014-03-01 14:34:04 -0800
+I, [2014-03-01T14:34:04.041801 #14625]  INFO -- : Processing by LoginController#forgot_confirm as HTML
+I, [2014-03-01T14:34:04.064904 #14625]  INFO -- :   Rendered login/forgot_confirm.html.haml within layouts/application (1.3ms)
+I, [2014-03-01T14:34:04.069427 #14625]  INFO -- : Completed 200 OK in 27ms (Views: 7.4ms | ActiveRecord: 0.0ms)
+I, [2014-03-01T14:34:04.085557 #14625]  INFO -- : Started GET "/assets/application-6b873a38bb38047b1530e047c2ac4ec8.css" for 127.0.0.1 at 2014-03-01 14:34:04 -0800
+I, [2014-03-01T14:34:04.094142 #14625]  INFO -- : Started GET "/assets/main-logo-f53bfcc2cddc5929ba0060363c1c5b20.png" for 127.0.0.1 at 2014-03-01 14:34:04 -0800
+I, [2014-03-01T14:34:04.096054 #14625]  INFO -- : Started GET "/assets/application-03817d214ac6cc6af46c19fd406cd81c.js" for 127.0.0.1 at 2014-03-01 14:34:04 -0800
+I, [2014-03-01T14:34:36.053272 #14641]  INFO -- : Started GET "/login/forgot_confirm" for 127.0.0.1 at 2014-03-01 14:34:36 -0800
+I, [2014-03-01T14:34:36.070395 #14641]  INFO -- : Processing by LoginController#forgot_confirm as HTML
+I, [2014-03-01T14:34:36.093369 #14641]  INFO -- :   Rendered login/forgot_confirm.html.haml within layouts/application (1.4ms)
+I, [2014-03-01T14:34:36.098221 #14641]  INFO -- : Completed 200 OK in 28ms (Views: 7.8ms | ActiveRecord: 0.0ms)
+I, [2014-03-01T14:34:36.111739 #14641]  INFO -- : Started GET "/assets/application-6b873a38bb38047b1530e047c2ac4ec8.css" for 127.0.0.1 at 2014-03-01 14:34:36 -0800
+I, [2014-03-01T14:34:36.121004 #14641]  INFO -- : Started GET "/assets/main-logo-f53bfcc2cddc5929ba0060363c1c5b20.png" for 127.0.0.1 at 2014-03-01 14:34:36 -0800
+I, [2014-03-01T14:34:36.122672 #14641]  INFO -- : Started GET "/assets/application-03817d214ac6cc6af46c19fd406cd81c.js" for 127.0.0.1 at 2014-03-01 14:34:36 -0800
+I, [2014-03-01T14:36:16.676981 #14641]  INFO -- : Started GET "/login/forgot" for 127.0.0.1 at 2014-03-01 14:36:16 -0800
+I, [2014-03-01T14:36:16.681818 #14641]  INFO -- : Processing by LoginController#forgot as HTML
+I, [2014-03-01T14:36:16.686011 #14641]  INFO -- :   Rendered login/forgot.html.haml within layouts/application (2.7ms)
+I, [2014-03-01T14:36:16.688332 #14641]  INFO -- : Completed 200 OK in 6ms (Views: 5.6ms | ActiveRecord: 0.0ms)
+I, [2014-03-01T14:36:16.701923 #14641]  INFO -- : Started GET "/assets/application-6b873a38bb38047b1530e047c2ac4ec8.css" for 127.0.0.1 at 2014-03-01 14:36:16 -0800
+I, [2014-03-01T14:36:16.704413 #14641]  INFO -- : Started GET "/assets/main-logo-f53bfcc2cddc5929ba0060363c1c5b20.png" for 127.0.0.1 at 2014-03-01 14:36:16 -0800
+I, [2014-03-01T14:36:16.707503 #14641]  INFO -- : Started GET "/assets/application-03817d214ac6cc6af46c19fd406cd81c.js" for 127.0.0.1 at 2014-03-01 14:36:16 -0800
+I, [2014-03-01T14:36:33.175184 #14641]  INFO -- : Started POST "/login/check_email_exists" for 127.0.0.1 at 2014-03-01 14:36:33 -0800
+I, [2014-03-01T14:36:33.176847 #14641]  INFO -- : Processing by LoginController#check_email_exists as JSON
+I, [2014-03-01T14:36:33.176960 #14641]  INFO -- :   Parameters: {"email"=>"jrcanty@gmail.com"}
+I, [2014-03-01T14:36:33.189715 #14641]  INFO -- : Completed 200 OK in 13ms (Views: 0.2ms | ActiveRecord: 4.3ms)
+I, [2014-03-01T14:36:36.390416 #14641]  INFO -- : Started POST "/login/check_email_exists" for 127.0.0.1 at 2014-03-01 14:36:36 -0800
+I, [2014-03-01T14:36:36.391846 #14641]  INFO -- : Processing by LoginController#check_email_exists as JSON
+I, [2014-03-01T14:36:36.391924 #14641]  INFO -- :   Parameters: {"email"=>"jrcanty@gmail.co"}
+I, [2014-03-01T14:36:36.394253 #14641]  INFO -- : Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.6ms)
+I, [2014-03-01T14:37:44.276151 #14641]  INFO -- : Started GET "/login/forgot" for 127.0.0.1 at 2014-03-01 14:37:44 -0800
+I, [2014-03-01T14:37:44.277188 #14641]  INFO -- : Processing by LoginController#forgot as HTML
+I, [2014-03-01T14:37:44.279413 #14641]  INFO -- :   Rendered login/forgot.html.haml within layouts/application (1.2ms)
+I, [2014-03-01T14:37:44.280773 #14641]  INFO -- : Completed 200 OK in 3ms (Views: 2.9ms | ActiveRecord: 0.0ms)
+I, [2014-03-01T14:37:44.294735 #14641]  INFO -- : Started GET "/assets/application-6b873a38bb38047b1530e047c2ac4ec8.css" for 127.0.0.1 at 2014-03-01 14:37:44 -0800
+I, [2014-03-01T14:37:44.295921 #14641]  INFO -- : Started GET "/assets/application-03817d214ac6cc6af46c19fd406cd81c.js" for 127.0.0.1 at 2014-03-01 14:37:44 -0800
+I, [2014-03-01T14:37:44.298899 #14641]  INFO -- : Started GET "/assets/main-logo-f53bfcc2cddc5929ba0060363c1c5b20.png" for 127.0.0.1 at 2014-03-01 14:37:44 -0800
+I, [2014-03-01T14:37:58.241556 #14670]  INFO -- : Started GET "/login/forgot" for 127.0.0.1 at 2014-03-01 14:37:58 -0800
+I, [2014-03-01T14:37:58.261662 #14670]  INFO -- : Processing by LoginController#forgot as HTML
+I, [2014-03-01T14:37:58.284507 #14670]  INFO -- :   Rendered login/forgot.html.haml within layouts/application (0.9ms)
+I, [2014-03-01T14:37:58.284675 #14670]  INFO -- : Completed 500 Internal Server Error in 23ms
+F, [2014-03-01T14:37:58.286523 #14670] FATAL -- : 
+ActionView::Template::Error (Inconsistent indentation: "\t      " used for indentation, but the rest of the document was indented using 2 spaces.):
+    2:   .col-sm-4.col-sm-offset-4.col-xs-5.col-xs-offset-5
+    3:     = form_tag({controller: 'login', action:'forgot_post', method: 'post'}, {:class =>'form-signin', :id => 'forgot-email-form'}) do
+    4:       .well
+    5: 	      %h2.form-signin-heading Enter your email below
+    6: 	      %h5 Try to remember this new password :P
+    7: 	      %p
+    8: 	        = text_field_tag(:forgot_user_email, nil, :class =>'form-control', :placeholder => "Email address")
+  app/views/login/forgot.html.haml:5
+
+
+I, [2014-03-01T14:39:00.365595 #14687]  INFO -- : Started GET "/login/forgot" for 127.0.0.1 at 2014-03-01 14:39:00 -0800
+I, [2014-03-01T14:39:00.383736 #14687]  INFO -- : Processing by LoginController#forgot as HTML
+I, [2014-03-01T14:39:00.408997 #14687]  INFO -- :   Rendered login/forgot.html.haml within layouts/application (3.0ms)
+I, [2014-03-01T14:39:00.413122 #14687]  INFO -- : Completed 200 OK in 29ms (Views: 8.6ms | ActiveRecord: 0.0ms)
+I, [2014-03-01T14:39:00.425103 #14687]  INFO -- : Started GET "/assets/application-6b873a38bb38047b1530e047c2ac4ec8.css" for 127.0.0.1 at 2014-03-01 14:39:00 -0800
+I, [2014-03-01T14:39:00.435164 #14687]  INFO -- : Started GET "/assets/main-logo-f53bfcc2cddc5929ba0060363c1c5b20.png" for 127.0.0.1 at 2014-03-01 14:39:00 -0800
+I, [2014-03-01T14:39:00.437114 #14687]  INFO -- : Started GET "/assets/application-03817d214ac6cc6af46c19fd406cd81c.js" for 127.0.0.1 at 2014-03-01 14:39:00 -0800
+I, [2014-03-01T14:39:16.989717 #14687]  INFO -- : Started POST "/login/check_email_exists" for 127.0.0.1 at 2014-03-01 14:39:16 -0800
+I, [2014-03-01T14:39:16.991424 #14687]  INFO -- : Processing by LoginController#check_email_exists as JSON
+I, [2014-03-01T14:39:16.991494 #14687]  INFO -- :   Parameters: {"email"=>"asdfkjh"}
+I, [2014-03-01T14:39:16.999734 #14687]  INFO -- : Completed 200 OK in 8ms (Views: 0.2ms | ActiveRecord: 4.4ms)
+I, [2014-03-01T14:39:21.267568 #14687]  INFO -- : Started POST "/login/check_email_exists" for 127.0.0.1 at 2014-03-01 14:39:21 -0800
+I, [2014-03-01T14:39:21.269000 #14687]  INFO -- : Processing by LoginController#check_email_exists as JSON
+I, [2014-03-01T14:39:21.269097 #14687]  INFO -- :   Parameters: {"email"=>"jrcanty@gmail.com"}
+I, [2014-03-01T14:39:21.276242 #14687]  INFO -- : Completed 200 OK in 7ms (Views: 0.2ms | ActiveRecord: 0.6ms)
+I, [2014-03-01T14:39:25.468913 #14687]  INFO -- : Started POST "/login/check_email_exists" for 127.0.0.1 at 2014-03-01 14:39:25 -0800
+I, [2014-03-01T14:39:25.470152 #14687]  INFO -- : Processing by LoginController#check_email_exists as JSON
+I, [2014-03-01T14:39:25.470233 #14687]  INFO -- :   Parameters: {"email"=>"jrcanty@gmail.com"}
+I, [2014-03-01T14:39:25.472416 #14687]  INFO -- : Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+I, [2014-03-01T14:39:25.481312 #14687]  INFO -- : Started POST "/login/forgot_post?method=post" for 127.0.0.1 at 2014-03-01 14:39:25 -0800
+I, [2014-03-01T14:39:25.482292 #14687]  INFO -- : Processing by LoginController#forgot_post as HTML
+I, [2014-03-01T14:39:25.482408 #14687]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"FrTDAxxwOrARHti3ZSAyd6nEjB+jVWGMLg4toXY/XjM=", "forgot_user_email"=>"jrcanty@gmail.com", "commit"=>"Email me a new password", "method"=>"post"}
+I, [2014-03-01T14:39:25.915143 #14687]  INFO -- :   Rendered user_mailer/reset_password.html.erb (0.8ms)
+I, [2014-03-01T14:39:25.916400 #14687]  INFO -- :   Rendered user_mailer/reset_password.text.erb (0.3ms)
+I, [2014-03-01T14:39:27.474661 #14687]  INFO -- : 
+Sent mail to jrcanty@gmail.com (1551.6ms)
+I, [2014-03-01T14:39:27.475352 #14687]  INFO -- : Redirected to http://localhost:3000forgot_confirm
+I, [2014-03-01T14:39:27.475690 #14687]  INFO -- : Completed 302 Found in 1993ms (ActiveRecord: 23.9ms)
+I, [2014-03-01T14:39:27.480727 #14687]  INFO -- : Started POST "/login/forgot_post?method=post" for 127.0.0.1 at 2014-03-01 14:39:27 -0800
+I, [2014-03-01T14:39:27.481912 #14687]  INFO -- : Processing by LoginController#forgot_post as HTML
+I, [2014-03-01T14:39:27.481992 #14687]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"FrTDAxxwOrARHti3ZSAyd6nEjB+jVWGMLg4toXY/XjM=", "forgot_user_email"=>"jrcanty@gmail.com", "commit"=>"Email me a new password", "method"=>"post"}
+I, [2014-03-01T14:39:27.490975 #14687]  INFO -- :   Rendered user_mailer/reset_password.html.erb (0.1ms)
+I, [2014-03-01T14:39:27.491230 #14687]  INFO -- :   Rendered user_mailer/reset_password.text.erb (0.0ms)
+I, [2014-03-01T14:39:28.631485 #14687]  INFO -- : 
+Sent mail to jrcanty@gmail.com (1134.8ms)
+I, [2014-03-01T14:39:28.631871 #14687]  INFO -- : Redirected to http://localhost:3000forgot_confirm
+I, [2014-03-01T14:39:28.632123 #14687]  INFO -- : Completed 302 Found in 1150ms (ActiveRecord: 1.4ms)
+I, [2014-03-01T14:39:28.635607 #14687]  INFO -- : Started POST "/login/forgot_post?method=post" for 127.0.0.1 at 2014-03-01 14:39:28 -0800
+I, [2014-03-01T14:39:28.636559 #14687]  INFO -- : Processing by LoginController#forgot_post as HTML
+I, [2014-03-01T14:39:28.636635 #14687]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"FrTDAxxwOrARHti3ZSAyd6nEjB+jVWGMLg4toXY/XjM=", "forgot_user_email"=>"jrcanty@gmail.com", "commit"=>"Email me a new password", "method"=>"post"}
+I, [2014-03-01T14:39:28.649454 #14687]  INFO -- :   Rendered user_mailer/reset_password.html.erb (0.2ms)
+I, [2014-03-01T14:39:28.649887 #14687]  INFO -- :   Rendered user_mailer/reset_password.text.erb (0.1ms)
+I, [2014-03-01T14:39:29.655009 #14687]  INFO -- : 
+Sent mail to jrcanty@gmail.com (999.6ms)
+I, [2014-03-01T14:39:29.655325 #14687]  INFO -- : Redirected to http://localhost:3000forgot_confirm
+I, [2014-03-01T14:39:29.655531 #14687]  INFO -- : Completed 302 Found in 1019ms (ActiveRecord: 2.2ms)
+I, [2014-03-01T14:39:29.659062 #14687]  INFO -- : Started POST "/login/forgot_post?method=post" for 127.0.0.1 at 2014-03-01 14:39:29 -0800
+I, [2014-03-01T14:39:29.659995 #14687]  INFO -- : Processing by LoginController#forgot_post as HTML
+I, [2014-03-01T14:39:29.660081 #14687]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"FrTDAxxwOrARHti3ZSAyd6nEjB+jVWGMLg4toXY/XjM=", "forgot_user_email"=>"jrcanty@gmail.com", "commit"=>"Email me a new password", "method"=>"post"}
+I, [2014-03-01T14:39:29.710821 #14687]  INFO -- :   Rendered user_mailer/reset_password.html.erb (0.1ms)
+I, [2014-03-01T14:39:29.711052 #14687]  INFO -- :   Rendered user_mailer/reset_password.text.erb (0.0ms)
+I, [2014-03-01T14:39:30.696578 #14687]  INFO -- : 
+Sent mail to jrcanty@gmail.com (980.0ms)
+I, [2014-03-01T14:39:30.697232 #14687]  INFO -- : Redirected to http://localhost:3000forgot_confirm
+I, [2014-03-01T14:39:30.697582 #14687]  INFO -- : Completed 302 Found in 1037ms (ActiveRecord: 2.0ms)
+I, [2014-03-01T14:41:09.782081 #14714]  INFO -- : Started GET "/login/forgot" for 127.0.0.1 at 2014-03-01 14:41:09 -0800
+I, [2014-03-01T14:41:09.796700 #14714]  INFO -- : Processing by LoginController#forgot as HTML
+I, [2014-03-01T14:41:09.821621 #14714]  INFO -- :   Rendered login/forgot.html.haml within layouts/application (3.1ms)
+I, [2014-03-01T14:41:09.825923 #14714]  INFO -- : Completed 200 OK in 29ms (Views: 9.0ms | ActiveRecord: 0.0ms)
+I, [2014-03-01T14:41:09.837273 #14714]  INFO -- : Started GET "/assets/application-6b873a38bb38047b1530e047c2ac4ec8.css" for 127.0.0.1 at 2014-03-01 14:41:09 -0800
+I, [2014-03-01T14:41:09.846647 #14714]  INFO -- : Started GET "/assets/main-logo-f53bfcc2cddc5929ba0060363c1c5b20.png" for 127.0.0.1 at 2014-03-01 14:41:09 -0800
+I, [2014-03-01T14:41:09.848868 #14714]  INFO -- : Started GET "/assets/application-03817d214ac6cc6af46c19fd406cd81c.js" for 127.0.0.1 at 2014-03-01 14:41:09 -0800
+I, [2014-03-01T14:41:12.868061 #14714]  INFO -- : Started POST "/login/check_email_exists" for 127.0.0.1 at 2014-03-01 14:41:12 -0800
+I, [2014-03-01T14:41:12.869899 #14714]  INFO -- : Processing by LoginController#check_email_exists as JSON
+I, [2014-03-01T14:41:12.869965 #14714]  INFO -- :   Parameters: {"email"=>"jrcanty@gmail.com"}
+I, [2014-03-01T14:41:12.881683 #14714]  INFO -- : Completed 200 OK in 12ms (Views: 0.2ms | ActiveRecord: 4.0ms)
+I, [2014-03-01T14:41:13.661038 #14714]  INFO -- : Started POST "/login/check_email_exists" for 127.0.0.1 at 2014-03-01 14:41:13 -0800
+I, [2014-03-01T14:41:13.662152 #14714]  INFO -- : Processing by LoginController#check_email_exists as JSON
+I, [2014-03-01T14:41:13.662216 #14714]  INFO -- :   Parameters: {"email"=>"jrcanty@gmail.com"}
+I, [2014-03-01T14:41:13.663982 #14714]  INFO -- : Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+I, [2014-03-01T14:41:13.672804 #14714]  INFO -- : Started POST "/login/forgot_post?method=post" for 127.0.0.1 at 2014-03-01 14:41:13 -0800
+I, [2014-03-01T14:41:13.673937 #14714]  INFO -- : Processing by LoginController#forgot_post as HTML
+I, [2014-03-01T14:41:13.674067 #14714]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"FrTDAxxwOrARHti3ZSAyd6nEjB+jVWGMLg4toXY/XjM=", "forgot_user_email"=>"jrcanty@gmail.com", "commit"=>"Email me a new password", "method"=>"post"}
+I, [2014-03-01T14:41:14.076368 #14714]  INFO -- :   Rendered user_mailer/reset_password.html.erb (0.6ms)
+I, [2014-03-01T14:41:14.077464 #14714]  INFO -- :   Rendered user_mailer/reset_password.text.erb (0.3ms)
+I, [2014-03-01T14:41:15.163770 #14714]  INFO -- : 
+Sent mail to jrcanty@gmail.com (1079.9ms)
+I, [2014-03-01T14:41:15.165365 #14714]  INFO -- : Redirected to http://localhost:3000/login/forgot_confirm
+I, [2014-03-01T14:41:15.165777 #14714]  INFO -- : Completed 302 Found in 1492ms (ActiveRecord: 21.3ms)
+I, [2014-03-01T14:41:15.173083 #14714]  INFO -- : Started GET "/login/forgot_confirm" for 127.0.0.1 at 2014-03-01 14:41:15 -0800
+I, [2014-03-01T14:41:15.177346 #14714]  INFO -- : Processing by LoginController#forgot_confirm as HTML
+I, [2014-03-01T14:41:15.179841 #14714]  INFO -- :   Rendered login/forgot_confirm.html.haml within layouts/application (1.2ms)
+I, [2014-03-01T14:41:15.181242 #14714]  INFO -- : Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.0ms)
+I, [2014-03-01T14:41:15.193317 #14714]  INFO -- : Started GET "/assets/application-6b873a38bb38047b1530e047c2ac4ec8.css" for 127.0.0.1 at 2014-03-01 14:41:15 -0800
+I, [2014-03-01T14:41:15.196957 #14714]  INFO -- : Started GET "/assets/application-03817d214ac6cc6af46c19fd406cd81c.js" for 127.0.0.1 at 2014-03-01 14:41:15 -0800
+I, [2014-03-01T14:41:15.200677 #14714]  INFO -- : Started GET "/assets/main-logo-f53bfcc2cddc5929ba0060363c1c5b20.png" for 127.0.0.1 at 2014-03-01 14:41:15 -0800
+I, [2014-03-01T14:48:47.333323 #14714]  INFO -- : Started GET "/login/forgot" for 127.0.0.1 at 2014-03-01 14:48:47 -0800
+I, [2014-03-01T14:48:47.334396 #14714]  INFO -- : Processing by LoginController#forgot as HTML
+I, [2014-03-01T14:48:47.336202 #14714]  INFO -- :   Rendered login/forgot.html.haml within layouts/application (0.9ms)
+I, [2014-03-01T14:48:47.337483 #14714]  INFO -- : Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.0ms)
+I, [2014-03-01T14:48:47.349641 #14714]  INFO -- : Started GET "/assets/application-6b873a38bb38047b1530e047c2ac4ec8.css" for 127.0.0.1 at 2014-03-01 14:48:47 -0800
+I, [2014-03-01T14:48:47.354361 #14714]  INFO -- : Started GET "/assets/main-logo-f53bfcc2cddc5929ba0060363c1c5b20.png" for 127.0.0.1 at 2014-03-01 14:48:47 -0800
+I, [2014-03-01T14:48:47.355454 #14714]  INFO -- : Started GET "/assets/application-03817d214ac6cc6af46c19fd406cd81c.js" for 127.0.0.1 at 2014-03-01 14:48:47 -0800

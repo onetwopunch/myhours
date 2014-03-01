@@ -1,9 +1,10 @@
 .row
   .col-sm-4.col-sm-offset-4.col-xs-5.col-xs-offset-5
     = form_tag({controller: 'login', action:'forgot_post', method: 'post'}, {:class =>'form-signin', :id => 'forgot-email-form'}) do
-      %h2.form-signin-heading Enter your email below
-      %h5 Try to remember this new password :P
-      %p
-        = text_field_tag(:forgot_user_email, nil, :class =>'form-control', :placeholder => "Email address")
-        %span#err-email
-      %p= submit_tag("Email me a new password", :class =>"btn btn-lg btn-primary btn-block")
+      .well
+        %h2.form-signin-heading Enter your email below
+        %h5 Try to remember this new password :P
+        %p
+          = text_field_tag(:forgot_user_email, nil, :class =>'form-control', :placeholder => "Email address")
+          %span#err-email
+        %p= submit_tag("Email me a new password", :class =>"btn btn-lg btn-primary btn-block")
