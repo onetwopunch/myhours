@@ -26,10 +26,13 @@ $ ->
 	    password: pw
 	    (data) -> 
 	    	$(".entry-box ul").prepend("<li class='entry' id='"+data['entry_id']+"'>"+data['description']+"</li>")
+	    	entry_listener()
+	entry_listener = () ->		
+		$('.entry').click () ->
+			$('.entry.selected').removeClass('selected')
+			$(this).addClass('selected')
 
-	$('.entry').click () ->
-		$('.entry.selected').removeClass('selected')
-		$(this).addClass('selected')
+	entry_listener()
 
 	$('#modal-show').click () ->
 		str_id = $('.entry.selected').attr('id')

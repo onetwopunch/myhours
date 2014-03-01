@@ -6,7 +6,8 @@ $ ->
   ###
   RegEx
   ###
-  emailRegEx = new RegExp("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$", "i")
+  # emailRegEx = new RegExp("^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$", "i")
+  emailRegEx = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
   passwordRegEx = new RegExp(/.{8,40}/)
 
   inputs = []
@@ -18,6 +19,21 @@ $ ->
   err_user_exists = "You're already in our system. Did you forget your password? "
   err_user_exists += "<a href = '/login/forgot'>Forgot</a>"
   err_user_not_exists = "What are you trying to pull? You're not a user!"
+
+  hasErrorMessage = (element) ->
+    return $(element).html() and $(element).html().length() > 0
+
+  addErrorStyle = (element) ->
+    $(element).addClass('error-field')
+
+  removeErrorStyle = (element) ->
+    $(element).removeClass('error-field')
+
+  addErrorMessage = (element, message) ->
+    $(element).html(message)
+
+  removeErrorMessage = (element) ->
+    $(element).html('')
 
   ###
   Passwords onblur validation
@@ -35,7 +51,7 @@ $ ->
   ###
   email = $('#user_email')
   email.blur () -> 
-    validateEmail(email, emailRegEx, false)
+    validateEmail(email)
   
   ###
   Forgotton Email onblur validation
@@ -96,19 +112,22 @@ $ ->
   validateMatchingPasswords = (p1, p2) ->
     passes = true
     console.log('Match func')
-    console.log($(p1).val())
-    console.log($(p2).val())
+    # console.log($(p1).val())
+    # console.log($(p2).val())
     if validatePassword(p2, true)
       if p1.val() == p2.val()  
+        console.log "2nd password is valid and passwords match"
         removeErrorStyle(p1)
         removeErrorStyle(p2)
         removeErrorMessage(pass_tag)
         removeErrorMessage(rep_pass_tag)
       else
+        console.log "2nd password is valid but passwords don't match"
         passes = false
         addErrorStyle(p2)
         addErrorMessage(rep_pass_tag, err_non_match)
     else
+      console.log "2nd password is invalid"
       addErrorStyle(p2)
       addErrorMessage(rep_pass_tag, err_pass_len)
       passes = false
@@ -117,7 +136,7 @@ $ ->
   validatePassword = (password, isMatch) ->
     passes = true
     console.log('Password func')
-    console.log($(password).val())
+    # console.log($(password).val())
     if passwordRegEx.test($(password).val())
       removeErrorStyle(password)
       removeErrorMessage(pass_tag)
@@ -131,7 +150,7 @@ $ ->
     return passes
     
   validateEmail = (email) ->
-    console.log('Email func')
+    console.log('Validating email')
     console.log($(email).val())
     if not emailRegEx.test($(email).val())
       console.log 'invalid email'
@@ -140,13 +159,13 @@ $ ->
       console.log email
       addErrorStyle(email)
       addErrorMessage(email_tag, err_email)
-      
     else
       console.log 'valid email'
       passes = true
       removeErrorStyle(email)
       removeErrorMessage(email_tag)
-    validateUserExists(email, false)
+    if passes
+      validateUserExists(email, false)
     return passes
 
   validateUserExists = (email, we_want_user_to_exist) ->
@@ -171,7 +190,7 @@ $ ->
             console.log "Complete user_exists true"
             user_is_new = false
             removeErrorStyle(email)
-            removeErrorMessage(email_tag, err_user_not_exists)
+            removeErrorMessage(email_tag)
           else
             console.log "Complete user_exists false"
             addErrorStyle(email)
@@ -188,23 +207,10 @@ $ ->
             console.log "Complete user_exists false"
             user_is_new = true
             removeErrorStyle(email)
-            removeErrorMessage(email_tag, err_user_exists)
+            removeErrorMessage(email_tag)
             
   
 
   
-  ###
-  Error Styling, I changed the border of the input and put an error message within a span in the label of the same input, it's opt to you.
-  ###
-  addErrorStyle = (element) ->
-    $(element).addClass('error-field')
-
-  removeErrorStyle = (element) ->
-    $(element).removeClass('error-field')
-
-  addErrorMessage = (element, message) ->
-    $(element).html(message)
-
-  removeErrorMessage = (element) ->
-    $(element).html('')
+  
     
