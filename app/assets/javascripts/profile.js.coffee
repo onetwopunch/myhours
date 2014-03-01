@@ -27,6 +27,7 @@ $ ->
 	    (data) -> 
 	    	$(".entry-box ul").prepend("<li class='entry' id='"+data['entry_id']+"'>"+data['description']+"</li>")
 	    	entry_listener()
+
 	entry_listener = () ->		
 		$('.entry').click () ->
 			$('.entry.selected').removeClass('selected')
@@ -36,7 +37,7 @@ $ ->
 
 	$('#modal-show').click () ->
 		str_id = $('.entry.selected').attr('id')
-		# alert(str_id)
+		console.log "Showing modal popup"	
 		int_id = parseInt(str_id,10)
 		post_to_show(int_id)
 

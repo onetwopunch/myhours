@@ -50,10 +50,14 @@ class LoginController < ApplicationController
 	end
 	
 	def create
-		user = User.create(user_params)
-		if user
-			session[:user_id] = user.email
-			redirect_to(:controller=>'profile', :action =>'index')
+		if params[:password] == params[:rep_pass]
+			user = User.create(user_params)
+			if user.valid?
+				session[:user_id] = user.email
+				redirect_to(:controller=>'profile', :action =>'index')
+			else
+				redirect_to :back
+			end
 		else
 			redirect_to :back
 		end
