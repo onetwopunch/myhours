@@ -1,0 +1,568 @@
+I, [2014-03-01T12:01:21.592496 #13789]  INFO -- : Started GET "/" for 127.0.0.1 at 2014-03-01 12:01:21 -0800
+F, [2014-03-01T12:01:21.599252 #13789] FATAL -- : 
+PG::ConnectionBad (FATAL:  database "passweb_production" does not exist
+):
+  activerecord (4.0.1) lib/active_record/connection_adapters/postgresql_adapter.rb:831:in `initialize'
+  activerecord (4.0.1) lib/active_record/connection_adapters/postgresql_adapter.rb:831:in `new'
+  activerecord (4.0.1) lib/active_record/connection_adapters/postgresql_adapter.rb:831:in `connect'
+  activerecord (4.0.1) lib/active_record/connection_adapters/postgresql_adapter.rb:548:in `initialize'
+  activerecord (4.0.1) lib/active_record/connection_adapters/postgresql_adapter.rb:41:in `new'
+  activerecord (4.0.1) lib/active_record/connection_adapters/postgresql_adapter.rb:41:in `postgresql_connection'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:440:in `new_connection'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:450:in `checkout_new_connection'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:421:in `acquire_connection'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:356:in `block in checkout'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `checkout'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:265:in `block in connection'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:264:in `connection'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:546:in `retrieve_connection'
+  activerecord (4.0.1) lib/active_record/connection_handling.rb:79:in `retrieve_connection'
+  activerecord (4.0.1) lib/active_record/connection_handling.rb:53:in `connection'
+  activerecord (4.0.1) lib/active_record/query_cache.rb:51:in `restore_query_cache_settings'
+  activerecord (4.0.1) lib/active_record/query_cache.rb:43:in `rescue in call'
+  activerecord (4.0.1) lib/active_record/query_cache.rb:32:in `call'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:626:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:373:in `_run__3072125522845120638__call__callbacks'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-03-01T12:02:40.067746 #13833]  INFO -- : Migrating to CreateUsers (20131207190612)
+I, [2014-03-01T12:02:40.111985 #13833]  INFO -- : Migrating to CreateEntries (20131207190814)
+I, [2014-03-01T12:02:40.149400 #13833]  INFO -- : Migrating to AddIndicies (20131210225414)
+I, [2014-03-01T12:02:40.157489 #13833]  INFO -- : Migrating to CreateTempPasswords (20131213160259)
+I, [2014-03-01T12:02:45.675861 #13789]  INFO -- : Started GET "/" for 127.0.0.1 at 2014-03-01 12:02:45 -0800
+I, [2014-03-01T12:02:45.690177 #13789]  INFO -- : Processing by LoginController#signup as HTML
+I, [2014-03-01T12:02:45.764335 #13789]  INFO -- :   Rendered login/signup.html.haml within layouts/application (44.6ms)
+I, [2014-03-01T12:02:45.768769 #13789]  INFO -- : Completed 200 OK in 78ms (Views: 50.6ms | ActiveRecord: 3.1ms)
+I, [2014-03-01T12:02:45.780859 #13789]  INFO -- : Started GET "/assets/application-674cb4e5136e727c5fbd96c77ef47154.css" for 127.0.0.1 at 2014-03-01 12:02:45 -0800
+F, [2014-03-01T12:02:45.785386 #13789] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/application-674cb4e5136e727c5fbd96c77ef47154.css"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-03-01T12:02:45.802726 #13789]  INFO -- : Started GET "/assets/main-logo-027685dd444eb36c19aba35644266f5c.png" for 127.0.0.1 at 2014-03-01 12:02:45 -0800
+F, [2014-03-01T12:02:45.834405 #13789] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/main-logo-027685dd444eb36c19aba35644266f5c.png"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-03-01T12:02:45.835360 #13789]  INFO -- : Started GET "/assets/application-0c7911a758147f2017c851b2e61fbdf6.js" for 127.0.0.1 at 2014-03-01 12:02:45 -0800
+F, [2014-03-01T12:02:45.837375 #13789] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/application-0c7911a758147f2017c851b2e61fbdf6.js"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-03-01T12:02:45.840353 #13789]  INFO -- : Started GET "/assets/macbook.png" for 127.0.0.1 at 2014-03-01 12:02:45 -0800
+F, [2014-03-01T12:02:45.845293 #13789] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/macbook.png"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-03-01T12:02:45.846136 #13789]  INFO -- : Started GET "/assets/main-logo-027685dd444eb36c19aba35644266f5c.png" for 127.0.0.1 at 2014-03-01 12:02:45 -0800
+F, [2014-03-01T12:02:45.848146 #13789] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/main-logo-027685dd444eb36c19aba35644266f5c.png"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-03-01T12:02:45.849128 #13789]  INFO -- : Started GET "/assets/devices.png" for 127.0.0.1 at 2014-03-01 12:02:45 -0800
+F, [2014-03-01T12:02:45.851006 #13789] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/devices.png"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-03-01T12:04:13.598433 #13789]  INFO -- : Started GET "/" for 127.0.0.1 at 2014-03-01 12:04:13 -0800
+I, [2014-03-01T12:04:13.600150 #13789]  INFO -- : Processing by LoginController#signup as HTML
+I, [2014-03-01T12:04:13.602513 #13789]  INFO -- :   Rendered login/signup.html.haml within layouts/application (1.3ms)
+I, [2014-03-01T12:04:13.603624 #13789]  INFO -- : Completed 200 OK in 3ms (Views: 2.6ms | ActiveRecord: 0.0ms)
+I, [2014-03-01T12:04:13.614726 #13789]  INFO -- : Started GET "/assets/application-674cb4e5136e727c5fbd96c77ef47154.css" for 127.0.0.1 at 2014-03-01 12:04:13 -0800
+F, [2014-03-01T12:04:13.619146 #13789] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/application-674cb4e5136e727c5fbd96c77ef47154.css"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-03-01T12:04:13.620031 #13789]  INFO -- : Started GET "/assets/main-logo-027685dd444eb36c19aba35644266f5c.png" for 127.0.0.1 at 2014-03-01 12:04:13 -0800
+F, [2014-03-01T12:04:13.621589 #13789] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/main-logo-027685dd444eb36c19aba35644266f5c.png"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-03-01T12:04:13.622520 #13789]  INFO -- : Started GET "/assets/application-0c7911a758147f2017c851b2e61fbdf6.js" for 127.0.0.1 at 2014-03-01 12:04:13 -0800
+F, [2014-03-01T12:04:13.624221 #13789] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/application-0c7911a758147f2017c851b2e61fbdf6.js"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-03-01T12:04:13.642032 #13789]  INFO -- : Started GET "/assets/macbook.png" for 127.0.0.1 at 2014-03-01 12:04:13 -0800
+F, [2014-03-01T12:04:13.646116 #13789] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/macbook.png"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-03-01T12:04:13.648058 #13789]  INFO -- : Started GET "/assets/devices.png" for 127.0.0.1 at 2014-03-01 12:04:13 -0800
+F, [2014-03-01T12:04:13.650255 #13789] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/devices.png"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-03-01T12:04:26.525096 #13882]  INFO -- : Started GET "/" for 127.0.0.1 at 2014-03-01 12:04:26 -0800
+I, [2014-03-01T12:04:26.540709 #13882]  INFO -- : Processing by LoginController#signup as HTML
+I, [2014-03-01T12:04:26.580940 #13882]  INFO -- :   Rendered login/signup.html.haml within layouts/application (12.0ms)
+I, [2014-03-01T12:04:26.614193 #13882]  INFO -- : Completed 200 OK in 73ms (Views: 48.4ms | ActiveRecord: 3.3ms)
+I, [2014-03-01T12:04:26.626679 #13882]  INFO -- : Started GET "/assets/main-logo-f53bfcc2cddc5929ba0060363c1c5b20.png" for 127.0.0.1 at 2014-03-01 12:04:26 -0800
+F, [2014-03-01T12:04:26.631133 #13882] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/main-logo-f53bfcc2cddc5929ba0060363c1c5b20.png"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-03-01T12:04:26.631927 #13882]  INFO -- : Started GET "/assets/application-6b873a38bb38047b1530e047c2ac4ec8.css" for 127.0.0.1 at 2014-03-01 12:04:26 -0800
+F, [2014-03-01T12:04:26.635315 #13882] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/application-6b873a38bb38047b1530e047c2ac4ec8.css"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-03-01T12:04:26.636103 #13882]  INFO -- : Started GET "/assets/application-03817d214ac6cc6af46c19fd406cd81c.js" for 127.0.0.1 at 2014-03-01 12:04:26 -0800
+F, [2014-03-01T12:04:26.637805 #13882] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/application-03817d214ac6cc6af46c19fd406cd81c.js"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-03-01T12:04:26.638465 #13882]  INFO -- : Started GET "/assets/macbook.png" for 127.0.0.1 at 2014-03-01 12:04:26 -0800
+F, [2014-03-01T12:04:26.639881 #13882] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/macbook.png"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-03-01T12:04:26.644929 #13882]  INFO -- : Started GET "/assets/main-logo-f53bfcc2cddc5929ba0060363c1c5b20.png" for 127.0.0.1 at 2014-03-01 12:04:26 -0800
+F, [2014-03-01T12:04:26.646610 #13882] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/main-logo-f53bfcc2cddc5929ba0060363c1c5b20.png"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-03-01T12:04:26.647426 #13882]  INFO -- : Started GET "/assets/devices.png" for 127.0.0.1 at 2014-03-01 12:04:26 -0800
+F, [2014-03-01T12:04:26.650433 #13882] FATAL -- : 
+ActionController::RoutingError (No route matches [GET] "/assets/devices.png"):
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:21:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /System/Library/Frameworks/Ruby.framework/Versions/2.0/usr/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+I, [2014-03-01T12:06:28.387248 #13900]  INFO -- : Started GET "/" for 127.0.0.1 at 2014-03-01 12:06:28 -0800
+I, [2014-03-01T12:06:28.399339 #13900]  INFO -- : Processing by LoginController#signup as HTML
+I, [2014-03-01T12:06:28.434602 #13900]  INFO -- :   Rendered login/signup.html.haml within layouts/application (9.1ms)
+I, [2014-03-01T12:06:28.468382 #13900]  INFO -- : Completed 200 OK in 69ms (Views: 44.3ms | ActiveRecord: 3.3ms)
+I, [2014-03-01T12:06:28.481564 #13900]  INFO -- : Started GET "/assets/application-6b873a38bb38047b1530e047c2ac4ec8.css" for 127.0.0.1 at 2014-03-01 12:06:28 -0800
+I, [2014-03-01T12:06:28.491087 #13900]  INFO -- : Started GET "/assets/application-03817d214ac6cc6af46c19fd406cd81c.js" for 127.0.0.1 at 2014-03-01 12:06:28 -0800
+I, [2014-03-01T12:06:28.498868 #13900]  INFO -- : Started GET "/assets/main-logo-f53bfcc2cddc5929ba0060363c1c5b20.png" for 127.0.0.1 at 2014-03-01 12:06:28 -0800
+I, [2014-03-01T12:06:28.509058 #13900]  INFO -- : Started GET "/assets/macbook.png" for 127.0.0.1 at 2014-03-01 12:06:28 -0800
+I, [2014-03-01T12:06:28.513117 #13900]  INFO -- : Started GET "/assets/devices.png" for 127.0.0.1 at 2014-03-01 12:06:28 -0800
+I, [2014-03-01T12:07:04.545779 #13900]  INFO -- : Started POST "/login/check_email_exists" for 127.0.0.1 at 2014-03-01 12:07:04 -0800
+I, [2014-03-01T12:07:04.548919 #13900]  INFO -- : Processing by LoginController#check_email_exists as JSON
+I, [2014-03-01T12:07:04.549050 #13900]  INFO -- :   Parameters: {"email"=>"jrcanty@gmail.com"}
+I, [2014-03-01T12:07:04.553374 #13900]  INFO -- : Completed 200 OK in 4ms (Views: 0.2ms | ActiveRecord: 1.2ms)
+I, [2014-03-01T12:07:10.931171 #13900]  INFO -- : Started POST "/login/check_email_exists" for 127.0.0.1 at 2014-03-01 12:07:10 -0800
+I, [2014-03-01T12:07:10.932177 #13900]  INFO -- : Processing by LoginController#check_email_exists as JSON
+I, [2014-03-01T12:07:10.932250 #13900]  INFO -- :   Parameters: {"email"=>"jrcanty@gmail.com"}
+I, [2014-03-01T12:07:10.933746 #13900]  INFO -- : Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+I, [2014-03-01T12:07:10.939202 #13900]  INFO -- : Started POST "/login/check_email_exists" for 127.0.0.1 at 2014-03-01 12:07:10 -0800
+I, [2014-03-01T12:07:10.939940 #13900]  INFO -- : Processing by LoginController#check_email_exists as JSON
+I, [2014-03-01T12:07:10.939998 #13900]  INFO -- :   Parameters: {"email"=>"jrcanty@gmail.com"}
+I, [2014-03-01T12:07:10.941204 #13900]  INFO -- : Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+I, [2014-03-01T12:07:10.949551 #13900]  INFO -- : Started POST "/login/create" for 127.0.0.1 at 2014-03-01 12:07:10 -0800
+I, [2014-03-01T12:07:10.950469 #13900]  INFO -- : Processing by LoginController#create as HTML
+I, [2014-03-01T12:07:10.950617 #13900]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"FrTDAxxwOrARHti3ZSAyd6nEjB+jVWGMLg4toXY/XjM=", "user"=>{"email"=>"jrcanty@gmail.com", "password"=>"[FILTERED]"}, "rep_pass"=>"password", "commit"=>"Sign up"}
+I, [2014-03-01T12:07:11.428221 #13900]  INFO -- : Redirected to http://localhost:3000/profile
+I, [2014-03-01T12:07:11.428587 #13900]  INFO -- : Completed 302 Found in 478ms (ActiveRecord: 49.3ms)
+I, [2014-03-01T12:07:11.434618 #13900]  INFO -- : Started GET "/profile" for 127.0.0.1 at 2014-03-01 12:07:11 -0800
+I, [2014-03-01T12:07:11.436395 #13900]  INFO -- : Processing by ProfileController#index as HTML
+I, [2014-03-01T12:07:11.557211 #13900]  INFO -- :   Rendered profile/index.html.haml within layouts/application (8.7ms)
+I, [2014-03-01T12:07:11.558717 #13900]  INFO -- : Completed 200 OK in 122ms (Views: 11.0ms | ActiveRecord: 35.1ms)
+I, [2014-03-01T12:07:11.590052 #13900]  INFO -- : Started GET "/assets/application-03817d214ac6cc6af46c19fd406cd81c.js" for 127.0.0.1 at 2014-03-01 12:07:11 -0800
+I, [2014-03-01T12:07:15.580414 #13900]  INFO -- : Started POST "/profile/show" for 127.0.0.1 at 2014-03-01 12:07:15 -0800
+I, [2014-03-01T12:07:15.582313 #13900]  INFO -- : Processing by ProfileController#show as */*
+I, [2014-03-01T12:07:15.582395 #13900]  INFO -- :   Parameters: {"entry_id"=>"1"}
+I, [2014-03-01T12:07:15.587205 #13900]  INFO -- : Completed 200 OK in 5ms (Views: 0.3ms | ActiveRecord: 1.2ms)
+I, [2014-03-01T12:07:17.354594 #13900]  INFO -- : Started POST "/profile/hide" for 127.0.0.1 at 2014-03-01 12:07:17 -0800
+I, [2014-03-01T12:07:17.355647 #13900]  INFO -- : Processing by ProfileController#hide as */*
+I, [2014-03-01T12:07:17.356445 #13900]  INFO -- : Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.0ms)
+I, [2014-03-01T12:07:18.781155 #13900]  INFO -- : Started GET "/login/logout" for 127.0.0.1 at 2014-03-01 12:07:18 -0800
+I, [2014-03-01T12:07:18.782268 #13900]  INFO -- : Processing by LoginController#logout as HTML
+I, [2014-03-01T12:07:18.787398 #13900]  INFO -- :   Rendered login/index.html.haml within layouts/application (3.4ms)
+I, [2014-03-01T12:07:18.788962 #13900]  INFO -- : Completed 200 OK in 7ms (Views: 5.9ms | ActiveRecord: 0.0ms)
+I, [2014-03-01T12:07:26.110527 #13900]  INFO -- : Started POST "/login/authenticate" for 127.0.0.1 at 2014-03-01 12:07:26 -0800
+I, [2014-03-01T12:07:26.111824 #13900]  INFO -- : Processing by LoginController#authenticate as HTML
+I, [2014-03-01T12:07:26.111921 #13900]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"FrTDAxxwOrARHti3ZSAyd6nEjB+jVWGMLg4toXY/XjM=", "email"=>"jrcanty@gmail.com", "password"=>"[FILTERED]", "commit"=>"Log in"}
+I, [2014-03-01T12:07:26.114287 #13900]  INFO -- : Redirected to http://localhost:3000/profile
+I, [2014-03-01T12:07:26.114476 #13900]  INFO -- : Completed 302 Found in 2ms (ActiveRecord: 0.5ms)
+I, [2014-03-01T12:07:26.118385 #13900]  INFO -- : Started GET "/profile" for 127.0.0.1 at 2014-03-01 12:07:26 -0800
+I, [2014-03-01T12:07:26.119118 #13900]  INFO -- : Processing by ProfileController#index as HTML
+I, [2014-03-01T12:07:26.123584 #13900]  INFO -- :   Rendered profile/index.html.haml within layouts/application (1.7ms)
+I, [2014-03-01T12:07:26.124899 #13900]  INFO -- : Completed 200 OK in 6ms (Views: 3.1ms | ActiveRecord: 0.8ms)
+I, [2014-03-01T12:07:26.135765 #13900]  INFO -- : Started GET "/assets/application-03817d214ac6cc6af46c19fd406cd81c.js" for 127.0.0.1 at 2014-03-01 12:07:26 -0800
+I, [2014-03-01T12:07:29.180323 #13900]  INFO -- : Started GET "/login/logout" for 127.0.0.1 at 2014-03-01 12:07:29 -0800
+I, [2014-03-01T12:07:29.181275 #13900]  INFO -- : Processing by LoginController#logout as HTML
+I, [2014-03-01T12:07:29.183744 #13900]  INFO -- :   Rendered login/index.html.haml within layouts/application (1.5ms)
+I, [2014-03-01T12:07:29.185176 #13900]  INFO -- : Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.0ms)
