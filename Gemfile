@@ -44,6 +44,7 @@ gem "uuid", "~> 2.3.7"
 # AES encryption is used to encrypt the users' entries in the database
 gem "aes", "~> 0.5.0"
 
+gem 'rails_12factor', group: :production
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'
 

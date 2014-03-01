@@ -37,6 +37,6 @@ production:
   encoding: utf8
   database: passweb_production
   pool: 5
-  username: root
-  password:
+  # username: root
+  # password:
   # socket: /tmp/mysql.sock
