@@ -100,7 +100,7 @@ class LoginController < ApplicationController
 				redirect_to(:action =>'index')
 			end
 		else
-			redirect_to :back
+			redirect_to 'forgot'
 		end
 	end
 
