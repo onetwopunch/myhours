@@ -38,7 +38,7 @@ class User < ActiveRecord::Base
 
 	def create_hashed_password
 		unless password.blank?
-			self.salt = User.make_salt
+			self.salt ||= User.make_salt
 			self.password = User.get_hashed_password(password)
 		end
 		

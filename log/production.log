@@ -856,3 +856,54 @@ I, [2014-03-01T14:48:47.337483 #14714]  INFO -- : Completed 200 OK in 3ms (Views
 I, [2014-03-01T14:48:47.349641 #14714]  INFO -- : Started GET "/assets/application-6b873a38bb38047b1530e047c2ac4ec8.css" for 127.0.0.1 at 2014-03-01 14:48:47 -0800
 I, [2014-03-01T14:48:47.354361 #14714]  INFO -- : Started GET "/assets/main-logo-f53bfcc2cddc5929ba0060363c1c5b20.png" for 127.0.0.1 at 2014-03-01 14:48:47 -0800
 I, [2014-03-01T14:48:47.355454 #14714]  INFO -- : Started GET "/assets/application-03817d214ac6cc6af46c19fd406cd81c.js" for 127.0.0.1 at 2014-03-01 14:48:47 -0800
+I, [2014-03-01T14:51:29.598150 #14714]  INFO -- : Started GET "/login" for 127.0.0.1 at 2014-03-01 14:51:29 -0800
+I, [2014-03-01T14:51:29.599185 #14714]  INFO -- : Processing by LoginController#index as HTML
+I, [2014-03-01T14:51:29.603943 #14714]  INFO -- :   Rendered login/index.html.haml within layouts/application (3.3ms)
+I, [2014-03-01T14:51:29.605166 #14714]  INFO -- : Completed 200 OK in 6ms (Views: 5.4ms | ActiveRecord: 0.0ms)
+I, [2014-03-01T14:51:29.612621 #14714]  INFO -- : Started GET "/assets/main-logo-f53bfcc2cddc5929ba0060363c1c5b20.png" for 127.0.0.1 at 2014-03-01 14:51:29 -0800
+I, [2014-03-01T14:51:37.133416 #14714]  INFO -- : Started GET "/profile" for 127.0.0.1 at 2014-03-01 14:51:37 -0800
+I, [2014-03-01T14:51:37.135321 #14714]  INFO -- : Processing by ProfileController#index as HTML
+I, [2014-03-01T14:51:37.137708 #14714]  INFO -- : Redirected to http://localhost:3000/
+I, [2014-03-01T14:51:37.138196 #14714]  INFO -- : Completed 302 Found in 3ms (ActiveRecord: 0.4ms)
+I, [2014-03-01T14:51:37.142767 #14714]  INFO -- : Started GET "/" for 127.0.0.1 at 2014-03-01 14:51:37 -0800
+I, [2014-03-01T14:51:37.143722 #14714]  INFO -- : Processing by LoginController#signup as HTML
+I, [2014-03-01T14:51:37.149774 #14714]  INFO -- :   Rendered login/signup.html.haml within layouts/application (4.5ms)
+I, [2014-03-01T14:51:37.150866 #14714]  INFO -- : Completed 200 OK in 7ms (Views: 6.5ms | ActiveRecord: 0.0ms)
+I, [2014-03-01T14:51:37.159451 #14714]  INFO -- : Started GET "/assets/main-logo-f53bfcc2cddc5929ba0060363c1c5b20.png" for 127.0.0.1 at 2014-03-01 14:51:37 -0800
+I, [2014-03-01T14:51:37.164904 #14714]  INFO -- : Started GET "/assets/devices.png" for 127.0.0.1 at 2014-03-01 14:51:37 -0800
+I, [2014-03-01T14:51:37.167540 #14714]  INFO -- : Started GET "/assets/macbook.png" for 127.0.0.1 at 2014-03-01 14:51:37 -0800
+I, [2014-03-01T14:52:08.893981 #14714]  INFO -- : Started GET "/login/forgot" for 127.0.0.1 at 2014-03-01 14:52:08 -0800
+I, [2014-03-01T14:52:08.895017 #14714]  INFO -- : Processing by LoginController#forgot as HTML
+I, [2014-03-01T14:52:08.897021 #14714]  INFO -- :   Rendered login/forgot.html.haml within layouts/application (1.0ms)
+I, [2014-03-01T14:52:08.898271 #14714]  INFO -- : Completed 200 OK in 3ms (Views: 2.5ms | ActiveRecord: 0.0ms)
+I, [2014-03-01T14:52:08.909040 #14714]  INFO -- : Started GET "/assets/application-6b873a38bb38047b1530e047c2ac4ec8.css" for 127.0.0.1 at 2014-03-01 14:52:08 -0800
+I, [2014-03-01T14:52:08.912029 #14714]  INFO -- : Started GET "/assets/application-03817d214ac6cc6af46c19fd406cd81c.js" for 127.0.0.1 at 2014-03-01 14:52:08 -0800
+I, [2014-03-01T14:52:08.915206 #14714]  INFO -- : Started GET "/assets/main-logo-f53bfcc2cddc5929ba0060363c1c5b20.png" for 127.0.0.1 at 2014-03-01 14:52:08 -0800
+I, [2014-03-01T14:52:15.981909 #14714]  INFO -- : Started POST "/login/check_email_exists" for 127.0.0.1 at 2014-03-01 14:52:15 -0800
+I, [2014-03-01T14:52:15.982989 #14714]  INFO -- : Processing by LoginController#check_email_exists as JSON
+I, [2014-03-01T14:52:15.983050 #14714]  INFO -- :   Parameters: {"email"=>"asdf"}
+I, [2014-03-01T14:52:15.984777 #14714]  INFO -- : Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+I, [2014-03-01T14:52:22.802532 #14714]  INFO -- : Started POST "/login/check_email_exists" for 127.0.0.1 at 2014-03-01 14:52:22 -0800
+I, [2014-03-01T14:52:22.803615 #14714]  INFO -- : Processing by LoginController#check_email_exists as JSON
+I, [2014-03-01T14:52:22.803708 #14714]  INFO -- :   Parameters: {"email"=>"jrcanty@gmail.com"}
+I, [2014-03-01T14:52:22.805505 #14714]  INFO -- : Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+I, [2014-03-01T14:52:25.091866 #14714]  INFO -- : Started POST "/login/check_email_exists" for 127.0.0.1 at 2014-03-01 14:52:25 -0800
+I, [2014-03-01T14:52:25.092834 #14714]  INFO -- : Processing by LoginController#check_email_exists as JSON
+I, [2014-03-01T14:52:25.092911 #14714]  INFO -- :   Parameters: {"email"=>"jrcanty@gmail.com"}
+I, [2014-03-01T14:52:25.094703 #14714]  INFO -- : Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.5ms)
+I, [2014-03-01T14:52:25.101186 #14714]  INFO -- : Started POST "/login/forgot_post?method=post" for 127.0.0.1 at 2014-03-01 14:52:25 -0800
+I, [2014-03-01T14:52:25.102152 #14714]  INFO -- : Processing by LoginController#forgot_post as HTML
+I, [2014-03-01T14:52:25.102249 #14714]  INFO -- :   Parameters: {"utf8"=>"✓", "authenticity_token"=>"FrTDAxxwOrARHti3ZSAyd6nEjB+jVWGMLg4toXY/XjM=", "forgot_user_email"=>"jrcanty@gmail.com", "commit"=>"Email me a new password", "method"=>"post"}
+I, [2014-03-01T14:52:25.126187 #14714]  INFO -- :   Rendered user_mailer/reset_password.html.erb (0.1ms)
+I, [2014-03-01T14:52:25.126442 #14714]  INFO -- :   Rendered user_mailer/reset_password.text.erb (0.0ms)
+I, [2014-03-01T14:52:26.743332 #14714]  INFO -- : 
+Sent mail to jrcanty@gmail.com (1611.8ms)
+I, [2014-03-01T14:52:26.744256 #14714]  INFO -- : Redirected to http://localhost:3000/login/forgot_confirm
+I, [2014-03-01T14:52:26.744547 #14714]  INFO -- : Completed 302 Found in 1642ms (ActiveRecord: 16.6ms)
+I, [2014-03-01T14:52:26.750382 #14714]  INFO -- : Started GET "/login/forgot_confirm" for 127.0.0.1 at 2014-03-01 14:52:26 -0800
+I, [2014-03-01T14:52:26.751659 #14714]  INFO -- : Processing by LoginController#forgot_confirm as HTML
+I, [2014-03-01T14:52:26.752583 #14714]  INFO -- :   Rendered login/forgot_confirm.html.haml within layouts/application (0.1ms)
+I, [2014-03-01T14:52:26.753926 #14714]  INFO -- : Completed 200 OK in 2ms (Views: 1.6ms | ActiveRecord: 0.0ms)
+I, [2014-03-01T14:52:26.764037 #14714]  INFO -- : Started GET "/assets/application-6b873a38bb38047b1530e047c2ac4ec8.css" for 127.0.0.1 at 2014-03-01 14:52:26 -0800
+I, [2014-03-01T14:52:26.768305 #14714]  INFO -- : Started GET "/assets/application-03817d214ac6cc6af46c19fd406cd81c.js" for 127.0.0.1 at 2014-03-01 14:52:26 -0800
+I, [2014-03-01T14:52:26.769261 #14714]  INFO -- : Started GET "/assets/main-logo-f53bfcc2cddc5929ba0060363c1c5b20.png" for 127.0.0.1 at 2014-03-01 14:52:26 -0800

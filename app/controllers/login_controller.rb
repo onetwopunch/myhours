@@ -65,10 +65,6 @@ class LoginController < ApplicationController
 
 	def update
 		user = User.find_by_email(params[:email])
-		puts "User:"
-		puts user.as_json
-		puts "Params:"
-		puts params.as_json
 		unhashed = params[:user_password]
 		user.password = unhashed # will be hashed after save
 		
@@ -105,6 +101,7 @@ class LoginController < ApplicationController
 	end
 
 	def change_password_from_email
+		puts params[:guid]
 		@tmp = TempPassword.validate_password(params[:guid])
 		if @tmp
 			render 'change_password'
