@@ -50,16 +50,13 @@ class LoginController < ApplicationController
 	end
 	
 	def create
-		if params[:password] == params[:rep_pass]
-			user = User.create(user_params)
-			if user.valid?
-				session[:user_id] = user.email
-				redirect_to(:controller=>'profile', :action =>'index')
-			else
-				redirect_to :back
-			end
+		user = User.create(user_params)
+		if user.valid?
+			session[:user_id] = user.email
+			redirect_to(:controller=>'profile', :action =>'index')
 		else
-			redirect_to :back
+			flash[:notice] = "There was an error creating your account. Please try again."
+			redirect_to(:action => 'signup')
 		end
 	end
 

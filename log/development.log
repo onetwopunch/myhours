@@ -61963,3 +61963,806 @@ Started GET "/assets/devices.png" for 127.0.0.1 at 2014-03-01 16:24:28 -0800
 
 
 Started GET "/assets/favicon.ico" for 127.0.0.1 at 2014-03-01 16:24:28 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-02 15:43:25 -0800
+Processing by LoginController#signup as HTML
+  Rendered login/signup.html.haml within layouts/application (1.6ms)
+Completed 200 OK in 25ms (Views: 23.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-02 15:43:25 -0800
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2014-03-02 15:43:25 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-02 15:43:25 -0800
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-03-02 15:43:25 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-02 15:43:25 -0800
+
+
+Started GET "/assets/profile.css?body=1" for 127.0.0.1 at 2014-03-02 15:43:25 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-02 15:43:25 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-03-02 15:43:25 -0800
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-03-02 15:43:25 -0800
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-03-02 15:43:25 -0800
+
+
+Started GET "/assets/profile.js?body=1" for 127.0.0.1 at 2014-03-02 15:43:25 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-02 15:43:25 -0800
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-03-02 15:43:25 -0800
+
+
+Started GET "/assets/macbook.png" for 127.0.0.1 at 2014-03-02 15:43:25 -0800
+
+
+Started GET "/assets/devices.png" for 127.0.0.1 at 2014-03-02 15:43:25 -0800
+
+
+Started POST "/login/check_email_exists" for 127.0.0.1 at 2014-03-02 15:43:29 -0800
+Processing by LoginController#check_email_exists as JSON
+  Parameters: {"email"=>"kantee89@yahoo.com"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'kantee89@yahoo.com' LIMIT 1
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/login/check_email_exists" for 127.0.0.1 at 2014-03-02 15:43:48 -0800
+Processing by LoginController#check_email_exists as JSON
+  Parameters: {"email"=>"kantee89@yahoo.com"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'kantee89@yahoo.com' LIMIT 1[0m
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/login/check_email_exists" for 127.0.0.1 at 2014-03-02 15:43:48 -0800
+Processing by LoginController#check_email_exists as JSON
+  Parameters: {"email"=>"kantee89@yahoo.com"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'kantee89@yahoo.com' LIMIT 1
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/login/create" for 127.0.0.1 at 2014-03-02 15:43:48 -0800
+Processing by LoginController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FrTDAxxwOrARHti3ZSAyd6nEjB+jVWGMLg4toXY/XjM=", "user"=>{"email"=>"kantee89@yahoo.com", "password"=>"[FILTERED]"}, "rep_pass"=>"muffinman", "commit"=>"Sign up"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-02 15:43:48 -0800
+Processing by LoginController#signup as HTML
+  Rendered login/signup.html.haml within layouts/application (1.3ms)
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-02 15:43:48 -0800
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-03-02 15:43:48 -0800
+
+
+Started GET "/assets/profile.css?body=1" for 127.0.0.1 at 2014-03-02 15:43:48 -0800
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2014-03-02 15:43:48 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-02 15:43:48 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-02 15:43:48 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-02 15:43:48 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-02 15:43:48 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-03-02 15:43:48 -0800
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-03-02 15:43:48 -0800
+
+
+Started GET "/assets/profile.js?body=1" for 127.0.0.1 at 2014-03-02 15:43:48 -0800
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-03-02 15:43:48 -0800
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-03-02 15:43:48 -0800
+
+
+Started GET "/assets/devices.png" for 127.0.0.1 at 2014-03-02 15:43:48 -0800
+
+
+Started GET "/assets/macbook.png" for 127.0.0.1 at 2014-03-02 15:43:48 -0800
+
+
+Started POST "/login/check_email_exists" for 127.0.0.1 at 2014-03-02 15:44:38 -0800
+Processing by LoginController#check_email_exists as JSON
+  Parameters: {"email"=>"kantee89@yahoo.com"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'kantee89@yahoo.com' LIMIT 1[0m
+Completed 200 OK in 9ms (Views: 0.2ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/login/check_email_exists" for 127.0.0.1 at 2014-03-02 15:44:43 -0800
+Processing by LoginController#check_email_exists as JSON
+  Parameters: {"email"=>"kantee89@yahoo.com"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'kantee89@yahoo.com' LIMIT 1
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/login/check_email_exists" for 127.0.0.1 at 2014-03-02 15:44:43 -0800
+Processing by LoginController#check_email_exists as JSON
+  Parameters: {"email"=>"kantee89@yahoo.com"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'kantee89@yahoo.com' LIMIT 1[0m
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/login/create" for 127.0.0.1 at 2014-03-02 15:44:43 -0800
+Processing by LoginController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FrTDAxxwOrARHti3ZSAyd6nEjB+jVWGMLg4toXY/XjM=", "user"=>{"email"=>"kantee89@yahoo.com", "password"=>"[FILTERED]"}, "rep_pass"=>"muffinman", "commit"=>"Sign up"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-02 15:44:44 -0800
+Processing by LoginController#signup as HTML
+  Rendered login/signup.html.haml within layouts/application (5.9ms)
+Completed 200 OK in 12ms (Views: 11.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-02 15:44:44 -0800
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-03-02 15:44:44 -0800
+
+
+Started GET "/assets/profile.css?body=1" for 127.0.0.1 at 2014-03-02 15:44:44 -0800
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2014-03-02 15:44:44 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-02 15:44:44 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-02 15:44:44 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-02 15:44:44 -0800
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-03-02 15:44:44 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-03-02 15:44:44 -0800
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-03-02 15:44:44 -0800
+
+
+Started GET "/assets/profile.js?body=1" for 127.0.0.1 at 2014-03-02 15:44:44 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-02 15:44:44 -0800
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-03-02 15:44:44 -0800
+
+
+Started GET "/assets/devices.png" for 127.0.0.1 at 2014-03-02 15:44:44 -0800
+
+
+Started GET "/assets/macbook.png" for 127.0.0.1 at 2014-03-02 15:44:44 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-02 15:45:48 -0800
+Processing by LoginController#signup as HTML
+  Rendered login/signup.html.haml within layouts/application (5.7ms)
+Completed 200 OK in 18ms (Views: 11.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-02 15:45:48 -0800
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2014-03-02 15:45:48 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-02 15:45:48 -0800
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-03-02 15:45:48 -0800
+
+
+Started GET "/assets/profile.css?body=1" for 127.0.0.1 at 2014-03-02 15:45:48 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-02 15:45:48 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-02 15:45:48 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-03-02 15:45:48 -0800
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-03-02 15:45:48 -0800
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-03-02 15:45:48 -0800
+
+
+Started GET "/assets/profile.js?body=1" for 127.0.0.1 at 2014-03-02 15:45:48 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-02 15:45:48 -0800
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-03-02 15:45:48 -0800
+
+
+Started GET "/assets/macbook.png" for 127.0.0.1 at 2014-03-02 15:45:48 -0800
+
+
+Started GET "/assets/devices.png" for 127.0.0.1 at 2014-03-02 15:45:49 -0800
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2014-03-02 15:45:49 -0800
+
+
+Started POST "/login/check_email_exists" for 127.0.0.1 at 2014-03-02 15:45:53 -0800
+Processing by LoginController#check_email_exists as JSON
+  Parameters: {"email"=>"kantee89@yahoo.com"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'kantee89@yahoo.com' LIMIT 1
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/login/check_email_exists" for 127.0.0.1 at 2014-03-02 15:45:58 -0800
+Processing by LoginController#check_email_exists as JSON
+  Parameters: {"email"=>"kantee89@yahoo.com"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'kantee89@yahoo.com' LIMIT 1[0m
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/login/check_email_exists" for 127.0.0.1 at 2014-03-02 15:45:58 -0800
+Processing by LoginController#check_email_exists as JSON
+  Parameters: {"email"=>"kantee89@yahoo.com"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'kantee89@yahoo.com' LIMIT 1
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/login/create" for 127.0.0.1 at 2014-03-02 15:45:58 -0800
+Processing by LoginController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FrTDAxxwOrARHti3ZSAyd6nEjB+jVWGMLg4toXY/XjM=", "user"=>{"email"=>"kantee89@yahoo.com", "password"=>"[FILTERED]"}, "rep_pass"=>"muffinman", "commit"=>"Sign up"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'kantee89@yahoo.com' LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "password", "salt", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Sun, 02 Mar 2014 23:45:58 UTC +00:00], ["email", "kantee89@yahoo.com"], ["password", "37d9ae6473a03e103b300e7aab225da6747049b2"], ["salt", "ba46e1a0-8492-0131-bb89-3c07542e5dcb"], ["updated_at", Sun, 02 Mar 2014 23:45:58 UTC +00:00]]
+  [1m[35m (16.1ms)[0m  COMMIT
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE ("users"."email" = 'kantee89@yahoo.com' AND "users"."id" != 3) LIMIT 1[0m
+Redirected to http://localhost:3000/profile
+Completed 302 Found in 24ms (ActiveRecord: 17.6ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2014-03-02 15:45:58 -0800
+Processing by ProfileController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'kantee89@yahoo.com' LIMIT 1
+  [1m[36mEntry Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "entries" WHERE "entries"."user_id" = $1 LIMIT 1[0m  [["user_id", 3]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "entries" ("created_at", "description", "password", "updated_at", "user_id", "username") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", Sun, 02 Mar 2014 23:45:58 UTC +00:00], ["description", "Click me, then click 'Show Detail'"], ["password", "ObxqvUg0vdfyL2WN1N+2gw==$5EUDIYU7GnJcgH92yzog5d1/CENlW/u/dIhz7kk+52uQme1scid1zymNGRlP\nqFGu"], ["updated_at", Sun, 02 Mar 2014 23:45:58 UTC +00:00], ["user_id", 3], ["username", "Your username or login name to some site"]]
+  [1m[35m (0.5ms)[0m  COMMIT
+  [1m[36mEntry Load (0.4ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered profile/index.html.haml within layouts/application (3.2ms)
+Completed 200 OK in 27ms (Views: 10.0ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2014-03-02 15:45:58 -0800
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-02 15:45:58 -0800
+
+
+Started GET "/assets/profile.css?body=1" for 127.0.0.1 at 2014-03-02 15:45:58 -0800
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-03-02 15:45:58 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-02 15:45:58 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-02 15:45:58 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-02 15:45:58 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-03-02 15:45:58 -0800
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-03-02 15:45:58 -0800
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-03-02 15:45:58 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-02 15:45:58 -0800
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-03-02 15:45:58 -0800
+
+
+Started GET "/assets/profile.js?body=1" for 127.0.0.1 at 2014-03-02 15:45:58 -0800
+
+
+Started GET "/login/logout" for 127.0.0.1 at 2014-03-02 15:46:03 -0800
+Processing by LoginController#logout as HTML
+  Rendered login/index.html.haml within layouts/application (1.3ms)
+Completed 200 OK in 7ms (Views: 6.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-03-02 15:46:03 -0800
+
+
+Started POST "/login/authenticate" for 127.0.0.1 at 2014-03-02 15:46:19 -0800
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FrTDAxxwOrARHti3ZSAyd6nEjB+jVWGMLg4toXY/XjM=", "email"=>"kantee89@yahoo.com", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'kantee89@yahoo.com' LIMIT 1
+Redirected to http://localhost:3000/profile
+Completed 302 Found in 2ms (ActiveRecord: 0.4ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2014-03-02 15:46:19 -0800
+Processing by ProfileController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'kantee89@yahoo.com' LIMIT 1[0m
+  [1m[35mEntry Exists (0.2ms)[0m  SELECT 1 AS one FROM "entries" WHERE "entries"."user_id" = $1 LIMIT 1  [["user_id", 3]]
+  [1m[36mEntry Load (0.2ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 3]]
+  Rendered profile/index.html.haml within layouts/application (1.7ms)
+Completed 200 OK in 9ms (Views: 6.7ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-02 15:46:19 -0800
+
+
+Started GET "/assets/profile.css?body=1" for 127.0.0.1 at 2014-03-02 15:46:19 -0800
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2014-03-02 15:46:19 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-02 15:46:19 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-02 15:46:19 -0800
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-03-02 15:46:19 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-02 15:46:19 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-03-02 15:46:19 -0800
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-03-02 15:46:19 -0800
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-03-02 15:46:19 -0800
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-03-02 15:46:19 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-02 15:46:19 -0800
+
+
+Started GET "/assets/profile.js?body=1" for 127.0.0.1 at 2014-03-02 15:46:19 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-02 15:58:12 -0800
+Processing by LoginController#signup as HTML
+Redirected to http://localhost:3000/profile
+Filter chain halted as :logged_in? rendered or redirected
+Completed 302 Found in 2ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2014-03-02 15:58:12 -0800
+Processing by ProfileController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'kantee89@yahoo.com' LIMIT 1
+  [1m[36mEntry Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "entries" WHERE "entries"."user_id" = $1 LIMIT 1[0m  [["user_id", 3]]
+  [1m[35mEntry Load (0.2ms)[0m  SELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1  [["user_id", 3]]
+  Rendered profile/index.html.haml within layouts/application (6.4ms)
+Completed 200 OK in 34ms (Views: 11.5ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-02 15:58:12 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-02 15:58:12 -0800
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2014-03-02 15:58:12 -0800
+
+
+Started GET "/assets/profile.css?body=1" for 127.0.0.1 at 2014-03-02 15:58:12 -0800
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-03-02 15:58:12 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-02 15:58:12 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-02 15:58:12 -0800
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-03-02 15:58:12 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-03-02 15:58:12 -0800
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-03-02 15:58:12 -0800
+
+
+Started GET "/assets/profile.js?body=1" for 127.0.0.1 at 2014-03-02 15:58:12 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-02 15:58:12 -0800
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-03-02 15:58:12 -0800
+
+
+Started GET "/login/logout" for 127.0.0.1 at 2014-03-02 15:58:14 -0800
+Processing by LoginController#logout as HTML
+  Rendered login/index.html.haml within layouts/application (1.3ms)
+Completed 200 OK in 7ms (Views: 6.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-03-02 15:58:15 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-02 15:58:17 -0800
+Processing by LoginController#signup as HTML
+  Rendered login/signup.html.haml within layouts/application (4.3ms)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/macbook.png" for 127.0.0.1 at 2014-03-02 15:58:17 -0800
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-03-02 15:58:17 -0800
+
+
+Started GET "/assets/devices.png" for 127.0.0.1 at 2014-03-02 15:58:17 -0800
+
+
+Started POST "/login/create" for 127.0.0.1 at 2014-03-02 15:58:27 -0800
+Processing by LoginController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FrTDAxxwOrARHti3ZSAyd6nEjB+jVWGMLg4toXY/XjM=", "user"=>{"email"=>"mom@mom.com", "password"=>"[FILTERED]"}, "rep_pass"=>"muffinman", "commit"=>"Sign up"}
+  Rendered login/signup.html.haml within layouts/application (3.1ms)
+Completed 500 Internal Server Error in 6ms
+
+ActionView::Template::Error (First argument in form cannot contain nil or be empty):
+    1: 
+    2: .row
+    3:   .col-sm-4.col-sm-offset-4.col-xs-5.col-xs-offset-5
+    4:     = form_for @user, url: {:controller=>'login', action: 'create'}, html: { :class=> 'form-signin well ', :id=> 'signup'} do |f|
+    5:       %h2.form-signin-heading.align-center Sign up now
+    6:       %h4.align-center Never forget a password again!      
+    7:       %div{style: "color:red"}= flash[:notice]
+  app/views/login/signup.html.haml:4:in `_app_views_login_signup_html_haml___3978137684323101772_70276701580180'
+  app/controllers/login_controller.rb:59:in `create'
+
+
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.7ms)
+  Rendered /Library/Ruby/Gems/2.0.0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (81.7ms)
+
+
+Started GET "/assets/devices.png" for 127.0.0.1 at 2014-03-02 15:59:50 -0800
+
+
+Started GET "/assets/macbook.png" for 127.0.0.1 at 2014-03-02 15:59:50 -0800
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-03-02 15:59:50 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-02 15:59:51 -0800
+Processing by LoginController#signup as HTML
+  Rendered login/signup.html.haml within layouts/application (8.7ms)
+Completed 200 OK in 22ms (Views: 14.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-02 15:59:51 -0800
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-03-02 15:59:51 -0800
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2014-03-02 15:59:51 -0800
+
+
+Started GET "/assets/profile.css?body=1" for 127.0.0.1 at 2014-03-02 15:59:51 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-02 15:59:51 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-02 15:59:51 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-02 15:59:51 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-03-02 15:59:51 -0800
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-03-02 15:59:51 -0800
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-03-02 15:59:51 -0800
+
+
+Started GET "/assets/profile.js?body=1" for 127.0.0.1 at 2014-03-02 15:59:51 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-02 15:59:51 -0800
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-03-02 15:59:51 -0800
+
+
+Started GET "/assets/devices.png" for 127.0.0.1 at 2014-03-02 15:59:51 -0800
+
+
+Started GET "/assets/macbook.png" for 127.0.0.1 at 2014-03-02 15:59:51 -0800
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2014-03-02 15:59:51 -0800
+
+
+Started POST "/login/check_email_exists" for 127.0.0.1 at 2014-03-02 15:59:57 -0800
+Processing by LoginController#check_email_exists as JSON
+  Parameters: {"email"=>"mom@mom.com"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'mom@mom.com' LIMIT 1[0m
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/login/check_email_exists" for 127.0.0.1 at 2014-03-02 16:00:01 -0800
+Processing by LoginController#check_email_exists as JSON
+  Parameters: {"email"=>"mom@mom.com"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'mom@mom.com' LIMIT 1
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/login/check_email_exists" for 127.0.0.1 at 2014-03-02 16:00:01 -0800
+Processing by LoginController#check_email_exists as JSON
+  Parameters: {"email"=>"mom@mom.com"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'mom@mom.com' LIMIT 1[0m
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/login/create" for 127.0.0.1 at 2014-03-02 16:00:01 -0800
+Processing by LoginController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FrTDAxxwOrARHti3ZSAyd6nEjB+jVWGMLg4toXY/XjM=", "user"=>{"email"=>"mom@mom.com", "password"=>"[FILTERED]"}, "rep_pass"=>"muffinman", "commit"=>"Sign up"}
+Redirected to http://localhost:3000/
+Completed 302 Found in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-02 16:00:01 -0800
+Processing by LoginController#signup as HTML
+  Rendered login/signup.html.haml within layouts/application (1.3ms)
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-02 16:00:01 -0800
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2014-03-02 16:00:01 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-02 16:00:01 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-02 16:00:01 -0800
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-03-02 16:00:01 -0800
+
+
+Started GET "/assets/profile.css?body=1" for 127.0.0.1 at 2014-03-02 16:00:01 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-02 16:00:01 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-03-02 16:00:01 -0800
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-03-02 16:00:01 -0800
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-03-02 16:00:01 -0800
+
+
+Started GET "/assets/profile.js?body=1" for 127.0.0.1 at 2014-03-02 16:00:01 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-02 16:00:01 -0800
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-03-02 16:00:01 -0800
+
+
+Started GET "/assets/macbook.png" for 127.0.0.1 at 2014-03-02 16:00:01 -0800
+
+
+Started GET "/assets/devices.png" for 127.0.0.1 at 2014-03-02 16:00:01 -0800
+
+
+Started GET "/" for 127.0.0.1 at 2014-03-02 16:00:26 -0800
+Processing by LoginController#signup as HTML
+  Rendered login/signup.html.haml within layouts/application (8.3ms)
+Completed 200 OK in 22ms (Views: 15.1ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-02 16:00:26 -0800
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-03-02 16:00:26 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-02 16:00:26 -0800
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2014-03-02 16:00:26 -0800
+
+
+Started GET "/assets/profile.css?body=1" for 127.0.0.1 at 2014-03-02 16:00:26 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-02 16:00:26 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-02 16:00:26 -0800
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-03-02 16:00:26 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-03-02 16:00:26 -0800
+
+
+Started GET "/assets/profile.js?body=1" for 127.0.0.1 at 2014-03-02 16:00:26 -0800
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-03-02 16:00:26 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-02 16:00:26 -0800
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-03-02 16:00:26 -0800
+
+
+Started GET "/assets/devices.png" for 127.0.0.1 at 2014-03-02 16:00:26 -0800
+
+
+Started GET "/assets/macbook.png" for 127.0.0.1 at 2014-03-02 16:00:26 -0800
+
+
+Started GET "/assets/favicon.ico" for 127.0.0.1 at 2014-03-02 16:00:26 -0800
+
+
+Started POST "/login/check_email_exists" for 127.0.0.1 at 2014-03-02 16:00:30 -0800
+Processing by LoginController#check_email_exists as JSON
+  Parameters: {"email"=>"mom@mom.com"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'mom@mom.com' LIMIT 1
+Completed 200 OK in 2ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/login/check_email_exists" for 127.0.0.1 at 2014-03-02 16:00:34 -0800
+Processing by LoginController#check_email_exists as JSON
+  Parameters: {"email"=>"mom@mom.com"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE "users"."email" = 'mom@mom.com' LIMIT 1[0m
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/login/check_email_exists" for 127.0.0.1 at 2014-03-02 16:00:34 -0800
+Processing by LoginController#check_email_exists as JSON
+  Parameters: {"email"=>"mom@mom.com"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'mom@mom.com' LIMIT 1
+Completed 200 OK in 1ms (Views: 0.1ms | ActiveRecord: 0.3ms)
+
+
+Started POST "/login/create" for 127.0.0.1 at 2014-03-02 16:00:34 -0800
+Processing by LoginController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FrTDAxxwOrARHti3ZSAyd6nEjB+jVWGMLg4toXY/XjM=", "user"=>{"email"=>"mom@mom.com", "password"=>"[FILTERED]"}, "rep_pass"=>"muffinman", "commit"=>"Sign up"}
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mUser Exists (0.3ms)[0m  SELECT 1 AS one FROM "users" WHERE "users"."email" = 'mom@mom.com' LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "users" ("created_at", "email", "password", "salt", "updated_at") VALUES ($1, $2, $3, $4, $5) RETURNING "id"[0m  [["created_at", Mon, 03 Mar 2014 00:00:34 UTC +00:00], ["email", "mom@mom.com"], ["password", "37d9ae6473a03e103b300e7aab225da6747049b2"], ["salt", "c4b11aa0-8494-0131-c536-3c07542e5dcb"], ["updated_at", Mon, 03 Mar 2014 00:00:34 UTC +00:00]]
+  [1m[35m (16.1ms)[0m  COMMIT
+  [1m[36mUser Exists (0.5ms)[0m  [1mSELECT 1 AS one FROM "users" WHERE ("users"."email" = 'mom@mom.com' AND "users"."id" != 4) LIMIT 1[0m
+Redirected to http://localhost:3000/profile
+Completed 302 Found in 24ms (ActiveRecord: 17.4ms)
+
+
+Started GET "/profile" for 127.0.0.1 at 2014-03-02 16:00:34 -0800
+Processing by ProfileController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE "users"."email" = 'mom@mom.com' LIMIT 1
+  [1m[36mEntry Exists (0.2ms)[0m  [1mSELECT 1 AS one FROM "entries" WHERE "entries"."user_id" = $1 LIMIT 1[0m  [["user_id", 4]]
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "entries" ("created_at", "description", "password", "updated_at", "user_id", "username") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["created_at", Mon, 03 Mar 2014 00:00:34 UTC +00:00], ["description", "Click me, then click 'Show Detail'"], ["password", "LU82NvbTp7JP7Ik5F8Dq+A==$PaPMA2Mbk3oZVBIlOzvTI8qDPSETXSaRPKntfkrb3+eSAg/P9wBdhba2jgIi\ndi/N"], ["updated_at", Mon, 03 Mar 2014 00:00:34 UTC +00:00], ["user_id", 4], ["username", "Your username or login name to some site"]]
+  [1m[35m (0.8ms)[0m  COMMIT
+  [1m[36mEntry Load (0.2ms)[0m  [1mSELECT "entries".* FROM "entries" WHERE "entries"."user_id" = $1[0m  [["user_id", 4]]
+  Rendered profile/index.html.haml within layouts/application (2.0ms)
+Completed 200 OK in 23ms (Views: 7.2ms | ActiveRecord: 3.2ms)
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-03-02 16:00:34 -0800
+
+
+Started GET "/assets/login.css?body=1" for 127.0.0.1 at 2014-03-02 16:00:34 -0800
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-03-02 16:00:34 -0800
+
+
+Started GET "/assets/bootstrap.css?body=1" for 127.0.0.1 at 2014-03-02 16:00:34 -0800
+
+
+Started GET "/assets/profile.css?body=1" for 127.0.0.1 at 2014-03-02 16:00:34 -0800
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-03-02 16:00:34 -0800
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-03-02 16:00:34 -0800
+
+
+Started GET "/assets/bootstrap.js?body=1" for 127.0.0.1 at 2014-03-02 16:00:34 -0800
+
+
+Started GET "/assets/underscore.js?body=1" for 127.0.0.1 at 2014-03-02 16:00:34 -0800
+
+
+Started GET "/assets/login.js?body=1" for 127.0.0.1 at 2014-03-02 16:00:34 -0800
+
+
+Started GET "/assets/profile.js?body=1" for 127.0.0.1 at 2014-03-02 16:00:34 -0800
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-03-02 16:00:34 -0800
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-03-02 16:00:34 -0800
+
+
+Started GET "/login/logout" for 127.0.0.1 at 2014-03-02 16:00:37 -0800
+Processing by LoginController#logout as HTML
+  Rendered login/index.html.haml within layouts/application (1.4ms)
+Completed 200 OK in 7ms (Views: 6.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/main-logo.png" for 127.0.0.1 at 2014-03-02 16:00:37 -0800
