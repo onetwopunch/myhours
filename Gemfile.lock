@@ -25,7 +25,6 @@ GEM
       multi_json (~> 1.3)
       thread_safe (~> 0.1)
       tzinfo (~> 0.3.37)
-    aes (0.5.0)
     arel (4.0.1)
     atomic (1.1.14)
     bootstrap_form (2.0.0)
@@ -59,6 +58,7 @@ GEM
     mime-types (1.25.1)
     minitest (4.7.5)
     multi_json (1.8.2)
+    mysql2 (0.3.16)
     pg (0.17.1)
     polyglot (0.3.3)
     rack (1.5.2)
@@ -118,13 +118,13 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  aes (~> 0.5.0)
   bootstrap_form
   coffee-rails (~> 4.0.0)
   haml (~> 4.0.5)
   jbuilder (~> 1.2)
   jquery-rails
   lunchy (~> 0.7.0)
+  mysql2 (~> 0.3.16)
   pg
   rails (= 4.0.1)
   sass-rails (~> 4.0.0)

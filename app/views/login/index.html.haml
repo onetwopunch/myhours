@@ -4,9 +4,9 @@
       %h2.form-signin-heading
         Please log in
         %small.pull-right
-          = link_to("Sign up", {:controller=> 'login', :action => 'signup'}, :class => "btn btn-small btn-warning")
+          = link_to("Sign up", {:controller=> 'login', :action => 'signup'}, :class => "btn btn-small btn-default")
       %div{style: "color:red"}= flash[:notice]
       %p= text_field_tag(:email, nil, :class =>'form-control', :placeholder => "Email address")
       %p= password_field_tag(:password, nil, :class => 'form-control', :placeholder =>"Password")
       %p= link_to("Forgot Password", :action => 'forgot')
-      %p= submit_tag("Log in", :class =>"btn btn-lg btn-danger btn-block")
+      %p= submit_tag("Log in", :class =>"btn btn-lg btn-primary btn-block")

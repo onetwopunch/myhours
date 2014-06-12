@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Passweb::Application.config.secret_key_base = '651f24e9456ab81c72a141733483bd37f9f1a39dcce45c083da7dde55ee56d6ed0fe5c0686c9f9efd4f67bcb46254a36ade0ea624baaa3b439ee5acfae9ca865'
+MyHours::Application.config.secret_key_base = '651f24e9456ab81c72a141733483bd37f9f1a39dcce45c083da7dde55ee56d6ed0fe5c0686c9f9efd4f67bcb46254a36ade0ea624baaa3b439ee5acfae9ca865'

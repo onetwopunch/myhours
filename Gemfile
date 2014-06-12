@@ -3,9 +3,15 @@ source 'https://rubygems.org'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.1'
 
-# Use mysql as the database for Active Record
-gem 'pg'
-gem 'lunchy', '~> 0.7.0'
+# Use pg as the database for Active Record
+group :production do
+  gem 'pg'
+	gem 'lunchy', '~> 0.7.0'
+end
+
+group :development do 
+  gem 'mysql2', '~> 0.3.16'
+end
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -41,8 +47,6 @@ end
 # UUID allows the hash for users' password to be unique to that user
 gem "uuid", "~> 2.3.7"
 
-# AES encryption is used to encrypt the users' entries in the database
-gem "aes", "~> 0.5.0"
 
 # gem 'rails_12factor', group: :production
 # Use ActiveModel has_secure_password

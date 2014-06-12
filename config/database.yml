@@ -9,11 +9,11 @@
 # And be sure to use new-style password hashing:
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
 development:
-  adapter: postgresql
+  adapter: mysql2
   encoding: utf8
-  database: passweb_dev
+  database: myhours_development
   pool: 5
-  username: ryancanty #root
+  username: root
   password: 
   # socket: /Applications/XAMPP/xamppfiles/var/mysql/mysql.sock 
 
@@ -35,7 +35,7 @@ test:
 production:
   adapter: postgresql
   encoding: utf8
-  database: passweb_production
+  database: myhours_production
   pool: 5
   # username: root
   # password:

@@ -1,9 +1,8 @@
-
 .row
   .col-sm-4.col-sm-offset-4.col-xs-5.col-xs-offset-5
     = form_for @user, url: {:controller=>'login', action: 'create'}, html: { :class=> 'form-signin well ', :id=> 'signup'} do |f|
       %h2.form-signin-heading.align-center Sign up now
-      %h4.align-center Never forget a password again!      
+      %h4.align-center Track your MFT hours for free
       %div{style: "color:red"}= flash[:notice]
       %p
         = f.text_field(:email, class: 'form-control email', placeholder: "Email address")
@@ -14,4 +13,4 @@
       %p
         = password_field_tag(:rep_pass, nil, :class => 'form-control password', :placeholder =>"Re-enter Password")
         %span#err-match
-      %p= submit_tag("Sign up", :class =>"btn btn-lg btn-danger btn-block")
+      %p= submit_tag("Sign up", :class =>"btn btn-lg btn-primary btn-block")

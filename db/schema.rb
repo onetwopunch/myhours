@@ -13,21 +13,6 @@
 
 ActiveRecord::Schema.define(version: 20131213160259) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
-  create_table "entries", force: true do |t|
-    t.string   "password"
-    t.string   "description"
-    t.string   "username"
-    t.boolean  "is_active",   default: true
-    t.integer  "user_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  add_index "entries", ["user_id"], name: "index_entries_on_user_id", using: :btree
-
   create_table "temp_passwords", force: true do |t|
     t.string   "uuid"
     t.string   "hashed_uuid"
