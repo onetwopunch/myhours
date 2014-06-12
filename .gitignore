@@ -1,4 +1,4 @@
-tmp/*
-public/assets/*
+tmp
+public/assets
 .codio
 Gemfile.lock
