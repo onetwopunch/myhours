@@ -64476,3 +64476,619 @@ Started GET "/assets/bootstrap.js?body=1" for 172.17.42.1 at 2014-06-12 00:27:09
 
 
 Started GET "/assets/login.js?body=1" for 172.17.42.1 at 2014-06-12 00:27:09 +0000
+
+
+Started GET "/" for 172.17.42.1 at 2014-06-12 16:47:59 +0000
+
+Mysql2::Error (Can't connect to local MySQL server through socket '/tmp/mysql.sock' (2)):
+  mysql2 (0.3.16) lib/mysql2/client.rb:70:in `connect'
+  mysql2 (0.3.16) lib/mysql2/client.rb:70:in `initialize'
+  activerecord (4.0.1) lib/active_record/connection_adapters/mysql2_adapter.rb:18:in `new'
+  activerecord (4.0.1) lib/active_record/connection_adapters/mysql2_adapter.rb:18:in `mysql2_connection'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:440:in `new_connection'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:450:in `checkout_new_connection'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:421:in `acquire_connection'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:356:in `block in checkout'
+  /home/codio/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `checkout'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:265:in `block in connection'
+  /home/codio/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/monitor.rb:211:in `mon_synchronize'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:264:in `connection'
+  activerecord (4.0.1) lib/active_record/connection_adapters/abstract/connection_pool.rb:546:in `retrieve_connection'
+  activerecord (4.0.1) lib/active_record/connection_handling.rb:79:in `retrieve_connection'
+  activerecord (4.0.1) lib/active_record/connection_handling.rb:53:in `connection'
+  activerecord (4.0.1) lib/active_record/migration.rb:792:in `current_version'
+  activerecord (4.0.1) lib/active_record/migration.rb:800:in `needs_migration?'
+  activerecord (4.0.1) lib/active_record/migration.rb:379:in `check_pending!'
+  activerecord (4.0.1) lib/active_record/migration.rb:366:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:373:in `_run__2629327932043811173__call__callbacks'
+  activesupport (4.0.1) lib/active_support/callbacks.rb:80:in `run_callbacks'
+  actionpack (4.0.1) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/reloader.rb:64:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/remote_ip.rb:76:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.0.1) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `block in tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:25:in `tagged'
+  activesupport (4.0.1) lib/active_support/tagged_logging.rb:67:in `tagged'
+  railties (4.0.1) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.5.2) lib/rack/methodoverride.rb:21:in `call'
+  rack (1.5.2) lib/rack/runtime.rb:17:in `call'
+  activesupport (4.0.1) lib/active_support/cache/strategy/local_cache.rb:83:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  actionpack (4.0.1) lib/action_dispatch/middleware/static.rb:64:in `call'
+  rack (1.5.2) lib/rack/sendfile.rb:112:in `call'
+  railties (4.0.1) lib/rails/engine.rb:511:in `call'
+  railties (4.0.1) lib/rails/application.rb:97:in `call'
+  rack (1.5.2) lib/rack/lock.rb:17:in `call'
+  rack (1.5.2) lib/rack/content_length.rb:14:in `call'
+  rack (1.5.2) lib/rack/handler/webrick.rb:60:in `service'
+  /home/codio/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:138:in `service'
+  /home/codio/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/httpserver.rb:94:in `run'
+  /home/codio/.rbenv/versions/2.0.0-p353/lib/ruby/2.0.0/webrick/server.rb:295:in `block in start_thread'
+
+
+  Rendered /home/codio/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_source.erb (0.5ms)
+  Rendered /home/codio/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+  Rendered /home/codio/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (0.9ms)
+  Rendered /home/codio/.rbenv/versions/2.0.0-p353/lib/ruby/gems/2.0.0/gems/actionpack-4.0.1/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (34.7ms)
+
+
+Started GET "/" for 172.17.42.1 at 2014-06-12 16:49:23 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (3.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by LoginController#signup as HTML
+  Rendered login/signup.html.haml within layouts/application (15.4ms)
+Completed 200 OK in 161ms (Views: 130.1ms | ActiveRecord: 4.4ms)
+
+
+Started GET "/assets/application.css?body=1" for 172.17.42.1 at 2014-06-12 16:49:24 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 172.17.42.1 at 2014-06-12 16:49:24 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 172.17.42.1 at 2014-06-12 16:49:24 +0000
+
+
+Started GET "/assets/login.css?body=1" for 172.17.42.1 at 2014-06-12 16:49:24 +0000
+
+
+Started GET "/assets/fonts.css?body=1" for 172.17.42.1 at 2014-06-12 16:49:24 +0000
+
+
+Started GET "/assets/bootstrap.css?body=1" for 172.17.42.1 at 2014-06-12 16:49:24 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 172.17.42.1 at 2014-06-12 16:49:24 +0000
+
+
+Started GET "/assets/bootstrap.js?body=1" for 172.17.42.1 at 2014-06-12 16:49:24 +0000
+
+
+Started GET "/assets/underscore.js?body=1" for 172.17.42.1 at 2014-06-12 16:49:24 +0000
+
+
+Started GET "/assets/login.js?body=1" for 172.17.42.1 at 2014-06-12 16:49:24 +0000
+
+
+Started GET "/assets/application.js?body=1" for 172.17.42.1 at 2014-06-12 16:49:24 +0000
+
+
+Started GET "/assets/myhourslogo.png" for 172.17.42.1 at 2014-06-12 16:49:24 +0000
+
+
+Started GET "/assets/Aaargh.ttf" for 172.17.42.1 at 2014-06-12 16:49:24 +0000
+
+
+Started GET "/assets/Aleo-Regular.otf" for 172.17.42.1 at 2014-06-12 16:49:24 +0000
+
+
+Started GET "/assets/favicon.ico" for 172.17.42.1 at 2014-06-12 16:49:24 +0000
+
+
+Started GET "/login" for 172.17.42.1 at 2014-06-12 16:49:28 +0000
+Processing by LoginController#index as HTML
+  Rendered login/index.html.haml within layouts/application (4.0ms)
+Completed 200 OK in 13ms (Views: 12.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/myhourslogo.png" for 172.17.42.1 at 2014-06-12 16:49:28 +0000
+
+
+Started POST "/login/authenticate" for 172.17.42.1 at 2014-06-12 16:49:34 +0000
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"8jm4WshQDg0DqWjbgrrtCUPaffDaobJ68/FITBx2q2s=", "email"=>"jrcanty@gmail.com", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'jrcanty@gmail.com' LIMIT 1
+Redirected to http://humist-nogada-3000.codio.io/profile
+Completed 302 Found in 6ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/profile" for 172.17.42.1 at 2014-06-12 16:49:34 +0000
+Processing by ProfileController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'jrcanty@gmail.com' LIMIT 1[0m
+  Rendered profile/index.html.haml within layouts/application (0.8ms)
+Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/assets/application.css?body=1" for 172.17.42.1 at 2014-06-12 16:49:34 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 172.17.42.1 at 2014-06-12 16:49:34 +0000
+
+
+Started GET "/assets/login.css?body=1" for 172.17.42.1 at 2014-06-12 16:49:34 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 172.17.42.1 at 2014-06-12 16:49:34 +0000
+
+
+Started GET "/assets/fonts.css?body=1" for 172.17.42.1 at 2014-06-12 16:49:34 +0000
+
+
+Started GET "/assets/bootstrap.css?body=1" for 172.17.42.1 at 2014-06-12 16:49:34 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 172.17.42.1 at 2014-06-12 16:49:35 +0000
+
+
+Started GET "/assets/underscore.js?body=1" for 172.17.42.1 at 2014-06-12 16:49:35 +0000
+
+
+Started GET "/assets/bootstrap.js?body=1" for 172.17.42.1 at 2014-06-12 16:49:35 +0000
+
+
+Started GET "/assets/login.js?body=1" for 172.17.42.1 at 2014-06-12 16:49:35 +0000
+
+
+Started GET "/assets/application.js?body=1" for 172.17.42.1 at 2014-06-12 16:49:35 +0000
+
+
+Started GET "/assets/myhourslogo.png" for 172.17.42.1 at 2014-06-12 16:49:35 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateCategoryGroups (20140612165220)
+  [1m[35m (14.0ms)[0m  CREATE TABLE `category_groups` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140612165220')
+  [1m[36m (1.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateCategories (20140612165230)
+  [1m[35m (14.9ms)[0m  CREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `requirement` int(11), `category_groups_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140612165230')
+  [1m[36m (1.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateUserHours (20140612165238)
+  [1m[35m (15.2ms)[0m  CREATE TABLE `user_hours` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `users_id` int(11), `categories_id` int(11), `recorded_hours` float, `valid_hours` float, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140612165238')
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateSites (20140612165344)
+  [1m[35m (14.2ms)[0m  CREATE TABLE `sites` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `address` varchar(255), `phone` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140612165344')
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+Migrating to CreateSupervisors (20140612172159)
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateSupervisors (20140612172159)
+  [1m[35m (17.7ms)[0m  CREATE TABLE `supervisors` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `sites_id` int(11), `name` varchar(255), `phone` varchar(255), `email` varchar(255), `license_state` varchar(255), `license_type` varchar(255), `license_number` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140612172159')
+  [1m[36m (1.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateSupervisors (20140612172159)
+  [1m[35m (5.8ms)[0m  DROP TABLE `supervisors`
+  [1m[36mSQL (2.0ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20140612172159'[0m
+Migrating to CreateSites (20140612165344)
+  [1m[35m (7.4ms)[0m  DROP TABLE `sites`
+  [1m[36mSQL (1.9ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20140612165344'[0m
+Migrating to CreateUserHours (20140612165238)
+  [1m[35m (4.0ms)[0m  DROP TABLE `user_hours`
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20140612165238'[0m
+Migrating to CreateCategories (20140612165230)
+  [1m[35m (5.3ms)[0m  DROP TABLE `categories`
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20140612165230'[0m
+Migrating to CreateCategoryGroups (20140612165220)
+  [1m[35m (8.9ms)[0m  DROP TABLE `category_groups`
+  [1m[36mSQL (1.8ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20140612165220'[0m
+Migrating to CreateTempPasswords (20131213160259)
+  [1m[35m (5.5ms)[0m  DROP TABLE `temp_passwords`
+  [1m[36mSQL (1.2ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20131213160259'[0m
+Migrating to AddIndicies (20131210225414)
+  [1m[35m (7.6ms)[0m  DROP INDEX `index_users_on_email` ON `users`
+  [1m[36mSQL (1.5ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20131210225414'[0m
+Migrating to CreateUsers (20131207190612)
+  [1m[35m (5.2ms)[0m  DROP TABLE `users`
+  [1m[36mSQL (1.1ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20131207190612'[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateUsers (20131207190612)
+  [1m[35m (15.4ms)[0m  CREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `email` varchar(100), `password` varchar(255), `salt` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131207190612')
+  [1m[36m (1.8ms)[0m  [1mCOMMIT[0m
+Migrating to AddIndicies (20131210225414)
+  [1m[35m (33.3ms)[0m  CREATE INDEX `index_users_on_email` ON `users` (`email`) 
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131210225414')
+  [1m[36m (2.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateTempPasswords (20131213160259)
+  [1m[35m (16.3ms)[0m  CREATE TABLE `temp_passwords` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `uuid` varchar(255), `hashed_uuid` varchar(255), `email` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131213160259')
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreateCategoryGroups (20140612165220)
+  [1m[35m (15.0ms)[0m  CREATE TABLE `category_groups` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `requirement` float, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140612165220')
+  [1m[36m (1.9ms)[0m  [1mCOMMIT[0m
+Migrating to CreateCategories (20140612165230)
+  [1m[35m (14.7ms)[0m  CREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `requirement` float, `category_groups_id` int(11), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140612165230')
+  [1m[36m (1.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateUserHours (20140612165238)
+  [1m[35m (18.7ms)[0m  CREATE TABLE `user_hours` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `users_id` int(11), `categories_id` int(11), `recorded_hours` float, `valid_hours` float, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140612165238')
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+Migrating to CreateSites (20140612165344)
+  [1m[35m (23.0ms)[0m  CREATE TABLE `sites` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `address` varchar(255), `phone` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140612165344')
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+Migrating to CreateSupervisors (20140612172159)
+  [1m[35m (22.5ms)[0m  CREATE TABLE `supervisors` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `sites_id` int(11), `name` varchar(255), `phone` varchar(255), `email` varchar(255), `license_state` varchar(255), `license_type` varchar(255), `license_number` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140612172159')
+  [1m[36m (1.7ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateSupervisors (20140612172159)
+  [1m[35m (8.1ms)[0m  DROP TABLE `supervisors`
+  [1m[36mSQL (6.7ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20140612172159'[0m
+Migrating to CreateSites (20140612165344)
+  [1m[35m (5.4ms)[0m  DROP TABLE `sites`
+  [1m[36mSQL (1.4ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20140612165344'[0m
+Migrating to CreateUserHours (20140612165238)
+  [1m[35m (8.6ms)[0m  DROP TABLE `user_hours`
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20140612165238'[0m
+Migrating to CreateCategories (20140612165230)
+  [1m[35m (5.8ms)[0m  DROP TABLE `categories`
+  [1m[36mSQL (0.9ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20140612165230'[0m
+Migrating to CreateCategoryGroups (20140612165220)
+  [1m[35m (4.3ms)[0m  DROP TABLE `category_groups`
+  [1m[36mSQL (1.9ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20140612165220'[0m
+Migrating to CreateTempPasswords (20131213160259)
+  [1m[35m (3.9ms)[0m  DROP TABLE `temp_passwords`
+  [1m[36mSQL (2.3ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20131213160259'[0m
+Migrating to AddIndicies (20131210225414)
+  [1m[35m (8.0ms)[0m  DROP INDEX `index_users_on_email` ON `users`
+  [1m[36mSQL (2.2ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20131210225414'[0m
+Migrating to CreateUsers (20131207190612)
+  [1m[35m (4.4ms)[0m  DROP TABLE `users`
+  [1m[36mSQL (1.8ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20131207190612'[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateUsers (20131207190612)
+  [1m[35m (35.8ms)[0m  CREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255), `grad_date` varchar(255), `email` varchar(100), `password` varchar(255), `salt` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131207190612')
+  [1m[36m (1.8ms)[0m  [1mCOMMIT[0m
+Migrating to AddIndicies (20131210225414)
+  [1m[35m (45.4ms)[0m  CREATE INDEX `index_users_on_email` ON `users` (`email`) 
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131210225414')
+  [1m[36m (3.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateTempPasswords (20131213160259)
+  [1m[35m (22.2ms)[0m  CREATE TABLE `temp_passwords` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `uuid` varchar(255), `hashed_uuid` varchar(255), `email` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131213160259')
+  [1m[36m (1.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateCategories (20140612165230)
+  [1m[35m (21.1ms)[0m  CREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `is_counselling` tinyint(1), `requirement` float, `max` tinyint(1), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140612165230')
+  [1m[36m (1.2ms)[0m  [1mCOMMIT[0m
+Migrating to CreateUserHours (20140612165238)
+  [1m[35m (21.4ms)[0m  CREATE TABLE `user_hours` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `users_id` int(11), `categories_id` int(11), `recorded_hours` float, `valid_hours` float, `date` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140612165238')
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateSites (20140612165344)
+  [1m[35m (20.7ms)[0m  CREATE TABLE `sites` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `address` varchar(255), `phone` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140612165344')
+  [1m[36m (1.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateSupervisors (20140612172159)
+  [1m[35m (20.9ms)[0m  CREATE TABLE `supervisors` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `sites_id` int(11), `name` varchar(255), `phone` varchar(255), `email` varchar(255), `license_state` varchar(255), `license_type` varchar(255), `license_number` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140612172159')
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateSubcategories (20140612224433)
+  [1m[35m (32.2ms)[0m  CREATE TABLE `subcategories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `categories_id` int(11), `name` varchar(255), `requirement` float, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140612224433')
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.3ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+WARNING: Can't mass-assign protected attributes for Category: is_counselling
+
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `categories` (`created_at`, `name`, `updated_at`) VALUES ('2014-06-12 23:58:47', 'Individual Psychotherapy', '2014-06-12 23:58:47')[0m
+  [1m[35m (1.7ms)[0m  COMMIT
+WARNING: Can't mass-assign protected attributes for Category: is_counselling
+
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `categories` (`created_at`, `max`, `name`, `requirement`, `updated_at`) VALUES ('2014-06-12 23:58:47', 0, 'Couples, Families, and Children', 500.0, '2014-06-12 23:58:47')
+  [1m[36m (2.8ms)[0m  [1mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+WARNING: Can't mass-assign protected attributes for Category: is_counselling
+
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `categories` (`created_at`, `name`, `updated_at`) VALUES ('2014-06-13 00:00:42', 'Individual Psychotherapy', '2014-06-13 00:00:42')[0m
+  [1m[35m (7.9ms)[0m  COMMIT
+WARNING: Can't mass-assign protected attributes for Category: is_counselling
+
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `categories` (`created_at`, `max`, `name`, `requirement`, `updated_at`) VALUES ('2014-06-13 00:00:42', 0, 'Couples, Families, and Children', 500.0, '2014-06-13 00:00:42')
+  [1m[36m (2.9ms)[0m  [1mCOMMIT[0m
+WARNING: Can't mass-assign protected attributes for Subcategory: categories_id
+
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+Migrating to CreateSubcategories (20140612224433)
+  [1m[36m (5.4ms)[0m  [1mDROP TABLE `subcategories`[0m
+  [1m[35mSQL (1.9ms)[0m  DELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20140612224433'
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateSubcategories (20140612224433)
+  [1m[35m (23.5ms)[0m  CREATE TABLE `subcategories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `categories_id` int(11), `max` tinyint(1), `name` varchar(255), `requirement` float, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140612224433')
+  [1m[36m (2.0ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+WARNING: Can't mass-assign protected attributes for Category: is_counselling
+
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `categories` (`created_at`, `name`, `updated_at`) VALUES ('2014-06-13 00:01:53', 'Individual Psychotherapy', '2014-06-13 00:01:53')[0m
+  [1m[35m (3.5ms)[0m  COMMIT
+WARNING: Can't mass-assign protected attributes for Category: is_counselling
+
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `categories` (`created_at`, `max`, `name`, `requirement`, `updated_at`) VALUES ('2014-06-13 00:01:53', 0, 'Couples, Families, and Children', 500.0, '2014-06-13 00:01:53')
+  [1m[36m (4.1ms)[0m  [1mCOMMIT[0m
+WARNING: Can't mass-assign protected attributes for Subcategory: categories_id
+
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `subcategories` (`created_at`, `max`, `name`, `requirement`, `updated_at`) VALUES ('2014-06-13 00:01:53', 1, 'Conjoint Hours (First 150 hours are double counted)', 300.0, '2014-06-13 00:01:53')[0m
+  [1m[35m (8.4ms)[0m  COMMIT
+WARNING: Can't mass-assign protected attributes for Category: is_counselling
+
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `categories` (`created_at`, `max`, `name`, `requirement`, `updated_at`) VALUES ('2014-06-13 00:01:53', 1, 'Group Psychotherapy or Counseling', 500.0, '2014-06-13 00:01:53')
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+WARNING: Can't mass-assign protected attributes for Category: is_counselling
+
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO `categories` (`created_at`, `name`, `updated_at`) VALUES ('2014-06-13 00:02:34', 'Individual Psychotherapy', '2014-06-13 00:02:34')[0m
+  [1m[35m (2.8ms)[0m  COMMIT
+WARNING: Can't mass-assign protected attributes for Category: is_counselling
+
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `categories` (`created_at`, `max`, `name`, `requirement`, `updated_at`) VALUES ('2014-06-13 00:02:34', 0, 'Couples, Families, and Children', 500.0, '2014-06-13 00:02:34')
+  [1m[36m (1.0ms)[0m  [1mCOMMIT[0m
+WARNING: Can't mass-assign protected attributes for Subcategory: categories_id
+
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `subcategories` (`created_at`, `max`, `name`, `requirement`, `updated_at`) VALUES ('2014-06-13 00:02:34', 1, 'Conjoint Hours (First 150 hours are double counted)', 300.0, '2014-06-13 00:02:34')[0m
+  [1m[35m (2.2ms)[0m  COMMIT
+WARNING: Can't mass-assign protected attributes for Category: is_counselling
+
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `categories` (`created_at`, `max`, `name`, `requirement`, `updated_at`) VALUES ('2014-06-13 00:02:34', 1, 'Group Psychotherapy or Counseling', 500.0, '2014-06-13 00:02:34')
+  [1m[36m (2.1ms)[0m  [1mCOMMIT[0m
+WARNING: Can't mass-assign protected attributes for Category: is_counselling
+
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `categories` (`created_at`, `max`, `name`, `requirement`, `updated_at`) VALUES ('2014-06-13 00:02:34', 1, 'Telehealth Counseling, including telephone counseling', 375.0, '2014-06-13 00:02:34')[0m
+  [1m[35m (1.7ms)[0m  COMMIT
+WARNING: Can't mass-assign protected attributes for Category: is_counselling
+
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `categories` (`created_at`, `max`, `name`, `requirement`, `updated_at`) VALUES ('2014-06-13 00:02:34', 1, 'Administrative Tasks', 500.0, '2014-06-13 00:02:34')
+  [1m[36m (1.6ms)[0m  [1mCOMMIT[0m
+WARNING: Can't mass-assign protected attributes for Subcategory: categories_id
+
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `subcategories` (`created_at`, `max`, `name`, `updated_at`) VALUES ('2014-06-13 00:02:34', 1, 'Administrating and evaluating psychological tests', '2014-06-13 00:02:34')[0m
+  [1m[35m (1.4ms)[0m  COMMIT
+WARNING: Can't mass-assign protected attributes for Subcategory: categories_id
+
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `subcategories` (`created_at`, `max`, `name`, `updated_at`) VALUES ('2014-06-13 00:02:34', 1, 'Writing Clinical Reports', '2014-06-13 00:02:34')
+  [1m[36m (1.6ms)[0m  [1mCOMMIT[0m
+WARNING: Can't mass-assign protected attributes for Subcategory: categories_id
+
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `subcategories` (`created_at`, `max`, `name`, `updated_at`) VALUES ('2014-06-13 00:02:34', 1, 'Client Centered Advocacy', '2014-06-13 00:02:34')[0m
+  [1m[35m (1.6ms)[0m  COMMIT
+WARNING: Can't mass-assign protected attributes for Subcategory: categories_id
+
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `subcategories` (`created_at`, `max`, `name`, `updated_at`) VALUES ('2014-06-13 00:02:34', 1, 'Writing Progress or Process Notes', '2014-06-13 00:02:34')
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+WARNING: Can't mass-assign protected attributes for Category: is_counselling
+
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `categories` (`created_at`, `max`, `name`, `requirement`, `updated_at`) VALUES ('2014-06-13 00:02:34', 1, 'Non-Counseling Experience', 1000.0, '2014-06-13 00:02:34')[0m
+  [1m[35m (1.4ms)[0m  COMMIT
+WARNING: Can't mass-assign protected attributes for Subcategory: categories_id
+
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `subcategories` (`created_at`, `max`, `name`, `requirement`, `updated_at`) VALUES ('2014-06-13 00:02:34', 1, 'Workshops, Seminars, Training Sessions, and Sonferences', 250.0, '2014-06-13 00:02:34')
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+WARNING: Can't mass-assign protected attributes for Subcategory: categories_id
+
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `subcategories` (`created_at`, `max`, `name`, `requirement`, `updated_at`) VALUES ('2014-06-13 00:02:34', 1, 'Personal Psychotherapy (Triple Counted Hours)', 300.0, '2014-06-13 00:02:34')[0m
+  [1m[35m (1.6ms)[0m  COMMIT
+WARNING: Can't mass-assign protected attributes for Subcategory: categories_id
+
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `subcategories` (`created_at`, `name`, `updated_at`) VALUES ('2014-06-13 00:02:34', 'Direct Supervisor Contact', '2014-06-13 00:02:34')
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+  [1m[36mCategory Load (0.3ms)[0m  [1mSELECT `categories`.* FROM `categories`[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateSubcategories (20140612224433)
+  [1m[35m (4.5ms)[0m  DROP TABLE `subcategories`
+  [1m[36mSQL (2.1ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20140612224433'[0m
+Migrating to CreateSupervisors (20140612172159)
+  [1m[35m (10.9ms)[0m  DROP TABLE `supervisors`
+  [1m[36mSQL (3.2ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20140612172159'[0m
+Migrating to CreateSites (20140612165344)
+  [1m[35m (7.7ms)[0m  DROP TABLE `sites`
+  [1m[36mSQL (1.9ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20140612165344'[0m
+Migrating to CreateUserHours (20140612165238)
+  [1m[35m (4.0ms)[0m  DROP TABLE `user_hours`
+  [1m[36mSQL (1.9ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20140612165238'[0m
+Migrating to CreateCategories (20140612165230)
+  [1m[35m (3.6ms)[0m  DROP TABLE `categories`
+  [1m[36mSQL (1.4ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20140612165230'[0m
+Migrating to CreateTempPasswords (20131213160259)
+  [1m[35m (4.9ms)[0m  DROP TABLE `temp_passwords`
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20131213160259'[0m
+Migrating to AddIndicies (20131210225414)
+  [1m[35m (11.0ms)[0m  DROP INDEX `index_users_on_email` ON `users`
+  [1m[36mSQL (1.8ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20131210225414'[0m
+Migrating to CreateUsers (20131207190612)
+  [1m[35m (14.7ms)[0m  DROP TABLE `users`
+  [1m[36mSQL (1.0ms)[0m  [1mDELETE FROM `schema_migrations` WHERE `schema_migrations`.`version` = '20131207190612'[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Migrating to CreateUsers (20131207190612)
+  [1m[35m (23.4ms)[0m  CREATE TABLE `users` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `first_name` varchar(255), `last_name` varchar(255), `grad_date` varchar(255), `email` varchar(100), `password` varchar(255), `salt` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131207190612')
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+Migrating to AddIndicies (20131210225414)
+  [1m[35m (41.9ms)[0m  CREATE INDEX `index_users_on_email` ON `users` (`email`) 
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131210225414')
+  [1m[36m (1.8ms)[0m  [1mCOMMIT[0m
+Migrating to CreateTempPasswords (20131213160259)
+  [1m[35m (23.0ms)[0m  CREATE TABLE `temp_passwords` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `uuid` varchar(255), `hashed_uuid` varchar(255), `email` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20131213160259')
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateCategories (20140612165230)
+  [1m[35m (22.0ms)[0m  CREATE TABLE `categories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `is_counselling` tinyint(1), `requirement` float, `max` tinyint(1), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140612165230')
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+Migrating to CreateUserHours (20140612165238)
+  [1m[35m (21.6ms)[0m  CREATE TABLE `user_hours` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `users_id` int(11), `categories_id` int(11), `recorded_hours` float, `valid_hours` float, `date` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140612165238')
+  [1m[36m (1.7ms)[0m  [1mCOMMIT[0m
+Migrating to CreateSites (20140612165344)
+  [1m[35m (23.5ms)[0m  CREATE TABLE `sites` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `name` varchar(255), `address` varchar(255), `phone` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140612165344')
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+Migrating to CreateSupervisors (20140612172159)
+  [1m[35m (24.4ms)[0m  CREATE TABLE `supervisors` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `sites_id` int(11), `name` varchar(255), `phone` varchar(255), `email` varchar(255), `license_state` varchar(255), `license_type` varchar(255), `license_number` varchar(255), `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140612172159')
+  [1m[36m (1.6ms)[0m  [1mCOMMIT[0m
+Migrating to CreateSubcategories (20140612224433)
+  [1m[35m (24.4ms)[0m  CREATE TABLE `subcategories` (`id` int(11) DEFAULT NULL auto_increment PRIMARY KEY, `categories_id` int(11), `max` tinyint(1), `name` varchar(255), `requirement` float, `created_at` datetime, `updated_at` datetime) ENGINE=InnoDB
+  [1m[36m (0.2ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO `schema_migrations` (`version`) VALUES ('20140612224433')
+  [1m[36m (1.8ms)[0m  [1mCOMMIT[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.2ms)[0m  SELECT `schema_migrations`.* FROM `schema_migrations`
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+WARNING: Can't mass-assign protected attributes for Category: is_counselling
+
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `categories` (`created_at`, `name`, `updated_at`) VALUES ('2014-06-13 00:03:39', 'Individual Psychotherapy', '2014-06-13 00:03:39')[0m
+  [1m[35m (1.6ms)[0m  COMMIT
+WARNING: Can't mass-assign protected attributes for Category: is_counselling
+
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `categories` (`created_at`, `max`, `name`, `requirement`, `updated_at`) VALUES ('2014-06-13 00:03:39', 0, 'Couples, Families, and Children', 500.0, '2014-06-13 00:03:39')
+  [1m[36m (2.7ms)[0m  [1mCOMMIT[0m
+WARNING: Can't mass-assign protected attributes for Subcategory: categories_id
+
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `subcategories` (`created_at`, `max`, `name`, `requirement`, `updated_at`) VALUES ('2014-06-13 00:03:39', 1, 'Conjoint Hours (First 150 hours are double counted)', 300.0, '2014-06-13 00:03:39')[0m
+  [1m[35m (1.6ms)[0m  COMMIT
+WARNING: Can't mass-assign protected attributes for Category: is_counselling
+
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `categories` (`created_at`, `max`, `name`, `requirement`, `updated_at`) VALUES ('2014-06-13 00:03:39', 1, 'Group Psychotherapy or Counseling', 500.0, '2014-06-13 00:03:39')
+  [1m[36m (1.8ms)[0m  [1mCOMMIT[0m
+WARNING: Can't mass-assign protected attributes for Category: is_counselling
+
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `categories` (`created_at`, `max`, `name`, `requirement`, `updated_at`) VALUES ('2014-06-13 00:03:39', 1, 'Telehealth Counseling, including telephone counseling', 375.0, '2014-06-13 00:03:39')[0m
+  [1m[35m (1.4ms)[0m  COMMIT
+WARNING: Can't mass-assign protected attributes for Category: is_counselling
+
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `categories` (`created_at`, `max`, `name`, `requirement`, `updated_at`) VALUES ('2014-06-13 00:03:39', 1, 'Administrative Tasks', 500.0, '2014-06-13 00:03:39')
+  [1m[36m (1.5ms)[0m  [1mCOMMIT[0m
+WARNING: Can't mass-assign protected attributes for Subcategory: categories_id
+
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `subcategories` (`created_at`, `max`, `name`, `updated_at`) VALUES ('2014-06-13 00:03:39', 1, 'Administrating and evaluating psychological tests', '2014-06-13 00:03:39')[0m
+  [1m[35m (1.7ms)[0m  COMMIT
+WARNING: Can't mass-assign protected attributes for Subcategory: categories_id
+
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `subcategories` (`created_at`, `max`, `name`, `updated_at`) VALUES ('2014-06-13 00:03:39', 1, 'Writing Clinical Reports', '2014-06-13 00:03:39')
+  [1m[36m (0.8ms)[0m  [1mCOMMIT[0m
+WARNING: Can't mass-assign protected attributes for Subcategory: categories_id
+
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `subcategories` (`created_at`, `max`, `name`, `updated_at`) VALUES ('2014-06-13 00:03:39', 1, 'Client Centered Advocacy', '2014-06-13 00:03:39')[0m
+  [1m[35m (1.4ms)[0m  COMMIT
+WARNING: Can't mass-assign protected attributes for Subcategory: categories_id
+
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `subcategories` (`created_at`, `max`, `name`, `updated_at`) VALUES ('2014-06-13 00:03:39', 1, 'Writing Progress or Process Notes', '2014-06-13 00:03:39')
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m
+WARNING: Can't mass-assign protected attributes for Category: is_counselling
+
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `categories` (`created_at`, `max`, `name`, `requirement`, `updated_at`) VALUES ('2014-06-13 00:03:39', 1, 'Non-Counseling Experience', 1000.0, '2014-06-13 00:03:39')[0m
+  [1m[35m (1.5ms)[0m  COMMIT
+WARNING: Can't mass-assign protected attributes for Subcategory: categories_id
+
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `subcategories` (`created_at`, `max`, `name`, `requirement`, `updated_at`) VALUES ('2014-06-13 00:03:39', 1, 'Workshops, Seminars, Training Sessions, and Sonferences', 250.0, '2014-06-13 00:03:39')
+  [1m[36m (0.9ms)[0m  [1mCOMMIT[0m
+WARNING: Can't mass-assign protected attributes for Subcategory: categories_id
+
+  [1m[35m (0.1ms)[0m  BEGIN
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO `subcategories` (`created_at`, `max`, `name`, `requirement`, `updated_at`) VALUES ('2014-06-13 00:03:39', 1, 'Personal Psychotherapy (Triple Counted Hours)', 300.0, '2014-06-13 00:03:39')[0m
+  [1m[35m (1.6ms)[0m  COMMIT
+WARNING: Can't mass-assign protected attributes for Subcategory: categories_id
+
+  [1m[36m (0.1ms)[0m  [1mBEGIN[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO `subcategories` (`created_at`, `name`, `updated_at`) VALUES ('2014-06-13 00:03:39', 'Direct Supervisor Contact', '2014-06-13 00:03:39')
+  [1m[36m (1.4ms)[0m  [1mCOMMIT[0m

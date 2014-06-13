@@ -11,7 +11,45 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20131213160259) do
+ActiveRecord::Schema.define(version: 20140612224433) do
+
+  create_table "categories", force: true do |t|
+    t.string   "name"
+    t.boolean  "is_counselling"
+    t.float    "requirement"
+    t.boolean  "max"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "sites", force: true do |t|
+    t.string   "name"
+    t.string   "address"
+    t.string   "phone"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "subcategories", force: true do |t|
+    t.integer  "categories_id"
+    t.boolean  "max"
+    t.string   "name"
+    t.float    "requirement"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "supervisors", force: true do |t|
+    t.integer  "sites_id"
+    t.string   "name"
+    t.string   "phone"
+    t.string   "email"
+    t.string   "license_state"
+    t.string   "license_type"
+    t.string   "license_number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "temp_passwords", force: true do |t|
     t.string   "uuid"
@@ -21,7 +59,20 @@ ActiveRecord::Schema.define(version: 20131213160259) do
     t.datetime "updated_at"
   end
 
+  create_table "user_hours", force: true do |t|
+    t.integer  "users_id"
+    t.integer  "categories_id"
+    t.float    "recorded_hours"
+    t.float    "valid_hours"
+    t.string   "date"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "users", force: true do |t|
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "grad_date"
     t.string   "email",      limit: 100
     t.string   "password"
     t.string   "salt"

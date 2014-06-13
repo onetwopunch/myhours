@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Passweb::Application.load_tasks
+MyHours::Application.load_tasks
