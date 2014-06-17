@@ -47,7 +47,9 @@ end
 # UUID allows the hash for users' password to be unique to that user
 gem "uuid", "~> 2.3.7"
 
-gem 'protected_attributes'
+#gem 'protected_attributes'
+
+gem 'jquery-ui-rails'
 
 # gem 'rails_12factor', group: :production
 # Use ActiveModel has_secure_password

@@ -1,1 +1,61 @@
-%h1 Main Page
+.row
+  .col-sm-3
+    %h1 Welcome #{@user.first_name || 'User'}! 
+  .col-sm-9
+    .pull-right
+      %a{href:'#', "data-target" => "#user-info-modal", "data-toggle" => "modal"}
+        Tell me a bit about yourself
+
+.progress
+  .progress-bar.progress-bar-success{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "40", role: "progressbar", style: "width: 40%"}
+    %span.sr-only 40% Complete (success)
+    
+/ Button trigger modal
+%button.btn.btn-primary.btn-lg{"data-target" => "#entry-form-modal", "data-toggle" => "modal"}
+  Add Hours
+/ Hours entry
+#entry-form-modal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+        %h4#myModalLabel.modal-title Enter your hours
+      .modal-body
+        %table.table-striped
+          - @categories.each do |c|
+            %tr
+              %td{style: 'font-weight:bold'}
+                = c.name
+              %td
+                = max_value(c)
+              %td
+                = text_field_tag "#{c.id}", '', placeholder: 'Hours', class: 'form-control' unless c.subcategories.count > 0
+            - c.subcategories.each do |sc|
+              %tr
+                %td{style:'padding-left:30px'}
+                  = sc.name
+                %td
+                  = max_value(sc)
+                %td
+                  = text_field_tag "#{sc.id}", '', placeholder: 'Hours', class: 'form-control'
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+        %button.btn.btn-primary{type: "button"} Create Entry
+
+
+/ user info pop up
+#user-info-modal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
+        %h4#myModalLabel.modal-title Modal title
+      .modal-body
+        = form_tag('/profile/user_update') do
+          = text_field_tag :first_name, "#{@user.first_name}", placeholder: 'First Name', class: 'form-control my-input'
+          = text_field_tag :last_name, "#{@user.last_name}", placeholder: 'Last Name', class: 'form-control my-input'
+          = text_field_tag :grad_date, "#{@user.grad_date}", placeholder: 'Graduation Date', class: 'form-control my-input date-picker'
+
+      .modal-footer
+        %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+        %button.btn.btn-primary.user-info-submit{type: "button"} Save changes

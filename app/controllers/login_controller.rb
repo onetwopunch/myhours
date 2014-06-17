@@ -1,15 +1,7 @@
 class LoginController < ApplicationController
 	
-	before_filter :logged_in?, :only => [:signup, :index]
-
 	def index
 		#log in form		
-	end
-
-	def logged_in?
-		if session[:user_id]
-			redirect_to(:controller=>'profile', :action =>'index')		
-		end
 	end
 
 	def authenticate
@@ -42,7 +34,7 @@ class LoginController < ApplicationController
 
 	def logout
 		session[:user_id] = nil
-		render 'index'
+    redirect_to :action => 'index'
 	end
 
 	def signup 

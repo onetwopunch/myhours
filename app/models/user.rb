@@ -40,8 +40,7 @@ class User < ActiveRecord::Base
 		unless password.blank?
 			self.salt ||= User.make_salt
 			self.password = User.get_hashed_password(password)
-		end
-		
+		end		
 	end
 
 end

@@ -11,13 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140612224433) do
+ActiveRecord::Schema.define(version: 20140616210650) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
     t.boolean  "is_counselling"
     t.float    "requirement"
     t.boolean  "max"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "entries", force: true do |t|
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -31,7 +37,7 @@ ActiveRecord::Schema.define(version: 20140612224433) do
   end
 
   create_table "subcategories", force: true do |t|
-    t.integer  "categories_id"
+    t.integer  "category_id"
     t.boolean  "max"
     t.string   "name"
     t.float    "requirement"
@@ -60,8 +66,8 @@ ActiveRecord::Schema.define(version: 20140612224433) do
   end
 
   create_table "user_hours", force: true do |t|
-    t.integer  "users_id"
-    t.integer  "categories_id"
+    t.integer  "entry_id"
+    t.integer  "category_id"
     t.float    "recorded_hours"
     t.float    "valid_hours"
     t.string   "date"
