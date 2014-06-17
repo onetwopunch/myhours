@@ -5,7 +5,7 @@ require 'digest/sha1'
 class User < ActiveRecord::Base
 	# attr_accessor :email, :password, :entry_hash
 	has_many :entries
-	before_save :create_hashed_password
+  before_save :create_hashed_password, if: :password_changed?
 
   EMAIL_REGEX = /\A[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\z/i
 

@@ -10,7 +10,10 @@
  *
  *= require_self
  *= require bootstrap
+
+ *= require jquery.ui.theme
  *= require jquery.ui.datepicker
+ *= require fullcalendar
  *= require_tree .
  */
 

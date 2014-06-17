@@ -12,8 +12,11 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jquery.ui.core
 //= require jquery.ui.datepicker
 //= require turbolinks
 //= require bootstrap
 //= require underscore
+//= require moment.min.js
+//= require fullcalendar.js
 //= require_tree .

@@ -5,15 +5,20 @@
     .pull-right
       %a{href:'#', "data-target" => "#user-info-modal", "data-toggle" => "modal"}
         Tell me a bit about yourself
+.row
+  .col-sm-6
+    .progress
+      .progress-bar.progress-bar-warning{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "40", role: "progressbar", style: "width: 40%"}
+        %span.sr-only 40% Complete (success)
 
-.progress
-  .progress-bar.progress-bar-success{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "40", role: "progressbar", style: "width: 40%"}
-    %span.sr-only 40% Complete (success)
-    
-/ Button trigger modal
-%button.btn.btn-primary.btn-lg{"data-target" => "#entry-form-modal", "data-toggle" => "modal"}
-  Add Hours
-/ Hours entry
+  .col-sm-6
+    %button.btn.btn-primary.btn-lg{"data-target" => "#entry-form-modal", "data-toggle" => "modal"}
+      Add Hours
+.row
+  .col-sm-12	
+    #calendar
+
+
 #entry-form-modal.modal.fade{"aria-hidden" => "true", "aria-labelledby" => "myModalLabel", role: "dialog", tabindex: "-1"}
   .modal-dialog
     .modal-content
@@ -29,7 +34,7 @@
               %td
                 = max_value(c)
               %td
-                = text_field_tag "#{c.id}", '', placeholder: 'Hours', class: 'form-control' unless c.subcategories.count > 0
+                = text_field_tag "#{c.id}", '', placeholder: 'Hours', class: 'form-control' if c.subcategories.count == 0 || c.id == 2
             - c.subcategories.each do |sc|
               %tr
                 %td{style:'padding-left:30px'}
