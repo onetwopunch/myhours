@@ -3,6 +3,7 @@ class CreateUserHours < ActiveRecord::Migration
     create_table :user_hours do |t|
       t.references :entry
       t.references :category
+      t.references :subcategory
       t.float :recorded_hours
       t.float :valid_hours
       t.string :date

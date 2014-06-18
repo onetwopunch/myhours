@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20140616210650) do
   create_table "user_hours", force: true do |t|
     t.integer  "entry_id"
     t.integer  "category_id"
+    t.integer  "subcategory_id"
     t.float    "recorded_hours"
     t.float    "valid_hours"
     t.string   "date"
