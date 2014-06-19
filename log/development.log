@@ -81002,3 +81002,494 @@ Processing by ProfileController#add_entry as */*
   [1m[35m (1.3ms)[0m  COMMIT
 Completed 200 OK in 50ms (Views: 0.2ms | ActiveRecord: 13.6ms)
   [1m[36mUserHours Load (0.4ms)[0m  [1mSELECT `user_hours`.* FROM `user_hours`[0m
+
+
+Started GET "/" for 172.17.42.1 at 2014-06-19 03:48:50 +0000
+  [1m[36mActiveRecord::SchemaMigration Load (1.4ms)[0m  [1mSELECT `schema_migrations`.* FROM `schema_migrations`[0m
+Processing by LoginController#signup as HTML
+  Rendered login/signup.html.haml within layouts/application (20.6ms)
+Completed 200 OK in 243ms (Views: 207.5ms | ActiveRecord: 9.4ms)
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 172.17.42.1 at 2014-06-19 03:48:51 +0000
+
+
+Started GET "/assets/fonts.css?body=1" for 172.17.42.1 at 2014-06-19 03:48:51 +0000
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 172.17.42.1 at 2014-06-19 03:48:51 +0000
+
+
+Started GET "/assets/application.css?body=1" for 172.17.42.1 at 2014-06-19 03:48:51 +0000
+
+
+Started GET "/assets/login.css?body=1" for 172.17.42.1 at 2014-06-19 03:48:51 +0000
+
+
+Started GET "/assets/bootstrap.css?body=1" for 172.17.42.1 at 2014-06-19 03:48:51 +0000
+
+
+Started GET "/assets/jquery.ui.datepicker.css?body=1" for 172.17.42.1 at 2014-06-19 03:48:51 +0000
+
+
+Started GET "/assets/fullcalendar.css?body=1" for 172.17.42.1 at 2014-06-19 03:48:51 +0000
+
+
+Started GET "/assets/profile.css?body=1" for 172.17.42.1 at 2014-06-19 03:48:51 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 172.17.42.1 at 2014-06-19 03:48:51 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 172.17.42.1 at 2014-06-19 03:48:51 +0000
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 172.17.42.1 at 2014-06-19 03:48:51 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 172.17.42.1 at 2014-06-19 03:48:51 +0000
+
+
+Started GET "/assets/jquery.ui.datepicker.js?body=1" for 172.17.42.1 at 2014-06-19 03:48:51 +0000
+
+
+Started GET "/assets/dispatcher.js?body=1" for 172.17.42.1 at 2014-06-19 03:48:51 +0000
+
+
+Started GET "/assets/bootstrap.js?body=1" for 172.17.42.1 at 2014-06-19 03:48:51 +0000
+
+
+Started GET "/assets/underscore.js?body=1" for 172.17.42.1 at 2014-06-19 03:48:51 +0000
+
+
+Started GET "/assets/moment.min.js?body=1" for 172.17.42.1 at 2014-06-19 03:48:51 +0000
+
+
+Started GET "/assets/login.js?body=1" for 172.17.42.1 at 2014-06-19 03:48:51 +0000
+
+
+Started GET "/assets/profile.js?body=1" for 172.17.42.1 at 2014-06-19 03:48:51 +0000
+
+
+Started GET "/assets/fullcalendar.js?body=1" for 172.17.42.1 at 2014-06-19 03:48:52 +0000
+
+
+Started GET "/assets/application.js?body=1" for 172.17.42.1 at 2014-06-19 03:48:52 +0000
+
+
+Started GET "/assets/myhourslogo.png" for 172.17.42.1 at 2014-06-19 03:48:52 +0000
+
+
+Started GET "/assets/Aleo-Regular.otf" for 172.17.42.1 at 2014-06-19 03:48:52 +0000
+
+
+Started GET "/assets/Aaargh.ttf" for 172.17.42.1 at 2014-06-19 03:48:52 +0000
+
+
+Started GET "/login" for 172.17.42.1 at 2014-06-19 03:48:55 +0000
+Processing by LoginController#index as HTML
+  Rendered login/index.html.haml within layouts/application (3.4ms)
+Completed 200 OK in 15ms (Views: 14.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/myhourslogo.png" for 172.17.42.1 at 2014-06-19 03:48:55 +0000
+
+
+Started POST "/login/authenticate" for 172.17.42.1 at 2014-06-19 03:49:09 +0000
+Processing by LoginController#authenticate as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"KFxZhwYhB0vwG1edRMTawPO4OoStttVxWvTAvrNPrhs=", "email"=>"jrcanty@gmail.com", "password"=>"[FILTERED]", "commit"=>"Log in"}
+  [1m[35mUser Load (0.7ms)[0m  SELECT `users`.* FROM `users` WHERE `users`.`email` = 'jrcanty@gmail.com' LIMIT 1
+Redirected to http://humist-nogada-3000.codio.io/profile
+Completed 302 Found in 6ms (ActiveRecord: 0.7ms)
+
+
+Started GET "/profile" for 172.17.42.1 at 2014-06-19 03:49:09 +0000
+Processing by ProfileController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'jrcanty@gmail.com' LIMIT 1[0m
+  [1m[35mCategory Load (2.8ms)[0m  SELECT `categories`.* FROM `categories`
+  [1m[36m (1.0ms)[0m  [1mSELECT COUNT(*) FROM `subcategories` WHERE `subcategories`.`category_id` = 1[0m
+  [1m[35mSubcategory Load (0.2ms)[0m  SELECT `subcategories`.* FROM `subcategories` WHERE `subcategories`.`category_id` = 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `subcategories` WHERE `subcategories`.`category_id` = 2[0m
+  [1m[35mSubcategory Load (0.2ms)[0m  SELECT `subcategories`.* FROM `subcategories` WHERE `subcategories`.`category_id` = 2
+  [1m[36m (0.3ms)[0m  [1mSELECT COUNT(*) FROM `subcategories` WHERE `subcategories`.`category_id` = 3[0m
+  [1m[35mSubcategory Load (0.2ms)[0m  SELECT `subcategories`.* FROM `subcategories` WHERE `subcategories`.`category_id` = 3
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `subcategories` WHERE `subcategories`.`category_id` = 4[0m
+  [1m[35mSubcategory Load (0.2ms)[0m  SELECT `subcategories`.* FROM `subcategories` WHERE `subcategories`.`category_id` = 4
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `subcategories` WHERE `subcategories`.`category_id` = 5[0m
+  [1m[35mSubcategory Load (0.2ms)[0m  SELECT `subcategories`.* FROM `subcategories` WHERE `subcategories`.`category_id` = 5
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `subcategories` WHERE `subcategories`.`category_id` = 6[0m
+  [1m[35mSubcategory Load (0.2ms)[0m  SELECT `subcategories`.* FROM `subcategories` WHERE `subcategories`.`category_id` = 6
+  Rendered profile/index.html.haml within layouts/application (99.0ms)
+Completed 200 OK in 117ms (Views: 87.4ms | ActiveRecord: 23.1ms)
+
+
+Started GET "/assets/application.css?body=1" for 172.17.42.1 at 2014-06-19 03:49:10 +0000
+
+
+Started GET "/assets/bootstrap.css?body=1" for 172.17.42.1 at 2014-06-19 03:49:10 +0000
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 172.17.42.1 at 2014-06-19 03:49:10 +0000
+
+
+Started GET "/assets/jquery.ui.datepicker.css?body=1" for 172.17.42.1 at 2014-06-19 03:49:10 +0000
+
+
+Started GET "/assets/fullcalendar.css?body=1" for 172.17.42.1 at 2014-06-19 03:49:10 +0000
+
+
+Started GET "/assets/profile.css?body=1" for 172.17.42.1 at 2014-06-19 03:49:10 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:10 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:10 +0000
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:10 +0000
+
+
+Started GET "/assets/jquery.ui.datepicker.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:10 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:10 +0000
+
+
+Started GET "/assets/bootstrap.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:10 +0000
+
+
+Started GET "/assets/underscore.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:10 +0000
+
+
+Started GET "/assets/moment.min.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:10 +0000
+
+
+Started GET "/assets/fullcalendar.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:10 +0000
+
+
+Started GET "/assets/dispatcher.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:10 +0000
+
+
+Started GET "/assets/login.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:10 +0000
+
+
+Started GET "/assets/profile.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:10 +0000
+
+
+Started GET "/assets/application.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:10 +0000
+
+
+Started GET "/assets/myhourslogo.png" for 172.17.42.1 at 2014-06-19 03:49:10 +0000
+
+
+Started GET "/assets/jquery-ui/ui-icons_888888_256x240.png" for 172.17.42.1 at 2014-06-19 03:49:10 +0000
+
+
+Started GET "/assets/jquery-ui/ui-bg_flat_75_ffffff_40x100.png" for 172.17.42.1 at 2014-06-19 03:49:10 +0000
+
+
+Started GET "/assets/jquery-ui/ui-bg_glass_75_e6e6e6_1x400.png" for 172.17.42.1 at 2014-06-19 03:49:10 +0000
+
+
+Started GET "/assets/jquery-ui/ui-bg_highlight-soft_75_cccccc_1x100.png" for 172.17.42.1 at 2014-06-19 03:49:10 +0000
+
+
+Started GET "/assets/jquery-ui/ui-bg_glass_55_fbf9ee_1x400.png" for 172.17.42.1 at 2014-06-19 03:49:10 +0000
+
+
+Started GET "/profile" for 172.17.42.1 at 2014-06-19 03:49:15 +0000
+Processing by ProfileController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'jrcanty@gmail.com' LIMIT 1[0m
+  [1m[35mCategory Load (0.3ms)[0m  SELECT `categories`.* FROM `categories`
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `subcategories` WHERE `subcategories`.`category_id` = 1[0m
+  [1m[35mSubcategory Load (0.2ms)[0m  SELECT `subcategories`.* FROM `subcategories` WHERE `subcategories`.`category_id` = 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `subcategories` WHERE `subcategories`.`category_id` = 2[0m
+  [1m[35mSubcategory Load (0.2ms)[0m  SELECT `subcategories`.* FROM `subcategories` WHERE `subcategories`.`category_id` = 2
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `subcategories` WHERE `subcategories`.`category_id` = 3[0m
+  [1m[35mSubcategory Load (0.2ms)[0m  SELECT `subcategories`.* FROM `subcategories` WHERE `subcategories`.`category_id` = 3
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `subcategories` WHERE `subcategories`.`category_id` = 4[0m
+  [1m[35mSubcategory Load (0.2ms)[0m  SELECT `subcategories`.* FROM `subcategories` WHERE `subcategories`.`category_id` = 4
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `subcategories` WHERE `subcategories`.`category_id` = 5[0m
+  [1m[35mSubcategory Load (0.3ms)[0m  SELECT `subcategories`.* FROM `subcategories` WHERE `subcategories`.`category_id` = 5
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `subcategories` WHERE `subcategories`.`category_id` = 6[0m
+  [1m[35mSubcategory Load (0.2ms)[0m  SELECT `subcategories`.* FROM `subcategories` WHERE `subcategories`.`category_id` = 6
+  Rendered profile/index.html.haml within layouts/application (14.9ms)
+Completed 200 OK in 29ms (Views: 23.8ms | ActiveRecord: 3.4ms)
+
+
+Started GET "/assets/jquery.ui.datepicker.css?body=1" for 172.17.42.1 at 2014-06-19 03:49:15 +0000
+
+
+Started GET "/assets/application.css?body=1" for 172.17.42.1 at 2014-06-19 03:49:15 +0000
+
+
+Started GET "/assets/bootstrap.css?body=1" for 172.17.42.1 at 2014-06-19 03:49:15 +0000
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 172.17.42.1 at 2014-06-19 03:49:15 +0000
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 172.17.42.1 at 2014-06-19 03:49:15 +0000
+
+
+Started GET "/assets/fullcalendar.css?body=1" for 172.17.42.1 at 2014-06-19 03:49:15 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:15 +0000
+
+
+Started GET "/assets/fonts.css?body=1" for 172.17.42.1 at 2014-06-19 03:49:15 +0000
+
+
+Started GET "/assets/profile.css?body=1" for 172.17.42.1 at 2014-06-19 03:49:15 +0000
+
+
+Started GET "/assets/login.css?body=1" for 172.17.42.1 at 2014-06-19 03:49:15 +0000
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:15 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:15 +0000
+
+
+Started GET "/assets/jquery.ui.datepicker.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:15 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:15 +0000
+
+
+Started GET "/assets/underscore.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:15 +0000
+
+
+Started GET "/assets/moment.min.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:15 +0000
+
+
+Started GET "/assets/bootstrap.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:15 +0000
+
+
+Started GET "/assets/fullcalendar.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:15 +0000
+
+
+Started GET "/assets/dispatcher.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:15 +0000
+
+
+Started GET "/assets/application.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:15 +0000
+
+
+Started GET "/assets/login.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:15 +0000
+
+
+Started GET "/assets/profile.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:15 +0000
+
+
+Started GET "/assets/myhourslogo.png" for 172.17.42.1 at 2014-06-19 03:49:15 +0000
+
+
+Started GET "/assets/jquery-ui/ui-bg_flat_75_ffffff_40x100.png" for 172.17.42.1 at 2014-06-19 03:49:16 +0000
+
+
+Started GET "/assets/jquery-ui/ui-bg_glass_75_e6e6e6_1x400.png" for 172.17.42.1 at 2014-06-19 03:49:16 +0000
+
+
+Started GET "/assets/jquery-ui/ui-icons_888888_256x240.png" for 172.17.42.1 at 2014-06-19 03:49:16 +0000
+
+
+Started GET "/assets/jquery-ui/ui-bg_highlight-soft_75_cccccc_1x100.png" for 172.17.42.1 at 2014-06-19 03:49:16 +0000
+
+
+Started GET "/assets/jquery-ui/ui-bg_glass_55_fbf9ee_1x400.png" for 172.17.42.1 at 2014-06-19 03:49:16 +0000
+
+
+Started GET "/assets/favicon.ico" for 172.17.42.1 at 2014-06-19 03:49:16 +0000
+
+
+Started GET "/profile" for 172.17.42.1 at 2014-06-19 03:49:18 +0000
+Processing by ProfileController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'jrcanty@gmail.com' LIMIT 1[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT `categories`.* FROM `categories`
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `subcategories` WHERE `subcategories`.`category_id` = 1[0m
+  [1m[35mSubcategory Load (0.2ms)[0m  SELECT `subcategories`.* FROM `subcategories` WHERE `subcategories`.`category_id` = 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `subcategories` WHERE `subcategories`.`category_id` = 2[0m
+  [1m[35mSubcategory Load (0.2ms)[0m  SELECT `subcategories`.* FROM `subcategories` WHERE `subcategories`.`category_id` = 2
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `subcategories` WHERE `subcategories`.`category_id` = 3[0m
+  [1m[35mSubcategory Load (0.2ms)[0m  SELECT `subcategories`.* FROM `subcategories` WHERE `subcategories`.`category_id` = 3
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `subcategories` WHERE `subcategories`.`category_id` = 4[0m
+  [1m[35mSubcategory Load (0.2ms)[0m  SELECT `subcategories`.* FROM `subcategories` WHERE `subcategories`.`category_id` = 4
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `subcategories` WHERE `subcategories`.`category_id` = 5[0m
+  [1m[35mSubcategory Load (0.2ms)[0m  SELECT `subcategories`.* FROM `subcategories` WHERE `subcategories`.`category_id` = 5
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `subcategories` WHERE `subcategories`.`category_id` = 6[0m
+  [1m[35mSubcategory Load (0.2ms)[0m  SELECT `subcategories`.* FROM `subcategories` WHERE `subcategories`.`category_id` = 6
+  Rendered profile/index.html.haml within layouts/application (12.9ms)
+Completed 200 OK in 25ms (Views: 20.8ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 172.17.42.1 at 2014-06-19 03:49:18 +0000
+
+
+Started GET "/assets/application.css?body=1" for 172.17.42.1 at 2014-06-19 03:49:18 +0000
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 172.17.42.1 at 2014-06-19 03:49:18 +0000
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 172.17.42.1 at 2014-06-19 03:49:18 +0000
+
+
+Started GET "/assets/jquery.ui.datepicker.css?body=1" for 172.17.42.1 at 2014-06-19 03:49:18 +0000
+
+
+Started GET "/assets/fullcalendar.css?body=1" for 172.17.42.1 at 2014-06-19 03:49:18 +0000
+
+
+Started GET "/assets/profile.css?body=1" for 172.17.42.1 at 2014-06-19 03:49:19 +0000
+
+
+Started GET "/assets/login.css?body=1" for 172.17.42.1 at 2014-06-19 03:49:19 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:19 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:19 +0000
+
+
+Started GET "/assets/fonts.css?body=1" for 172.17.42.1 at 2014-06-19 03:49:19 +0000
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:19 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:19 +0000
+
+
+Started GET "/assets/underscore.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:19 +0000
+
+
+Started GET "/assets/jquery.ui.datepicker.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:19 +0000
+
+
+Started GET "/assets/bootstrap.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:19 +0000
+
+
+Started GET "/assets/moment.min.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:19 +0000
+
+
+Started GET "/assets/fullcalendar.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:19 +0000
+
+
+Started GET "/assets/dispatcher.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:19 +0000
+
+
+Started GET "/assets/login.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:19 +0000
+
+
+Started GET "/assets/application.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:19 +0000
+
+
+Started GET "/assets/profile.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:19 +0000
+
+
+Started GET "/assets/myhourslogo.png" for 172.17.42.1 at 2014-06-19 03:49:19 +0000
+
+
+Started GET "/assets/favicon.ico" for 172.17.42.1 at 2014-06-19 03:49:19 +0000
+
+
+Started GET "/profile" for 172.17.42.1 at 2014-06-19 03:49:22 +0000
+Processing by ProfileController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT `users`.* FROM `users` WHERE `users`.`email` = 'jrcanty@gmail.com' LIMIT 1[0m
+  [1m[35mCategory Load (0.2ms)[0m  SELECT `categories`.* FROM `categories`
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `subcategories` WHERE `subcategories`.`category_id` = 1[0m
+  [1m[35mSubcategory Load (0.2ms)[0m  SELECT `subcategories`.* FROM `subcategories` WHERE `subcategories`.`category_id` = 1
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `subcategories` WHERE `subcategories`.`category_id` = 2[0m
+  [1m[35mSubcategory Load (0.2ms)[0m  SELECT `subcategories`.* FROM `subcategories` WHERE `subcategories`.`category_id` = 2
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `subcategories` WHERE `subcategories`.`category_id` = 3[0m
+  [1m[35mSubcategory Load (0.2ms)[0m  SELECT `subcategories`.* FROM `subcategories` WHERE `subcategories`.`category_id` = 3
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `subcategories` WHERE `subcategories`.`category_id` = 4[0m
+  [1m[35mSubcategory Load (0.2ms)[0m  SELECT `subcategories`.* FROM `subcategories` WHERE `subcategories`.`category_id` = 4
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `subcategories` WHERE `subcategories`.`category_id` = 5[0m
+  [1m[35mSubcategory Load (0.2ms)[0m  SELECT `subcategories`.* FROM `subcategories` WHERE `subcategories`.`category_id` = 5
+  [1m[36m (0.2ms)[0m  [1mSELECT COUNT(*) FROM `subcategories` WHERE `subcategories`.`category_id` = 6[0m
+  [1m[35mSubcategory Load (0.2ms)[0m  SELECT `subcategories`.* FROM `subcategories` WHERE `subcategories`.`category_id` = 6
+  Rendered profile/index.html.haml within layouts/application (13.3ms)
+Completed 200 OK in 26ms (Views: 21.7ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/assets/bootstrap.css?body=1" for 172.17.42.1 at 2014-06-19 03:49:22 +0000
+
+
+Started GET "/assets/jquery.ui.datepicker.css?body=1" for 172.17.42.1 at 2014-06-19 03:49:22 +0000
+
+
+Started GET "/assets/fullcalendar.css?body=1" for 172.17.42.1 at 2014-06-19 03:49:22 +0000
+
+
+Started GET "/assets/jquery.ui.core.css?body=1" for 172.17.42.1 at 2014-06-19 03:49:22 +0000
+
+
+Started GET "/assets/application.css?body=1" for 172.17.42.1 at 2014-06-19 03:49:22 +0000
+
+
+Started GET "/assets/jquery.ui.theme.css?body=1" for 172.17.42.1 at 2014-06-19 03:49:22 +0000
+
+
+Started GET "/assets/fonts.css?body=1" for 172.17.42.1 at 2014-06-19 03:49:22 +0000
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:22 +0000
+
+
+Started GET "/assets/login.css?body=1" for 172.17.42.1 at 2014-06-19 03:49:22 +0000
+
+
+Started GET "/assets/jquery.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:22 +0000
+
+
+Started GET "/assets/jquery.ui.core.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:22 +0000
+
+
+Started GET "/assets/profile.css?body=1" for 172.17.42.1 at 2014-06-19 03:49:23 +0000
+
+
+Started GET "/assets/jquery.ui.datepicker.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:23 +0000
+
+
+Started GET "/assets/turbolinks.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:23 +0000
+
+
+Started GET "/assets/moment.min.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:23 +0000
+
+
+Started GET "/assets/bootstrap.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:23 +0000
+
+
+Started GET "/assets/fullcalendar.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:23 +0000
+
+
+Started GET "/assets/underscore.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:23 +0000
+
+
+Started GET "/assets/dispatcher.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:23 +0000
+
+
+Started GET "/assets/login.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:23 +0000
+
+
+Started GET "/assets/profile.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:23 +0000
+
+
+Started GET "/assets/myhourslogo.png" for 172.17.42.1 at 2014-06-19 03:49:23 +0000
+
+
+Started GET "/assets/application.js?body=1" for 172.17.42.1 at 2014-06-19 03:49:23 +0000
+
+
+Started GET "/assets/favicon.ico" for 172.17.42.1 at 2014-06-19 03:49:23 +0000
+  [1m[36mSubcategory Load (0.3ms)[0m  [1mSELECT `subcategories`.* FROM `subcategories`[0m
+  [1m[35mSubcategory Load (0.3ms)[0m  SELECT `subcategories`.* FROM `subcategories`
+  [1m[36mSubcategory Load (0.3ms)[0m  [1mSELECT `subcategories`.* FROM `subcategories`[0m
+  [1m[35mSubcategory Load (0.3ms)[0m  SELECT `subcategories`.* FROM `subcategories`
+  [1m[36mSubcategory Load (0.4ms)[0m  [1mSELECT `subcategories`.* FROM `subcategories` ORDER BY `subcategories`.`id` ASC LIMIT 1[0m
+  [1m[35mSubcategory Load (0.3ms)[0m  SELECT `subcategories`.* FROM `subcategories` ORDER BY `subcategories`.`id` ASC LIMIT 1

@@ -43,4 +43,7 @@ class User < ActiveRecord::Base
 		end		
 	end
 
+  def hours_per_category(category_id)
+    return 0 #TODO: Returns existing user hours for this category
+  end
 end
