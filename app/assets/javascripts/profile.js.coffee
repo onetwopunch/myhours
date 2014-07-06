@@ -4,8 +4,8 @@ class Profile
     $('#calendar').fullCalendar({
       	height: 500,
       	theme: true,
-      	dayClick: @day_click
-      	
+      	dayClick: @day_click,
+      	events: gon.entries
       })
     @bind_user_details_submit()
     @bind_create_entry()
@@ -27,8 +27,13 @@ class Profile
       $.post '/profile/add_entry',
         categories: categories
         subcategories: subcategories
+        date: $('#entry_date').val()
+        site: $('#entry_site').val()
         (data) ->
-          console.log data.success
+          if data.success == true
+            console.log data
+            gon.entries.push(data.entry)
+            $('#calendar').fullCalendar('refetchEvents')
           $('#entry-form-modal').modal('hide')
       
   bind_user_details_submit: ->

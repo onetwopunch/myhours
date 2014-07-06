@@ -24,14 +24,18 @@ ActiveRecord::Schema.define(version: 20140616210650) do
 
   create_table "entries", force: true do |t|
     t.integer  "user_id"
+    t.integer  "site_id"
+    t.string   "date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "sites", force: true do |t|
+    t.integer  "user_id"
     t.string   "name"
     t.string   "address"
     t.string   "phone"
+    t.boolean  "is_default_site"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -46,7 +50,7 @@ ActiveRecord::Schema.define(version: 20140616210650) do
   end
 
   create_table "supervisors", force: true do |t|
-    t.integer  "sites_id"
+    t.integer  "site_id"
     t.string   "name"
     t.string   "phone"
     t.string   "email"
@@ -71,7 +75,6 @@ ActiveRecord::Schema.define(version: 20140616210650) do
     t.integer  "subcategory_id"
     t.float    "recorded_hours"
     t.float    "valid_hours"
-    t.string   "date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

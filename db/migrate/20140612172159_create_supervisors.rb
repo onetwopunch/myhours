@@ -1,7 +1,7 @@
 class CreateSupervisors < ActiveRecord::Migration
   def change
     create_table :supervisors do |t|
-      t.references :sites
+      t.references :site
       t.string :name
       t.string :phone
       t.string :email

@@ -6,7 +6,6 @@ class CreateUserHours < ActiveRecord::Migration
       t.references :subcategory
       t.float :recorded_hours
       t.float :valid_hours
-      t.string :date
       t.timestamps
     end
   end

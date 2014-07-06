@@ -1,6 +1,6 @@
 .row
   .col-sm-3
-    %h1 Welcome #{@user.first_name || 'User'}! 
+    %h1 Welcome #{@user.first_name || 'User'}!
   .col-sm-9
     .pull-right
       %a{href:'#', "data-target" => "#user-info-modal", "data-toggle" => "modal"}
@@ -26,6 +26,12 @@
         %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
         %h4#myModalLabel.modal-title Enter your hours
       .modal-body
+        = text_field_tag :entry_date, "#{Time.new.strftime("%m/%d/%Y")}", class: 'form-control date-picker my-input'
+        .row.my-input
+          .col-sm-1
+            = label_tag :entry_site, "Site:"
+          .col-sm-11
+            = select_tag :entry_site, options_for_select((@user.sites.pluck(:name) rescue []), (@user.default_site.name rescue 'No sites defined yet.')), class: 'form-control'
         %table.table-striped
           - @categories.each do |c|
             %tr

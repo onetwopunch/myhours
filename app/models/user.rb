@@ -5,6 +5,7 @@ require 'digest/sha1'
 class User < ActiveRecord::Base
 	# attr_accessor :email, :password, :entry_hash
 	has_many :entries
+  has_many :sites
   before_save :create_hashed_password, if: :password_changed?
 
   EMAIL_REGEX = /\A[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\z/i
@@ -44,6 +45,38 @@ class User < ActiveRecord::Base
 	end
 
   def hours_per_category(category_id)
-    return 0 #TODO: Returns existing user hours for this category
+    return 0 if entries.count == 0
+    count = 0
+    entries.each do |entry|
+      count += entry.user_hours.find{|uh| uh.category_id == category_id}.valid_hours rescue 0
+    end 
+    return count
   end
+  
+  def entry_array
+    result = []
+    entries.each do |e|
+      result << {id: e.id, title: "#{e.hours} hours logged", start: e.date}
+    end
+    result
+  end
+  
+  def default_site
+    res = sites.select{|s| s.default_site == true}
+    if res.count > 0 
+      res.first
+    else
+      nil
+    end
+  end
+  
+  def set_default_site(site)
+    d = default_site
+    if d and d != site
+      d.is_default_site = false
+      d.save
+      site.is_default_site = true
+      site.save
+    end
+  end  
 end
