@@ -78,5 +78,13 @@ class User < ActiveRecord::Base
       site.is_default_site = true
       site.save
     end
-  end  
+  end 
+  
+  def hours
+    entries.map{|e| e.hours }.sum
+  end
+  
+  def progress
+    '%.2f' % ((hours / 3000) * 100)
+  end    
 end

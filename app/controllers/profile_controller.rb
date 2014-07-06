@@ -9,6 +9,7 @@ class ProfileController < ApplicationController
 		end
     @categories = Category.all
     gon.entries = @user.entry_array
+    gon.new_user = !(@user.grad_date && @user.first_name && @user.last_name)
 	end
   
    
@@ -23,10 +24,37 @@ class ProfileController < ApplicationController
     end
     redirect_to :back
   end
-	
+
   #AJAX Methods
   ##########################################################################
   
+  def add_site
+    @user = User.find_by_email(session[:user_id])
+    site = Site.new
+    site.name = params[:site_name]
+    site.address = params[:site_address]
+    site.phone = params[:site_phone]
+    
+    sup = Supervisor.new
+    sup.name = params[:sup_name]
+    sup.phone = params[:sup_phone]
+    sup.email = params[:sup_email]
+    sup.license_type = params[:sup_license_type]
+    sup.license_state = params[:sup_license_state]
+    sup.license_number = params[:sup_license_number]
+    sup.save
+    
+    site.supervisor = sup
+    site.save
+    @user.sites << site
+    html = render_to_string(partial: 'all_sites')
+    respond_to do |format|
+      format.json {render json: {html: html, success: @user.save}}
+    end
+  end
+    
+    
+    
   def add_entry
     categories = params[:categories] || []
     subcategories = params[:subcategories] || []

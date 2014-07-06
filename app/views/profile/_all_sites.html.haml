@@ -1,0 +1,7 @@
+%ul.bordered-list
+  - if @user.sites.empty?
+    %p No sites created yet
+  - else
+    - @user.sites.each do |site|
+      %li{'date-site' => "#{site.id}"}= site.name
+%button#btn-add-site.btn.btn-success Add Site
