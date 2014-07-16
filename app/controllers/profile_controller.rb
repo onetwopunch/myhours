@@ -52,8 +52,41 @@ class ProfileController < ApplicationController
       format.json {render json: {html: html, success: @user.save}}
     end
   end
+  
+  def get_site
+    @user = User.find_by_email(session[:user_id])
+    @site = Site.find(params[:site_id])
+    puts @site
+    html = render_to_string(partial: 'edit_site')
+    respond_to do |format|
+      format.json { render json: {success: !!@site, html: html}}
+    end
+  end
+  
+  def edit_site
+    @user = User.find_by_email(session[:user_id])
+    site = Site.find(params[:site_id])
+    site.name = params[:site_name]
+    site.address = params[:site_address]
+    site.phone = params[:site_phone]
     
+    sup = site.supervisor
+    sup.name = params[:sup_name]
+    sup.phone = params[:sup_phone]
+    sup.email = params[:sup_email]
+    sup.license_type = params[:sup_license_type]
+    sup.license_state = params[:sup_license_state]
+    sup.license_number = params[:sup_license_number]
+    sup.save
     
+    site.supervisor = sup
+    site.save
+    @user.sites << site
+    html = render_to_string(partial: 'all_sites')
+    respond_to do |format|
+      format.json {render json: {html: html, success: @user.save}}
+    end
+  end
     
   def add_entry
     categories = params[:categories] || []
@@ -92,12 +125,17 @@ class ProfileController < ApplicationController
     date = Entry.js_date(params[:date])
     
     entry = Entry.create_entry(@user, site, date, hours_array).skinny
+    progress_html = render_to_string(partial: 'progress')
     
     respond_to do |format|
-      format.json { render :json => {success: true, entry: entry} }
+      format.json { render :json => {success: true, entry: entry, progress: progress_html} }
     end
   end
   
+  def get_entry
+  	entry = Entry.find(params[:entry_id])
+    
+  end
   
   ##########################################################################
   

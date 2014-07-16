@@ -7,10 +7,8 @@
         Tell me a bit about yourself
 .row
   .col-sm-8
-    .progress
-      .progress-bar.progress-bar-warning{"aria-valuemax" => "100", "aria-valuemin" => "0", "aria-valuenow" => "#{@user.progress}", role: "progressbar", style: "width: #{@user.progress}%"}
-    .well  
-      = "You're #{@user.progress}% to your goal! #{@user.hours} out of 3000 hours complete. Only #{3000 - @user.hours} hours to go!"
+    .progress-container
+      = render 'progress'
 
   .col-sm-4
     %button.btn.btn-primary.btn-lg{"data-target" => "#entry-form-modal", "data-toggle" => "modal"}

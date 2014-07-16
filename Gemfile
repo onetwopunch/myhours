@@ -53,6 +53,7 @@ gem 'jquery-ui-rails'
 
 gem 'blankslate'
 gem 'gon', '3.0.5'
+gem 'momentjs-rails'
 
 # gem 'rails_12factor', group: :production
 # Use ActiveModel has_secure_password

@@ -19,4 +19,5 @@
 //= require underscore
 //= require moment.min.js
 //= require fullcalendar.js
+//= require moment
 //= require_tree .

@@ -4,18 +4,26 @@ class Profile
       $('#user-info-modal').modal('show')
     $('.date-picker').datepicker()
     $('#calendar').fullCalendar({
-      	height: 500,
-      	theme: true,
-      	dayClick: @day_click,
-      	events: gon.entries
+        height: 500,
+        theme: true,
+        dayClick: @day_click,
+        eventClick: @event_click,
+        events: gon.entries
       })
     @bind_user_details_submit()
     @bind_create_entry()
-    @bind_manage_sites()
+    new SitesManager()
     
   day_click: (date, jsEvent, view) ->
-    #TODO: implement this
-    alert "You just clicked on #{date.format()}"
+    fdate = moment(date.format()).format("MM/DD/YYYY")
+    $('#entry_date').val(fdate)
+    $('#entry-form-modal').modal('show')
+    
+    $('#entry-form-modal').on 'hidden.bs.modal', (e) ->
+      $('#entry_date').val(moment().format("MM/DD/YYYY"))
+      
+  event_click: (calEvent, jsEvent, view) ->
+    alert calEvent.id
     
   
   bind_create_entry: ->
@@ -33,12 +41,13 @@ class Profile
         categories: categories
         subcategories: subcategories
         date: $('#entry_date').val()
-        site: $('#entry_site').val()
+        site: $('#entry_site').find('option:selected').val()
         (data) ->
           if data.success == true
             console.log data
             gon.entries.push(data.entry)
             $('#calendar').fullCalendar('refetchEvents')
+            $('.progress-container').html(data.progress)
           $('#entry-form-modal').modal('hide')
       
   
@@ -46,34 +55,7 @@ class Profile
     $('.user-info-submit').click () ->
       $(this).parent().parent().find('form').submit()
   
-  bind_manage_sites: ->
-    
-    $('#btn-add-site').click () ->
-      $('#view-all-sites').hide()
-      $('#view-new-site').show()
-    
-    $('#btn-back-all-sites').click () ->
-      $('#view-new-site').hide()
-      $('#view-all-sites').show()
-    
-    $('#btn-save-site').click () ->
-      $.post '/profile/add_site',
-        site_name: $('#site_name').val()
-        site_address: $('#site_address').val()
-        site_phone: $('#site_phone').val()
-        sup_name: $('#sup_name').val()
-        sup_phone: $('#sup_phone').val()
-        sup_email: $('#sup_email').val()
-        sup_license_type: $('#sup_license_type').val()
-        sup_license_state: $('#sup_license_state').val()
-        sup_license_number: $('#sup_license_number').val()
-        (data) ->
-          if data.success == true
-            $('#view-all-sites').html(data.html)
-            $('#view-new-site').hide()
-            $('#view-all-sites').show()
-          else
-            $('#site-modal-error').html('Site could not be saved. Please try again.')
+  
   
   
   

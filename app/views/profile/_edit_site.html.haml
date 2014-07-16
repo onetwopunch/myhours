@@ -1,0 +1,19 @@
+%button.btn-back-all-sites.btn.btn-warning 
+  &lt; Back
+
+%h3 Site
+#site-hidden{'data-site' => "#{@site.id}"}
+= text_field_tag :edit_site_name, @site.name, placeholder: 'Name', class: 'form-control'
+= text_field_tag :edit_site_address, @site.address, placeholder: 'Address', class: 'form-control'
+= text_field_tag :edit_site_phone, @site.phone, placeholder: 'Phone', class: 'form-control'
+
+%h3 Supervisor
+= text_field_tag :edit_sup_name, @site.supervisor.name, placeholder: 'Name', class: 'form-control'
+= text_field_tag :edit_sup_phone, @site.supervisor.phone, placeholder: 'Phone', class: 'form-control'
+= text_field_tag :edit_sup_email, @site.supervisor.email, placeholder: 'Email', class: 'form-control'
+= text_field_tag :edit_sup_license_state, @site.supervisor.license_state, placeholder: 'License State', class: 'form-control'
+= text_field_tag :edit_sup_license_type, @site.supervisor.license_type, placeholder: 'License Type', class: 'form-control'
+= text_field_tag :edit_sup_license_number, @site.supervisor.license_number, placeholder: 'License Number', class: 'form-control'
+
+%button#btn-edit-site.btn.btn-success
+  Save

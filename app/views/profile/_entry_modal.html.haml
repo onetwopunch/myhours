@@ -4,7 +4,7 @@
       .modal-header
         %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
         %h4#myModalLabel.modal-title Enter your hours
-      .modal-body
+      .modal-body.scroll
         = text_field_tag :entry_date, "#{Time.new.strftime("%m/%d/%Y")}", class: 'form-control date-picker my-input'
         .row.my-input
           .col-sm-1
