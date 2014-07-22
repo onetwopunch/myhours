@@ -105,31 +105,32 @@ class Entry < ActiveRecord::Base
     subcategory_hours.each do |subcat_hour|
       
       case subcat_hour.subcategory_id
-        when SUBCAT_PSYCH_TESTS, SUBCAT_REPORTS, SUBCAT_ADVOCACY, SUBCAT_PROCESS_NOTES
-          unless admin_hours
-            puts 'Instantiating admin_hours'
-            admin_hours = UserHour.new
-            admin_hours.category_id = CAT_ADMIN
-            admin_hours.valid_hours = admin_hours.recorded_hours = 0.0
-          end
-          unless user.hours_per_category(CAT_ADMIN) >= admin_hours.category.requirement
-            admin_hours.recorded_hours += subcat_hour.recorded_hours 
-            admin_hours.valid_hours = admin_hours.recorded_hours
-          end
-        	
-        when SUBCAT_WORKSHOPS, SUBCAT_PERSONAL, SUBCAT_SUPERVISOR
-          unless non_counseling_hours
-            non_counseling_hours = UserHour.new
-            non_counseling_hours.category_id = CAT_NON_COUNSELING
-            non_counseling_hours.valid_hours = non_counseling_hours.recorded_hours = 0.0
-          end
-        	
-        	unless user.hours_per_category(CAT_NON_COUNSELING) >= non_counseling_hours.category.requirement
-            non_counseling_hours.recorded_hours += subcat_hour.recorded_hours 
-            non_counseling_hours.valid_hours = non_counseling_hours.recorded_hours
-          end
-        	
+      when SUBCAT_PSYCH_TESTS, SUBCAT_REPORTS, SUBCAT_ADVOCACY, SUBCAT_PROCESS_NOTES
+        unless admin_hours
+          puts 'Instantiating admin_hours'
+          admin_hours = UserHour.new
+          admin_hours.category_id = CAT_ADMIN
+          admin_hours.valid_hours = admin_hours.recorded_hours = 0.0
+        end
+        unless user.hours_per_category(CAT_ADMIN) >= admin_hours.category.requirement
+          admin_hours.recorded_hours += subcat_hour.recorded_hours 
+          admin_hours.valid_hours = admin_hours.recorded_hours
+        end
+      when SUBCAT_WORKSHOPS, SUBCAT_PERSONAL, SUBCAT_SUPERVISOR
+        unless non_counseling_hours
+          non_counseling_hours = UserHour.new
+          non_counseling_hours.category_id = CAT_NON_COUNSELING
+          non_counseling_hours.valid_hours = non_counseling_hours.recorded_hours = 0.0
+        end
+
+        unless user.hours_per_category(CAT_NON_COUNSELING) >= non_counseling_hours.category.requirement
+          non_counseling_hours.recorded_hours += subcat_hour.recorded_hours 
+          non_counseling_hours.valid_hours = non_counseling_hours.recorded_hours
+        end
     	end    
+      subcat_hour.valid_hours = 0.0 #this must be done so these don't get added
+      subcat_hour.save
+      entry.user_hours << subcat_hour
     end
     
     entry.user_hours << admin_hours if (admin_hours.save rescue false)

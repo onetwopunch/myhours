@@ -1,0 +1,29 @@
+%button.btn.btn-default#btn-edit-entry
+  Edit
+%table.table-striped
+  %tr
+    %th Category
+    %th Requirement
+    %th Recorded Hours
+    %th Valid Hours
+  - @entry.user_hours.each do |uh|
+   
+    %tr
+      - if !!uh.category
+        %td
+          = uh.category.name
+        %td
+          = max_value(uh.category)
+        %td
+          = uh.recorded_hours 
+        %td
+          = uh.valid_hours 
+      - else
+        %td
+          = uh.subcategory.name
+        %td{style:"padding-left:30px"}
+          = max_value(uh.subcategory)
+        %td
+          = uh.recorded_hours 
+        %td
+          = uh.valid_hours 

@@ -28,3 +28,7 @@ html body {
 .my-input{
   margin-bottom:10px;
 }
+
+td, th {
+padding: 5px;
+}

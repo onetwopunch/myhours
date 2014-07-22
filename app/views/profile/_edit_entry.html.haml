@@ -1,0 +1,26 @@
+%button.btn.btn-danger#btn-entry-back
+  Back
+= text_field_tag :entry_date, @entry.date, class: 'form-control date-picker my-input'
+.row.my-input
+  .col-sm-1
+    = label_tag :entry_site, "Site:"
+  .col-sm-11
+    = select_tag :entry_site, options_for_select((@user.sites.pluck(:name) rescue []), (@entry.site.name rescue 'No sites defined yet.')), class: 'form-control'
+%table.table-striped
+  - @categories.each do |c|
+    %tr
+      %td{style: 'font-weight:bold'}
+        = c.name
+      %td
+        = max_value(c)
+      %td
+        = text_field_tag "#{c.id}", recorded_hours(@entry, category: c.id), placeholder: 'Hours', class: 'entry-category form-control' if c.subcategories.count == 0 || c.id == 2
+    - c.subcategories.each do |sc|
+      %tr
+        %td{style:'padding-left:30px'}
+          = sc.name
+        %td
+          = max_value(sc)
+        %td
+          = text_field_tag "#{c.id}:#{sc.id}", recorded_hours(@entry, subcategory: sc.id), placeholder: 'Hours', class: 'entry-subcategory form-control'
+

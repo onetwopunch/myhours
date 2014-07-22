@@ -133,8 +133,14 @@ class ProfileController < ApplicationController
   end
   
   def get_entry
-  	entry = Entry.find(params[:entry_id])
-    
+  	@entry = Entry.find(params[:entry_id])
+    @user = User.find_by_email(session[:user_id])
+    @categories = Category.all
+    show_html = render_to_string(partial: 'show_entry')
+    edit_html = render_to_string(partial: 'edit_entry')
+    respond_to do |format|
+      format.json {render :json => {show_html: show_html, edit_html: edit_html, success: (!!@entry)}}
+    end  
   end
   
   ##########################################################################

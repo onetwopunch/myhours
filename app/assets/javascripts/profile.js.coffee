@@ -1,5 +1,6 @@
 class Profile
   constructor: ->
+    _this = @
     if gon.new_user == true
       $('#user-info-modal').modal('show')
     $('.date-picker').datepicker()
@@ -21,9 +22,33 @@ class Profile
     
     $('#entry-form-modal').on 'hidden.bs.modal', (e) ->
       $('#entry_date').val(moment().format("MM/DD/YYYY"))
+
+  bind_entry_edit: ->
+    $('#btn-edit-entry').click () ->
+      $('#show-entry').hide()
+      $('#edit-entry').show()
+      
+  bind_entry_back: ->
+    $('#btn-entry-back').click () ->
+      $('#edit-entry').hide()
+      $('#show-entry').show()
       
   event_click: (calEvent, jsEvent, view) ->
-    alert calEvent.id
+    $.post '/profile/get_entry',
+      entry_id: calEvent.id
+      (data) ->
+        if data.success ==true
+          $("#show-entry").html(data.show_html)
+          $('#edit-entry').hide()
+          $('#edit-entry').html(data.edit_html)
+          $('#manage-entries-modal').modal('show')
+          
+          _this = new Profile() unless _this
+          _this.bind_entry_edit()
+          _this.bind_entry_back()
+          
+        else
+          console.log "Entry with id = #{calEvent.id} does not exist"  
     
   
   bind_create_entry: ->
@@ -49,8 +74,9 @@ class Profile
             $('#calendar').fullCalendar('refetchEvents')
             $('.progress-container').html(data.progress)
           $('#entry-form-modal').modal('hide')
-      
+    
   
+      
   bind_user_details_submit: ->
     $('.user-info-submit').click () ->
       $(this).parent().parent().find('form').submit()
