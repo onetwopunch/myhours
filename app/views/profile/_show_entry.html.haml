@@ -6,24 +6,23 @@
     %th Requirement
     %th Recorded Hours
     %th Valid Hours
-  - @entry.user_hours.each do |uh|
-   
+  - @entry.user_hours.select{|h| !!h.category}.each do |uh|   
     %tr
-      - if !!uh.category
+      %td
+        %b= uh.category.name
+      %td
+        = max_value(uh.category)
+      %td
+        = uh.recorded_hours 
+      %td
+        = uh.valid_hours 
+    - @entry.user_hours.select{|h| !!h.subcategory && h.subcategory.category_id == uh.category_id}.each do |sub|
+      %tr
+        %td{style: 'padding-left: 20px'}
+          = sub.subcategory.name
         %td
-          = uh.category.name
+          = max_value(sub.subcategory)
         %td
-          = max_value(uh.category)
+          = sub.recorded_hours 
         %td
-          = uh.recorded_hours 
-        %td
-          = uh.valid_hours 
-      - else
-        %td
-          = uh.subcategory.name
-        %td{style:"padding-left:30px"}
-          = max_value(uh.subcategory)
-        %td
-          = uh.recorded_hours 
-        %td
-          = uh.valid_hours 
+          = sub.valid_hours 
