@@ -13,7 +13,7 @@ class SitesManager
     $('#btn-add-site').click () ->
       $('#view-all-sites').hide()
       $('#view-new-site').show()
-      _this.bind_new()
+      _this.bind_new() unless $('#btn-save-site').hasClass('bound')
       _this.bind_back()
   
   bind_back: ->  
@@ -42,6 +42,17 @@ class SitesManager
     
   bind_edit: -> 
     _this = @
+    $('.delete-site').click () ->
+      $.post '/profile/delete_site',
+        site_id: $('#site-hidden').data('site')
+        (data) ->
+          if data.success == true
+            $('#view-all-sites').html(data.html)
+            $('#view-edit-site').hide()
+            $('#view-all-sites').show()
+            _this.bind_manage_sites()
+          else
+            $('#site-modal-error').html('Site could not be deleted. Please try again.')
     $('#btn-edit-site').click () ->
       $.post '/profile/edit_site',
         site_id: $('#site-hidden').data('site')
@@ -92,6 +103,7 @@ class SitesManager
             $('#view-all-sites').html(data.html)
             $('#view-new-site').hide()
             $('#view-all-sites').show()
+            $('#btn-save-site').addClass('bound')
             _this.bind_manage_sites()
           else
             $('#site-modal-error').html('Site could not be saved. Please try again.')

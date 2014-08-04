@@ -1,6 +1,8 @@
 %button.btn-back-all-sites.btn.btn-warning 
-  &lt; Back
-
+  %span.glyphicon.glyphicon-chevron-left
+  Back
+%span.btn.btn-danger.btn-small.delete-site
+  %span.glyphicon.glyphicon-trash
 %h3 Site
 #site-hidden{'data-site' => "#{@site.id}"}
 = text_field_tag :edit_site_name, @site.name, placeholder: 'Name', class: 'form-control'

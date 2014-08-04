@@ -17,7 +17,7 @@
 # g6.subcategories << Subcategory.create( name: 'Direct Supervisor Contact')
 
 class Entry < ActiveRecord::Base
-  has_many :user_hours, :dependent => :destroy
+  has_many :user_hours, :dependent => :delete_all
   belongs_to :user
   has_one :site 
   

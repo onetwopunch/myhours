@@ -8,8 +8,7 @@ class ApplicationController < ActionController::Base
     if session[:user_id]
       redirect_to(:controller => 'profile', :action => 'index')
       return false # halts the before_filter
-    else
-      
+    else    
       return true
     end
   end

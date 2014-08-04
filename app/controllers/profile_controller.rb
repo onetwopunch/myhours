@@ -1,5 +1,5 @@
 class ProfileController < ApplicationController
-	# before_filter :redirect_to_login if not session[:user_id]
+	before_filter :redirect_to_login
 
 	def index
 		@user = User.find_by_email(session[:user_id])
@@ -87,7 +87,17 @@ class ProfileController < ApplicationController
       format.json {render json: {html: html, success: @user.save}}
     end
   end
-    
+  
+  def delete_site 
+    @user = User.find_by_email(session[:user_id])
+  	site = Site.find(params[:site_id])
+    success = !!site.destroy
+    html = render_to_string(partial: 'all_sites')
+    respond_to do |format|
+      format.json {render json: {html: html, success: success}}
+    end
+  end
+  
   def add_entry
     categories = params[:categories] || []
     subcategories = params[:subcategories] || []

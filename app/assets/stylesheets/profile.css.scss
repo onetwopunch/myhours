@@ -7,3 +7,14 @@
   overflow-y:auto;
 }
 
+.fc-day, .fc-event {
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.delete-site {
+  position: relative;
+  float: right;
+  right: 5px;
+}

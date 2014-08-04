@@ -1,5 +1,5 @@
 class LoginController < ApplicationController
-	
+  before_filter :redirect_to_profile, only: [:index, :signup]
 	def index
 		#log in form		
 	end
