@@ -51,6 +51,8 @@ class Entry < ActiveRecord::Base
   end
     
   def self.create_entry(user, site, date, hours_array)
+    validate_grad_date(user, hours_array)
+    
     entry = Entry.new 
     entry.user = user
     entry.date = date || Time.new.strftime("%Y-%m-%d")
@@ -62,6 +64,7 @@ class Entry < ActiveRecord::Base
     
     subcategory_hours = hours_array.select{|uh| !!uh.subcategory}
     puts "Subcat Hours: #{subcategory_hours.as_json}"
+    
     
     category_hours.each do |cat_hour|
       
@@ -141,6 +144,23 @@ class Entry < ActiveRecord::Base
     else
       puts entry.errors
       return nil
+    end
+  end
+  
+  def self.validate_grad_date(user, hours_array)
+    attempted_hours = hours_array.map(&:recorded_hours)
+    if Entry.max_before_grad_date_reached(user, attempted_hours)
+      raise Exception.new("Pre graduation limit reached. 750 max counseling and supervision + all remaining hours categories = 1,300 max pre-degree hours")
+    end
+  end
+  
+  def self.max_before_grad_date_reached(user, attempted)
+    today = Time.new.strftime("%Y-%m-%d")
+    if today < user.grad_date
+      indi_couns = user.hours_per_category(CAT_INDIVIDUAL)
+      indi_reached = indi_couns + attempted > 750
+      max_reached = user.hours + attempted > 1300
+      return indi_reached || max_reached
     end
   end
 end

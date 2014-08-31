@@ -19,14 +19,16 @@ class Profile
     fdate = moment(date.format()).format("MM/DD/YYYY")
     $('#entry_date').val(fdate)
     $('#entry-form-modal').modal('show')
-    
     $('#entry-form-modal').on 'hidden.bs.modal', (e) ->
       $('#entry_date').val(moment().format("MM/DD/YYYY"))
+      $('.errors').html('')
 
   bind_entry_edit: ->
+    _this = @
     $('#btn-edit-entry').click () ->
       $('#show-entry').hide()
       $('#edit-entry').show()
+      _this.bind_entry_edit_submit()
       
   bind_entry_back: ->
     $('#btn-entry-back').click () ->
@@ -68,14 +70,49 @@ class Profile
         date: $('#entry_date').val()
         site: $('#entry_site').find('option:selected').val()
         (data) ->
+          console.log data
           if data.success == true
-            console.log data
             gon.entries.push(data.entry)
             $('#calendar').fullCalendar('refetchEvents')
             $('.progress-container').html(data.progress)
-          $('#entry-form-modal').modal('hide')
-    
-  
+            $('#entry-form-modal').modal('hide')
+          else
+            $('.errors').html(data.errors)
+            setTimeout () -> 
+              $('.errors').hide('slow')
+              $('.errors').html('')
+            , 5000              
+          
+  bind_entry_edit_submit: ->
+    $('#submit-edit-entry').click () ->
+      categories = $.map $('.entry-category'), (n, i) ->
+        return { 'val': $(n).val(), 'id': $(n).prop('id')} if $(n).val() != ""
+      console.log categories
+      
+      subcategories = $.map $('.entry-subcategory'), (n, i) ->
+        [parent, id] = $(n).prop('id').split(':')
+        return { 'val': $(n).val(), 'id': id, 'parent': parent} if $(n).val() != ""
+      console.log subcategories
+      
+      $.post '/profile/edit_entry',
+        entry_id: $(this).data('entry-id')
+        categories: categories
+        subcategories: subcategories
+        date: $('#entry_date').val()
+        site: $('#entry_site').find('option:selected').val()
+        (data) ->
+          console.log data
+          if data.success == true
+            gon.entries.push(data.entry)
+            $('#calendar').fullCalendar('refetchEvents')
+            $('.progress-container').html(data.progress)
+            $('#entry-form-modal').modal('hide')
+          else
+            $('.errors').html(data.errors)
+            setTimeout () -> 
+              $('.errors').hide('slow')
+              $('.errors').html('')
+            , 5000
       
   bind_user_details_submit: ->
     $('.user-info-submit').click () ->

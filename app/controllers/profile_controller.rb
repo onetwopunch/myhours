@@ -133,8 +133,14 @@ class ProfileController < ApplicationController
     
     site = Site.find_by_name(params[:site])
     date = Entry.js_date(params[:date])
-    
-    entry = Entry.create_entry(@user, site, date, hours_array).skinny
+    begin
+    	entry = Entry.create_entry(@user, site, date, hours_array).skinny
+    rescue Exception => e
+    	respond_to do |format|
+        format.json { render :json => {success: false, errors: e.message} }
+      end
+      return
+    end
     progress_html = render_to_string(partial: 'progress')
     
     respond_to do |format|
@@ -151,6 +157,18 @@ class ProfileController < ApplicationController
     respond_to do |format|
       format.json {render :json => {show_html: show_html, edit_html: edit_html, success: (!!@entry)}}
     end  
+  end
+  
+  def edit_entry
+    entry = Entry.find(params[:entry_id])
+    if entry.destroy
+      add_entry
+    else
+      respond_to do |format|
+        format.json { render :json => {success: false} }
+      end
+    end
+      
   end
   
   ##########################################################################

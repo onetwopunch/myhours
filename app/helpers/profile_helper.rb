@@ -16,4 +16,12 @@ module ProfileHelper
     	0
     end      
   end
+  def user_progress
+    res =  @user.progress 
+    if res >= 100
+      res = 100
+    else
+      res
+    end
+  end
 end
