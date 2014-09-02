@@ -1,5 +1,4 @@
 tmp
 public/assets
 .codio
-Gemfile.lock
 vendor/bundle
