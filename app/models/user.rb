@@ -47,7 +47,9 @@ class User < ActiveRecord::Base
     return 0 if entries.count == 0
     count = 0
     entries.each do |entry|
-      count += entry.user_hours.find{|uh| uh.category.ref == category_ref}.valid_hours rescue 0
+      cats = entry.user_hours.select{ |uh| uh.category }
+      matching_cat = cats.find{|uh| uh.category.ref == category_ref }
+      count += matching_cat.valid_hours if matching_cat
     end 
     return count
   end
@@ -56,7 +58,9 @@ class User < ActiveRecord::Base
     return 0 if entries.count == 0
     count = 0
     entries.each do |entry|
-      count += entry.user_hours.find{|uh| uh.subcategory.ref == sc_ref}.recorded_hours rescue 0
+      subcats = entry.user_hours.select{ |uh| uh.subcategory }
+      matching_subcat = subcats.find{|uh| uh.subcategory.ref == sc_ref }
+      count += matching_subcat.valid_hours if matching_subcat
     end
     return count
   end

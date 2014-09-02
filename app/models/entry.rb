@@ -39,7 +39,7 @@ class Entry < ActiveRecord::Base
   SUBCAT_SUPERVISOR_GROUP	= 90
   
   def hours
-    user_hours.map(&:valid_hours).sum
+    user_hours.select{|u| !u.category.nil? }.map(&:valid_hours).sum
   end
   
   def skinny
@@ -89,11 +89,19 @@ class Entry < ActiveRecord::Base
           cat_hour.valid_hours = cat_hour.recorded_hours
           sc_hour = subcategory_hours.find{|uh| uh.subcategory.ref == SUBCAT_CONJOINT} rescue nil
 	  hours = user.hours_per_subcategory(SUBCAT_CONJOINT) + sc_hour.recorded_hours
+	  puts "FAM hours = #{hours}"
 	  if sc_hour && hours <= sc_hour.subcategory.requirement
-             cat_hour.valid_hours += sc_hour.recorded_hours
+            cat_hour.valid_hours += sc_hour.recorded_hours
+	    sc_hour.valid_hours = sc_hour.recorded_hours
+	  elsif sc_hour 
+	    overlap = hours - sc_hour.subcategory.requirement
+	    puts "FAM overlap = #{overlap}"
+	    sc_hour.valid_hours = sc_hour.recorded_hours - overlap
+	    cat_hour.valid_hours += sc_hour.valid_hours
           end
 	  cat_hour.recorded_hours += sc_hour.recorded_hours
           entry.user_hours << cat_hour if cat_hour.save
+	  entry.user_hours << sc_hour if sc_hour.save
 
         when CAT_GROUP
 	  hours = user.hours_per_category(CAT_GROUP) + cat_hour.recorded_hours 
@@ -128,9 +136,11 @@ class Entry < ActiveRecord::Base
           admin_hours.valid_hours = admin_hours.recorded_hours = 0.0
         end
 	hours = user.hours_per_category(CAT_ADMIN) + admin_hours.valid_hours + subcat_hour.recorded_hours
+	puts "admin_hours = #{hours}"
         unless hours > admin_hours.category.requirement
           admin_hours.recorded_hours += subcat_hour.recorded_hours 
           admin_hours.valid_hours = admin_hours.recorded_hours
+	  subcat_hour.valid_hours = subcat_hour.recorded_hours
         end
       when SUBCAT_WORKSHOPS, SUBCAT_PERSONAL, SUBCAT_SUPERVISOR, SUBCAT_SUPERVISOR_GROUP
         unless non_counseling_hours
@@ -139,12 +149,37 @@ class Entry < ActiveRecord::Base
           non_counseling_hours.valid_hours = non_counseling_hours.recorded_hours = 0.0
         end
 	hours = user.hours_per_category(CAT_NON_COUNSELING) + non_counseling_hours.valid_hours + subcat_hour.recorded_hours
-        unless hours > non_counseling_hours.category.requirement
-          non_counseling_hours.recorded_hours += subcat_hour.recorded_hours 
+
+        if hours < non_counseling_hours.category.requirement
+	  if subcat_hour.subcategory.ref == SUBCAT_PERSONAL
+	    total_personal = subcat_hour.recorded_hours * 3 + user.hours_per_subcategory(SUBCAT_PERSONAL)
+	    if total_personal > subcat_hour.subcategory.requirement
+	      overlap = total_personal - subcat_hour.subcategory.requirement
+              non_counseling_hours.recorded_hours += subcat_hour.recorded_hours * 3 - overlap
+	      subcat_hour.valid_hours = subcat_hour.recorded_hours * 3 - overlap
+	    else
+              non_counseling_hours.recorded_hours += subcat_hour.recorded_hours * 3
+	      subcat_hour.valid_hours = subcat_hour.recorded_hours * 3
+	    end
+	  elsif subcat_hour.subcategory.ref == SUBCAT_WORKSHOPS 
+	    ws_hours = user.hours_per_subcategory(SUBCAT_WORKSHOPS) + subcat_hour.recorded_hours
+	    if ws_hours > subcat_hour.subcategory.requirement
+	      overlap = ws_hours - subcat_hour.subcategory.requirement
+	      non_counseling_hours.recorded_hours += subcat_hour.recorded_hours - overlap
+	      subcat_hour.valid_hours = subcat_hour.recorded_hours - overlap
+	    else
+	      non_counseling_hours.recorded_hours += subcat_hour.recorded_hours
+	      subcat_hour.valid_hours = subcat_hour.recorded_hours
+	    end
+	  else
+	    non_counseling_hours.recorded_hours += subcat_hour.recorded_hours
+	    subcat_hour.valid_hours = subcat_hour.recorded_hours
+	  end
           non_counseling_hours.valid_hours = non_counseling_hours.recorded_hours
         end
-      end    
-      subcat_hour.valid_hours = 0.0 #this must be done so these don't get added
+      when SUBCAT_CONJOINT 
+       next #skip because we already handled it up top 
+      end   
       subcat_hour.save
       entry.user_hours << subcat_hour
     end

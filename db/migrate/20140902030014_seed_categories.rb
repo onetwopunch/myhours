@@ -20,8 +20,8 @@ class SeedCategories < ActiveRecord::Migration
       g2.ref = 2
 
       sc10 = Subcategory.new
-      sc10.name = 'Conjoint Hours (First 150 hours are double counted)'
-      sc10.requirement = 300.0
+      sc10.name = 'Of the above CFC hours, how many were conjoint couples and family therapy?'
+      sc10.requirement = 150.0
       sc10.max = true
       sc10.ref = 10
       sc10.save
@@ -110,7 +110,7 @@ class SeedCategories < ActiveRecord::Migration
       sc60.save
 
       sc70 = Subcategory.new
-      sc70.name = 'Personal Psychotherapy (Enter 3 hours for every 1 you did)'
+      sc70.name = 'Personal Psychotherapy (Triple-Counted Hours)'
       sc70.requirement = 300.0
       sc70.max = true
       sc70.ref = 70
@@ -122,7 +122,7 @@ class SeedCategories < ActiveRecord::Migration
       sc80.save
       
       sc90 = Subcategory.new
-      sc90.name = 'Group Supervision (2 hours of group = 1 hour individual)'
+      sc90.name = 'Group Supervision'
       sc90.ref = 90
       sc90.save 
 
