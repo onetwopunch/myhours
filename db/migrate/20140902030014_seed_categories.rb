@@ -110,20 +110,26 @@ class SeedCategories < ActiveRecord::Migration
       sc60.save
 
       sc70 = Subcategory.new
-      sc70.name = 'Personal Psychotherapy (Triple Counted Hours)'
+      sc70.name = 'Personal Psychotherapy (Enter 3 hours for every 1 you did)'
       sc70.requirement = 300.0
       sc70.max = true
       sc70.ref = 70
       sc70.save
 
       sc80 = Subcategory.new
-      sc80.name = 'Direct Supervisor Contact'
+      sc80.name = 'Individual Supervision'
       sc80.ref = 80
       sc80.save
       
+      sc90 = Subcategory.new
+      sc90.name = 'Group Supervision (2 hours of group = 1 hour individual)'
+      sc90.ref = 90
+      sc90.save 
+
       g6.subcategories << sc60
       g6.subcategories << sc70
       g6.subcategories << sc80
+      g6.subcategories << sc90
 
       g6.save
     end

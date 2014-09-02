@@ -36,6 +36,7 @@ class Entry < ActiveRecord::Base
   SUBCAT_WORKSHOPS 		= 60
   SUBCAT_PERSONAL 		= 70
   SUBCAT_SUPERVISOR 		= 80
+  SUBCAT_SUPERVISOR_GROUP	= 90
   
   def hours
     user_hours.map(&:valid_hours).sum
@@ -123,7 +124,7 @@ class Entry < ActiveRecord::Base
         unless admin_hours
           puts 'Instantiating admin_hours'
           admin_hours = UserHour.new
-          admin_hours.category_id = CAT_ADMIN
+          admin_hours.category = Category.find_by_ref(CAT_ADMIN)
           admin_hours.valid_hours = admin_hours.recorded_hours = 0.0
         end
 	hours = user.hours_per_category(CAT_ADMIN) + admin_hours.valid_hours + subcat_hour.recorded_hours
@@ -131,10 +132,10 @@ class Entry < ActiveRecord::Base
           admin_hours.recorded_hours += subcat_hour.recorded_hours 
           admin_hours.valid_hours = admin_hours.recorded_hours
         end
-      when SUBCAT_WORKSHOPS, SUBCAT_PERSONAL, SUBCAT_SUPERVISOR
+      when SUBCAT_WORKSHOPS, SUBCAT_PERSONAL, SUBCAT_SUPERVISOR, SUBCAT_SUPERVISOR_GROUP
         unless non_counseling_hours
           non_counseling_hours = UserHour.new
-          non_counseling_hours.category_id = CAT_NON_COUNSELING
+          non_counseling_hours.category = Category.find_by_ref(CAT_NON_COUNSELING)
           non_counseling_hours.valid_hours = non_counseling_hours.recorded_hours = 0.0
         end
 	hours = user.hours_per_category(CAT_NON_COUNSELING) + non_counseling_hours.valid_hours + subcat_hour.recorded_hours
