@@ -16,7 +16,7 @@
         = uh.recorded_hours 
       %td
         = uh.valid_hours 
-    - @entry.user_hours.select{|h| !!h.subcategory && h.subcategory.category_id == uh.category_id}.each do |sub|
+    - @entry.user_hours.select{|h| !!h.subcategory && h.subcategory.category.ref == uh.category.ref}.each do |sub|
       %tr
         %td{style: 'padding-left: 20px'}
           = sub.subcategory.name
@@ -25,4 +25,4 @@
         %td
           = sub.recorded_hours 
         %td
-          = sub.valid_hours 
+          N/A 

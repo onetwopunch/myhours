@@ -5,14 +5,15 @@
         %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
         %h4#myModalLabel.modal-title Tell me a bit about yourself
       .modal-body
-        = form_tag('/profile/user_update') do
+        = form_tag() do
           = label_tag :first_name, "First Name"
           = text_field_tag :first_name, "#{@user.first_name}", placeholder: 'First Name', class: 'form-control my-input'
           = label_tag :last_name, "Last Name"
           = text_field_tag :last_name, "#{@user.last_name}", placeholder: 'Last Name', class: 'form-control my-input'
           = label_tag :grad_date, "Grad Date"
           = text_field_tag :grad_date, "#{@user.grad_date}", placeholder: 'Graduation Date', class: 'form-control my-input date-picker'
-
+          #user-info-errors{style: 'color:red' }
       .modal-footer
         %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
         %button.btn.btn-primary.user-info-submit{type: "button"} Save changes
+

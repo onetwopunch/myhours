@@ -11,13 +11,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140716212637) do
+ActiveRecord::Schema.define(version: 20140902030014) do
 
   create_table "categories", force: true do |t|
     t.string   "name"
     t.boolean  "is_counselling"
     t.float    "requirement"
     t.boolean  "max"
+    t.integer  "ref"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -46,6 +47,7 @@ ActiveRecord::Schema.define(version: 20140716212637) do
     t.boolean  "max"
     t.string   "name"
     t.float    "requirement"
+    t.integer  "ref"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

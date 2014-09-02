@@ -17,25 +17,25 @@
 # g6.subcategories << Subcategory.create( name: 'Direct Supervisor Contact')
 
 class Entry < ActiveRecord::Base
-  has_many :user_hours, :dependent => :delete_all
+  has_many :user_hours, :dependent => :destroy
   belongs_to :user
   has_one :site 
   
-  CAT_INDIVIDUAL 				= 1
-  CAT_FAMILIES 					= 2
-  CAT_GROUP 						= 3
-  CAT_TELEHEALTH 				= 4
-  CAT_ADMIN 						= 5
+  CAT_INDIVIDUAL 		= 1
+  CAT_FAMILIES 			= 2
+  CAT_GROUP 			= 3
+  CAT_TELEHEALTH 		= 4
+  CAT_ADMIN 			= 5
   CAT_NON_COUNSELING 		= 6
   
-  SUBCAT_CONJOINT 			= 1
-  SUBCAT_PSYCH_TESTS 		= 2
-  SUBCAT_REPORTS 				= 3
-  SUBCAT_ADVOCACY 			= 4
-  SUBCAT_PROCESS_NOTES 	= 5
-  SUBCAT_WORKSHOPS 			= 6
-  SUBCAT_PERSONAL 			= 7
-  SUBCAT_SUPERVISOR 		= 8
+  SUBCAT_CONJOINT 		= 10
+  SUBCAT_PSYCH_TESTS 		= 20
+  SUBCAT_REPORTS 		= 30
+  SUBCAT_ADVOCACY 		= 40
+  SUBCAT_PROCESS_NOTES 		= 50
+  SUBCAT_WORKSHOPS 		= 60
+  SUBCAT_PERSONAL 		= 70
+  SUBCAT_SUPERVISOR 		= 80
   
   def hours
     user_hours.map(&:valid_hours).sum
@@ -49,7 +49,12 @@ class Entry < ActiveRecord::Base
     m, d, y = american_date.split('/')
     "#{y}-#{m}-#{d}"
   end
-    
+  
+  def self.american_date(js_date)
+    y, m, d = js_date.split('-')
+    "#{m}/#{d}/#{y}"
+  end
+
   def self.create_entry(user, site, date, hours_array)
     validate_grad_date(user, hours_array)
     
@@ -68,34 +73,40 @@ class Entry < ActiveRecord::Base
     
     category_hours.each do |cat_hour|
       
-      case cat_hour.category_id
+      case cat_hour.category.ref
         when CAT_INDIVIDUAL
-        	puts 'Individual'
+          puts 'Individual'
           cat_hour.valid_hours = cat_hour.recorded_hours
-        	if cat_hour.save
-          	entry.user_hours << cat_hour 
+          if cat_hour.save
+            entry.user_hours << cat_hour 
           else
             puts cat_hour.errors
           end
-        	puts entry.user_hours.as_json
+          puts entry.user_hours.as_json
 
         when CAT_FAMILIES
           cat_hour.valid_hours = cat_hour.recorded_hours
-        	sc = subcategory_hours.find{|uh| uh.subcategory.id == SUBCAT_CONJOINT} rescue nil
-          if sc
-             cat_hour.valid_hours += sc.recorded_hours
+          sc_hour = subcategory_hours.find{|uh| uh.subcategory.ref == SUBCAT_CONJOINT} rescue nil
+	  hours = user.hours_per_subcategory(SUBCAT_CONJOINT) + sc_hour.recorded_hours
+	  if sc_hour && hours <= sc_hour.subcategory.requirement
+             cat_hour.valid_hours += sc_hour.recorded_hours
           end
+	  cat_hour.recorded_hours += sc_hour.recorded_hours
           entry.user_hours << cat_hour if cat_hour.save
 
         when CAT_GROUP
-        	unless user.hours_per_category(CAT_GROUP) >= cat_hour.category.requirement
-	          cat_hour.valid_hours = cat_hour.recorded_hours 
+	  hours = user.hours_per_category(CAT_GROUP) + cat_hour.recorded_hours 
+          unless hours > cat_hour.category.requirement
+	    cat_hour.valid_hours = cat_hour.recorded_hours 
           end
           entry.user_hours << cat_hour if cat_hour.save
 
         when CAT_TELEHEALTH
-        	unless user.hours_per_category(CAT_TELEHEALTH) >= cat_hour.category.requirement
-	          cat_hour.valid_hours = cat_hour.recorded_hours 
+	  puts "hours_per_category = #{user.hours_per_category(CAT_TELEHEALTH)}"
+	  puts "requirement = #{cat_hour.category.requirement}"
+	  hours = user.hours_per_category(CAT_TELEHEALTH) + cat_hour.recorded_hours
+          unless hours > cat_hour.category.requirement
+	    cat_hour.valid_hours = cat_hour.recorded_hours 
           end
           entry.user_hours << cat_hour if cat_hour.save
     	end
@@ -107,7 +118,7 @@ class Entry < ActiveRecord::Base
     
     subcategory_hours.each do |subcat_hour|
       
-      case subcat_hour.subcategory_id
+      case subcat_hour.subcategory.ref
       when SUBCAT_PSYCH_TESTS, SUBCAT_REPORTS, SUBCAT_ADVOCACY, SUBCAT_PROCESS_NOTES
         unless admin_hours
           puts 'Instantiating admin_hours'
@@ -115,7 +126,8 @@ class Entry < ActiveRecord::Base
           admin_hours.category_id = CAT_ADMIN
           admin_hours.valid_hours = admin_hours.recorded_hours = 0.0
         end
-        unless user.hours_per_category(CAT_ADMIN) >= admin_hours.category.requirement
+	hours = user.hours_per_category(CAT_ADMIN) + admin_hours.valid_hours + subcat_hour.recorded_hours
+        unless hours > admin_hours.category.requirement
           admin_hours.recorded_hours += subcat_hour.recorded_hours 
           admin_hours.valid_hours = admin_hours.recorded_hours
         end
@@ -125,12 +137,12 @@ class Entry < ActiveRecord::Base
           non_counseling_hours.category_id = CAT_NON_COUNSELING
           non_counseling_hours.valid_hours = non_counseling_hours.recorded_hours = 0.0
         end
-
-        unless user.hours_per_category(CAT_NON_COUNSELING) >= non_counseling_hours.category.requirement
+	hours = user.hours_per_category(CAT_NON_COUNSELING) + non_counseling_hours.valid_hours + subcat_hour.recorded_hours
+        unless hours > non_counseling_hours.category.requirement
           non_counseling_hours.recorded_hours += subcat_hour.recorded_hours 
           non_counseling_hours.valid_hours = non_counseling_hours.recorded_hours
         end
-    	end    
+      end    
       subcat_hour.valid_hours = 0.0 #this must be done so these don't get added
       subcat_hour.save
       entry.user_hours << subcat_hour

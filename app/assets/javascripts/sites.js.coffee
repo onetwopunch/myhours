@@ -7,6 +7,8 @@ class SitesManager
     @bind_back()
     @bind_site_items()
     @clear_new()
+    $('#manage-sites-modal').on 'hidden.bs.modal', (e) ->
+      location.reload()
     
   bind_add_site: ->
     _this = @
@@ -16,7 +18,7 @@ class SitesManager
       _this.bind_new() unless $('#btn-save-site').hasClass('bound')
       _this.bind_back()
   
-  bind_back: ->  
+  bind_back: ->
     _this = @
     $('.btn-back-all-sites').click () ->
       $('#view-new-site').hide()
@@ -24,7 +26,7 @@ class SitesManager
       $('#view-all-sites').show()
       _this.bind_manage_sites()
   
-  bind_site_items: ->  
+  bind_site_items: ->
     _this = @
     $('.site-item').click () ->
       site_id = $(this).data('site')
@@ -40,7 +42,7 @@ class SitesManager
           else
             $('#site-modal-error').html('Site could not be found.')
     
-  bind_edit: -> 
+  bind_edit: ->
     _this = @
     $('.delete-site').click () ->
       $.post '/profile/delete_site',

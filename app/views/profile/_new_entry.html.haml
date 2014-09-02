@@ -19,7 +19,7 @@
               %td
                 = max_value(c)
               %td
-                = text_field_tag "#{c.id}", '', placeholder: 'Hours', class: 'entry-category form-control' if c.subcategories.count == 0 || c.id == 2
+                = text_field_tag "#{c.ref}", '', placeholder: 'Hours', class: 'entry-category form-control' if c.subcategories.count == 0 || c.id == 2
             - c.subcategories.each do |sc|
               %tr
                 %td{style:'padding-left:30px'}
@@ -27,7 +27,7 @@
                 %td
                   = max_value(sc)
                 %td
-                  = text_field_tag "#{c.id}:#{sc.id}", '', placeholder: 'Hours', class: 'entry-subcategory form-control'
+                  = text_field_tag "#{c.ref}:#{sc.ref}", '', placeholder: 'Hours', class: 'entry-subcategory form-control'
 
       .modal-footer
         %p.errors

@@ -1,12 +1,15 @@
-%div
-  %button.btn.btn-danger#btn-entry-back
-    Back
-= text_field_tag :entry_date, @entry.date, class: 'form-control date-picker my-input'
+%button.btn.btn-danger#btn-entry-back
+  %span.glyphicon.glyphicon-chevron-left
+  Back
+%span.btn.btn-danger.btn-small#delete-entry{'data-entry-id' => @entry.id}
+  %span.glyphicon.glyphicon-trash
+
+= text_field_tag :edit_entry_date, Entry.american_date(@entry.date), class: 'form-control date-picker my-input'
 .row.my-input
   .col-sm-1
-    = label_tag :entry_site, "Site:"
+    = label_tag :edit_entry_site, "Site:"
   .col-sm-11
-    = select_tag :entry_site, options_for_select((@user.sites.pluck(:name) rescue []), (@entry.site.name rescue 'No sites defined yet.')), class: 'form-control'
+    = select_tag :edit_entry_site, options_for_select((@user.sites.pluck(:name) rescue []), (@entry.site.name rescue 'No sites defined yet.')), class: 'form-control'
 %table.table-striped
   - @categories.each do |c|
     %tr
@@ -15,7 +18,7 @@
       %td
         = max_value(c)
       %td
-        = text_field_tag "#{c.id}", recorded_hours(@entry, category: c.id), placeholder: 'Hours', class: 'entry-category form-control' if c.subcategories.count == 0 || c.id == 2
+        = text_field_tag "#{c.ref}", recorded_hours(@entry, category: c.ref), placeholder: 'Hours', class: 'edit-entry-category form-control' if c.subcategories.count == 0 || c.id == 2
     - c.subcategories.each do |sc|
       %tr
         %td{style:'padding-left:30px'}
@@ -23,6 +26,6 @@
         %td
           = max_value(sc)
         %td
-          = text_field_tag "#{c.id}:#{sc.id}", recorded_hours(@entry, subcategory: sc.id), placeholder: 'Hours', class: 'entry-subcategory form-control'
-%button.btn-save#submit-edit-entry{'data-entry-id' => @entry.id}
+          = text_field_tag "#{c.ref}:#{sc.ref}", recorded_hours(@entry, subcategory: sc.ref), placeholder: 'Hours', class: 'edit-entry-subcategory form-control'
+%button.btn.btn-success#submit-edit-entry{'data-entry-id' => @entry.id}
   Save

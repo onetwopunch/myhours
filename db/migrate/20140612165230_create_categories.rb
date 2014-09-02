@@ -5,6 +5,7 @@ class CreateCategories < ActiveRecord::Migration
       t.boolean :is_counselling
       t.float :requirement
       t.boolean :max
+      t.integer :ref
       t.timestamps
     end
   end

@@ -31,7 +31,8 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'bootstrap_form'
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails', '3.0.4'
+gem 'jquery-ui-rails', '4.2.1'
 
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 gem 'turbolinks'
@@ -49,11 +50,9 @@ gem "uuid", "~> 2.3.7"
 
 # gem 'protected_attributes'
 
-gem 'jquery-ui-rails'
-
 gem 'blankslate'
 gem 'gon', '3.0.5'
-gem 'momentjs-rails'
+gem 'momentjs-rails', '2.7.0'
 
 # gem 'rails_12factor', group: :production
 # Use ActiveModel has_secure_password

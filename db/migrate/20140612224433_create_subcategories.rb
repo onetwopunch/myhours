@@ -5,6 +5,7 @@ class CreateSubcategories < ActiveRecord::Migration
       t.boolean :max
       t.string :name
       t.float :requirement
+      t.integer :ref
       t.timestamps
     end
   end
