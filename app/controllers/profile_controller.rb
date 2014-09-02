@@ -151,8 +151,8 @@ class ProfileController < ApplicationController
       end
       return
     end
-    progress_html = render_to_string(partial: 'progress')
     @user.reload
+    progress_html = render_to_string(partial: 'progress')
     puts "ENTRY ARRAY #{@user.entry_array}"
     respond_to do |format|
       format.json { render :json => {success: true, entries: @user.entry_array, progress: progress_html} }
