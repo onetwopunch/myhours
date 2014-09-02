@@ -114,8 +114,11 @@ class Entry < ActiveRecord::Base
 	  puts "hours_per_category = #{user.hours_per_category(CAT_TELEHEALTH)}"
 	  puts "requirement = #{cat_hour.category.requirement}"
 	  hours = user.hours_per_category(CAT_TELEHEALTH) + cat_hour.recorded_hours
-          unless hours > cat_hour.category.requirement
+          if hours < cat_hour.category.requirement
 	    cat_hour.valid_hours = cat_hour.recorded_hours 
+	  else
+	    overlap = hours - cat_hour.category.requirement
+	    cat_hour.valid_hours = cat_hour.recorded_hours - overlap
           end
           entry.user_hours << cat_hour if cat_hour.save
     	end
