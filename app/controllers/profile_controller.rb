@@ -95,7 +95,7 @@ class ProfileController < ApplicationController
   end
   
   def delete_site 
-    @user = User.find_by_email(session[:user_id])
+    @user = current_user
     site = @user.sites.find(params[:site_id])
     success = !!site.destroy
     html = render_to_string(partial: 'all_sites')
@@ -105,16 +105,15 @@ class ProfileController < ApplicationController
   end
   
   def add_entry
-    puts "ADD: #{params.to_json}"
     categories = params[:categories] || []
     subcategories = params[:subcategories] || []
     
-    @user = User.find_by_email(session[:user_id])
+    @user = current_user
     puts "USER: #{@user}"
     hours_array = []
     categories.each do |c|
       category = Category.find_by_ref(c[1]['id'].to_i)
-      next if c[1]['val'].to_i == 0
+      next if c[1]['val'].to_f == 0.0
       hours = c[1]['val'].to_f
       uh = UserHour.new
       uh.category = category
@@ -129,7 +128,7 @@ class ProfileController < ApplicationController
 
     subcategories.each do |sc|
       subcategory = Subcategory.find_by_ref(sc[1]['id'].to_i)
-      next if sc[1]['val'].to_i == 0
+      next if sc[1]['val'].to_f == 0.0
       hours = sc[1]['val'].to_f
       uh = UserHour.new
       uh.subcategory = subcategory
@@ -161,7 +160,7 @@ class ProfileController < ApplicationController
   
   def get_entry
     @entry = Entry.find(params[:entry_id])
-    @user = User.find_by_email(session[:user_id])
+    @user = current_user
     @categories = Category.all
     show_html = render_to_string(partial: 'show_entry')
     edit_html = render_to_string(partial: 'edit_entry')
@@ -186,7 +185,7 @@ class ProfileController < ApplicationController
   def delete_entry
     entry = Entry.find(params[:entry_id])
     success = !!entry.destroy
-    @user = User.find_by_email(session[:user_id])
+    @user = current_user
     entries = @user.entry_array
     progress_html = render_to_string(partial: 'progress')
     respond_to do |format|

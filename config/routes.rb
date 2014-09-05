@@ -9,4 +9,5 @@ MyHours::Application.routes.draw do
 
   post ':controller(/:action(/:id(.:format)))'
   get ':controller(/:action(/:id(.:format)))'
+  mount API::API => '/'
 end

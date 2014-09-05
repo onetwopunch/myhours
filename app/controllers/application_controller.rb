@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
 
   protected
   def redirect_to_profile
-    if session[:user_id]
+    if current_user
       redirect_to(:controller => 'profile', :action => 'index')
       return false # halts the before_filter
     else    
@@ -14,7 +14,7 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_to_login
-    unless session[:user_id]
+    unless current_user
       redirect_to(:controller => 'login', :action => 'index')
       return false # halts the before_filter
     else
@@ -22,4 +22,9 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def current_user
+    if session[:user_id]
+      User.find_by_email session[:user_id]
+    end
+  end
 end

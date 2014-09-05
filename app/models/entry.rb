@@ -88,20 +88,22 @@ class Entry < ActiveRecord::Base
         when CAT_FAMILIES
           cat_hour.valid_hours = cat_hour.recorded_hours
           sc_hour = subcategory_hours.find{|uh| uh.subcategory.ref == SUBCAT_CONJOINT} rescue nil
-	  hours = user.hours_per_subcategory(SUBCAT_CONJOINT) + sc_hour.recorded_hours
-	  puts "FAM hours = #{hours}"
-	  if sc_hour && hours <= sc_hour.subcategory.requirement
-            cat_hour.valid_hours += sc_hour.recorded_hours
-	    sc_hour.valid_hours = sc_hour.recorded_hours
-	  elsif sc_hour 
-	    overlap = hours - sc_hour.subcategory.requirement
-	    puts "FAM overlap = #{overlap}"
-	    sc_hour.valid_hours = sc_hour.recorded_hours - overlap
-	    cat_hour.valid_hours += sc_hour.valid_hours
-          end
+	  if sc_hour
+	    hours = user.hours_per_subcategory(SUBCAT_CONJOINT) + sc_hour.recorded_hours
+	    puts "FAM hours = #{hours}"
+	    if sc_hour && hours <= sc_hour.subcategory.requirement
+	      cat_hour.valid_hours += sc_hour.recorded_hours
+	      sc_hour.valid_hours = sc_hour.recorded_hours
+	    else 
+	      overlap = hours - sc_hour.subcategory.requirement
+	      puts "FAM overlap = #{overlap}"
+	      sc_hour.valid_hours = sc_hour.recorded_hours - overlap
+	      cat_hour.valid_hours += sc_hour.valid_hours
+	    end
+	    entry.user_hours << sc_hour if sc_hour.save
+	  end
 	  cat_hour.recorded_hours += sc_hour.recorded_hours
           entry.user_hours << cat_hour if cat_hour.save
-	  entry.user_hours << sc_hour if sc_hour.save
 
         when CAT_GROUP
 	  hours = user.hours_per_category(CAT_GROUP) + cat_hour.recorded_hours 

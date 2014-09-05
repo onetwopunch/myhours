@@ -34,7 +34,7 @@ class LoginController < ApplicationController
 
 	def logout
 		session[:user_id] = nil
-    redirect_to :action => 'index'
+    	redirect_to :action => 'index'
 	end
 
 	def signup 

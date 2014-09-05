@@ -53,7 +53,7 @@ gem "uuid", "~> 2.3.7"
 gem 'blankslate'
 gem 'gon', '3.0.5'
 gem 'momentjs-rails', '2.7.0'
-
+gem 'grape'
 # gem 'rails_12factor', group: :production
 # Use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.1.2'

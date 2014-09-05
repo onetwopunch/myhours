@@ -1,7 +1,5 @@
-@profile = null
 class Profile
   constructor: ->
-    profile = @
     new SitesManager()
     if gon.new_user == true
       $('#user-info-modal').modal('show')
@@ -14,14 +12,19 @@ class Profile
         theme: true,
         dayClick: @day_click,
         eventClick: @event_click,
-        events: gon.entries
-      })
+        eventSources: [
+          @event_source()
+        ]
+    })
     @bind_user_details_submit()
     @bind_create_entry()
+
     $('#entry-form-modal').on 'hidden.bs.modal', (e) ->
       $('.entry-category').val('')
       $('.entry-subcategory').val('')
-  
+  event_source: ->
+    token = $('.hidden').data('private_token')
+    "/api/users/entries?private_token=#{token}"
   day_click: (date, jsEvent, view) ->
     fdate = moment(date.format()).format("MM/DD/YYYY")
     $('#entry_date').val(fdate)
@@ -84,9 +87,7 @@ class Profile
         (data) ->
           console.log data
           if data.success == true
-            gon.entries = data.entries
-            $('#calendar').fullCalendar('removeEvents')
-            $('#calendar').fullCalendar('addEventSource', gon.entries)
+            $('#calendar').fullCalendar('refetchEvents')
             $('.progress-container').html(data.progress)
             $('#entry-form-modal').modal('hide')
           else
@@ -115,11 +116,8 @@ class Profile
         site: $('#edit_entry_site').find('option:selected').val()
         (data) ->
           console.log data
-          console.log 'yay' if data.success == true
           if data.success == true
-            gon.entries = data.entries
-            $('#calendar').fullCalendar('removeEvents')
-            $('#calendar').fullCalendar('addEventSource', gon.entries)
+            $('#calendar').fullCalendar('refetchEvents')
             $('.progress-container').html(data.progress)
             $('#manage-entries-modal').modal('hide')
           else
@@ -136,9 +134,7 @@ class Profile
         entry_id: entry_id 
         (data) ->
           if data.success == true
-            gon.entries = data.entries
-            $('#calendar').fullCalendar('removeEvents')
-            $('#calendar').fullCalendar('addEventSource', gon.entries)
+            $('#calendar').fullCalendar('refetchEvents')
             $('.progress-container').html(data.progress)
             $('#manage-entries-modal').modal('hide')
           else

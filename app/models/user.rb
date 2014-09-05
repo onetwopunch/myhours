@@ -21,7 +21,7 @@ class User < ActiveRecord::Base
       return false
     end
   end
-
+  
   def self.get_hashed_password(password="")
     if password != nil
       Digest::SHA1.hexdigest(password)
@@ -42,7 +42,15 @@ class User < ActiveRecord::Base
       self.password = User.get_hashed_password(password)
     end		
   end
+  
+  def self.find_by_token(token)
+    User.find{|u| u.private_token == token}
+  end
 
+  def private_token
+    Digest::SHA1.hexdigest(salt)
+  end
+  
   def hours_per_category(category_ref)
     return 0 if entries.count == 0
     count = 0
