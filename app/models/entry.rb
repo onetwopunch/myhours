@@ -26,18 +26,17 @@ class Entry < ActiveRecord::Base
   CAT_GROUP 			= 3
   CAT_TELEHEALTH 		= 4
   CAT_ADMIN 			= 5
-  CAT_NON_COUNSELING 		= 6
+  CAT_WORKSHOPS 		= 6
+  CAT_NON_COUNSELING 		= 7
   
   SUBCAT_CONJOINT 		= 10
-  SUBCAT_PSYCH_TESTS 		= 20
-  SUBCAT_REPORTS 		= 30
-  SUBCAT_ADVOCACY 		= 40
-  SUBCAT_PROCESS_NOTES 		= 50
-  SUBCAT_WORKSHOPS 		= 60
-  SUBCAT_PERSONAL 		= 70
-  SUBCAT_SUPERVISOR 		= 80
-  SUBCAT_SUPERVISOR_GROUP	= 90
+  SUBCAT_PERSONAL 		= 20
+  SUBCAT_ADVOCACY 		= 30
+  SUBCAT_SUPERVISOR 		= 40
+  SUBCAT_SUPERVISOR_GROUP	= 50
   
+  # deprecated, kept so no data lost
+
   def hours
     user_hours.select{|u| !u.category.nil? }.map(&:valid_hours).sum
   end
@@ -101,17 +100,31 @@ class Entry < ActiveRecord::Base
 	      cat_hour.valid_hours += sc_hour.valid_hours
 	    end
 	    entry.user_hours << sc_hour if sc_hour.save
+	    cat_hour.recorded_hours += sc_hour.recorded_hours
 	  end
-	  cat_hour.recorded_hours += sc_hour.recorded_hours
-          entry.user_hours << cat_hour if cat_hour.save
-
-        when CAT_GROUP
-	  hours = user.hours_per_category(CAT_GROUP) + cat_hour.recorded_hours 
-          unless hours > cat_hour.category.requirement
+	  hours = user.hours_per_category(CAT_FAMILIES) + cat_hour.recorded_hours
+          if hours < cat_hour.category.requirement
 	    cat_hour.valid_hours = cat_hour.recorded_hours 
+	  else
+	    overlap = hours - cat_hour.category.requirement
+	    cat_hour.valid_hours = cat_hour.recorded_hours - overlap
+          end
+
+          entry.user_hours << cat_hour if cat_hour.save
+	
+	when CAT_GROUP
+	  puts "hours_per_category = #{user.hours_per_category(CAT_GROUP)}"
+	  puts "requirement = #{cat_hour.category.requirement}"
+	  hours = user.hours_per_category(CAT_GROUP) + cat_hour.recorded_hours
+          if hours < cat_hour.category.requirement
+	    cat_hour.valid_hours = cat_hour.recorded_hours 
+	  else
+	    overlap = hours - cat_hour.category.requirement
+	    cat_hour.valid_hours = cat_hour.recorded_hours - overlap
           end
           entry.user_hours << cat_hour if cat_hour.save
 
+       
         when CAT_TELEHEALTH
 	  puts "hours_per_category = #{user.hours_per_category(CAT_TELEHEALTH)}"
 	  puts "requirement = #{cat_hour.category.requirement}"
@@ -123,31 +136,41 @@ class Entry < ActiveRecord::Base
 	    cat_hour.valid_hours = cat_hour.recorded_hours - overlap
           end
           entry.user_hours << cat_hour if cat_hour.save
+
+	when CAT_ADMIN
+	  puts "hours_per_category = #{user.hours_per_category(CAT_ADMIN)}"
+	  puts "requirement = #{cat_hour.category.requirement}"
+	  hours = user.hours_per_category(CAT_ADMIN) + cat_hour.recorded_hours
+          if hours < cat_hour.category.requirement
+	    cat_hour.valid_hours = cat_hour.recorded_hours 
+	  else
+	    overlap = hours - cat_hour.category.requirement
+	    cat_hour.valid_hours = cat_hour.recorded_hours - overlap
+          end
+          entry.user_hours << cat_hour if cat_hour.save
+
+	when CAT_WORKSHOPS
+	  puts "hours_per_category = #{user.hours_per_category(CAT_WORKSHOPS)}"
+	  puts "requirement = #{cat_hour.category.requirement}"
+	  hours = user.hours_per_category(CAT_WORKSHOPS) + cat_hour.recorded_hours
+          if hours < cat_hour.category.requirement
+	    cat_hour.valid_hours = cat_hour.recorded_hours 
+	  else
+	    overlap = hours - cat_hour.category.requirement
+	    cat_hour.valid_hours = cat_hour.recorded_hours - overlap
+          end
+          entry.user_hours << cat_hour if cat_hour.save
+
+
     	end
       puts "Adding UH #{cat_hour.id} to entry with #{cat_hour.valid_hours} valid hours"
     end
   	
-    admin_hours = nil
     non_counseling_hours = nil
-    
     subcategory_hours.each do |subcat_hour|
       
       case subcat_hour.subcategory.ref
-      when SUBCAT_PSYCH_TESTS, SUBCAT_REPORTS, SUBCAT_ADVOCACY, SUBCAT_PROCESS_NOTES
-        unless admin_hours
-          puts 'Instantiating admin_hours'
-          admin_hours = UserHour.new
-          admin_hours.category = Category.find_by_ref(CAT_ADMIN)
-          admin_hours.valid_hours = admin_hours.recorded_hours = 0.0
-        end
-	hours = user.hours_per_category(CAT_ADMIN) + admin_hours.valid_hours + subcat_hour.recorded_hours
-	puts "admin_hours = #{hours}"
-        unless hours > admin_hours.category.requirement
-          admin_hours.recorded_hours += subcat_hour.recorded_hours 
-          admin_hours.valid_hours = admin_hours.recorded_hours
-	  subcat_hour.valid_hours = subcat_hour.recorded_hours
-        end
-      when SUBCAT_WORKSHOPS, SUBCAT_PERSONAL, SUBCAT_SUPERVISOR, SUBCAT_SUPERVISOR_GROUP
+      when SUBCAT_PERSONAL, SUBCAT_SUPERVISOR, SUBCAT_SUPERVISOR_GROUP, SUBCAT_ADVOCACY
         unless non_counseling_hours
           non_counseling_hours = UserHour.new
           non_counseling_hours.category = Category.find_by_ref(CAT_NON_COUNSELING)
@@ -166,16 +189,6 @@ class Entry < ActiveRecord::Base
               non_counseling_hours.recorded_hours += subcat_hour.recorded_hours * 3
 	      subcat_hour.valid_hours = subcat_hour.recorded_hours * 3
 	    end
-	  elsif subcat_hour.subcategory.ref == SUBCAT_WORKSHOPS 
-	    ws_hours = user.hours_per_subcategory(SUBCAT_WORKSHOPS) + subcat_hour.recorded_hours
-	    if ws_hours > subcat_hour.subcategory.requirement
-	      overlap = ws_hours - subcat_hour.subcategory.requirement
-	      non_counseling_hours.recorded_hours += subcat_hour.recorded_hours - overlap
-	      subcat_hour.valid_hours = subcat_hour.recorded_hours - overlap
-	    else
-	      non_counseling_hours.recorded_hours += subcat_hour.recorded_hours
-	      subcat_hour.valid_hours = subcat_hour.recorded_hours
-	    end
 	  else
 	    non_counseling_hours.recorded_hours += subcat_hour.recorded_hours
 	    subcat_hour.valid_hours = subcat_hour.recorded_hours
@@ -189,7 +202,6 @@ class Entry < ActiveRecord::Base
       entry.user_hours << subcat_hour
     end
     
-    entry.user_hours << admin_hours if (admin_hours.save rescue false)
     entry.user_hours << non_counseling_hours if ( non_counseling_hours.save rescue false )
     
     if entry.save
