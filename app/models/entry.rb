@@ -55,13 +55,14 @@ class Entry < ActiveRecord::Base
     "#{m}/#{d}/#{y}"
   end
 
-  def self.create_entry(user, site, date, hours_array)
+  def self.create_entry(user, site, date, note, hours_array)
     validate_grad_date(user, hours_array)
     
     entry = Entry.new 
     entry.user = user
     entry.date = date || Time.new.strftime("%Y-%m-%d")
     entry.site = site || user.default_site
+    entry.note = note
     entry.save
     
     category_hours = hours_array.select{|uh| !!uh.category}

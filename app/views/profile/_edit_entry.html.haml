@@ -27,5 +27,9 @@
           = max_value(sc)
         %td
           = text_field_tag "#{c.ref}:#{sc.ref}", recorded_hours(@entry, subcategory: sc.ref), placeholder: 'Hours', class: 'edit-entry-subcategory form-control'
+
+= label_tag :edit_entry_note, 'Notes'
+= text_area_tag :edit_entry_note, "#{@entry.note}", class: 'form-control my-input'
+
 %button.btn.btn-success#submit-edit-entry{'data-entry-id' => @entry.id}
   Save

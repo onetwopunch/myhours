@@ -142,8 +142,9 @@ class ProfileController < ApplicationController
     
     site = @user.sites.find_by_name(params[:site])
     date = Entry.js_date(params[:date])
+    note = params[:note]
     begin
-    	entry = Entry.create_entry(@user, site, date, hours_array).skinny
+    	entry = Entry.create_entry(@user, site, date, note, hours_array).skinny
     rescue Exception => e
       respond_to do |format|
         format.json { render :json => {success: false, errors: e.message + e.backtrace.to_s} }

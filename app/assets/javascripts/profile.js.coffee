@@ -22,6 +22,7 @@ class Profile
     $('#entry-form-modal').on 'hidden.bs.modal', (e) ->
       $('.entry-category').val('')
       $('.entry-subcategory').val('')
+      $('#entry_note').val('')
   event_source: ->
     token = $('.hidden').data('private_token')
     "/api/users/entries?private_token=#{token}"
@@ -84,6 +85,7 @@ class Profile
         subcategories: subcategories
         date: $('#entry_date').val()
         site: $('#entry_site').find('option:selected').val()
+        note: $('#entry_note').val()
         (data) ->
           console.log data
           if data.success == true
@@ -114,6 +116,7 @@ class Profile
         subcategories: subcategories
         date: $('#edit_entry_date').val()
         site: $('#edit_entry_site').find('option:selected').val()
+        note: $('#edit_entry_note').val()
         (data) ->
           console.log data
           if data.success == true

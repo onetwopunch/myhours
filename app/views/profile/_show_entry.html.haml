@@ -25,4 +25,7 @@
         %td
           = sub.recorded_hours 
         %td
-          = sub.valid_hours 
+          = sub.valid_hours
+- if @entry.note
+  %h4 Notes:
+  %p=@entry.note
