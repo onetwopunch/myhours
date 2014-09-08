@@ -4,7 +4,7 @@
       .modal-header
         %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
         %h4.modal-title Manage Sites
-      .modal-body
+      .modal-body.scroll
         #site-modal-error{style: 'color:red'}
         #view-all-sites
           = render 'all_sites'

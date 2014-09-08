@@ -8,20 +8,20 @@
     %tr
       %td
         %b= cat.name
-      %td
-        = max_value(cat)
-      %td
-	= @totals[:recorded_hours][cat.ref]
-      %td
-	= @totals[:valid_hours][cat.ref]
+      %td= max_value(cat)
+      %td= @totals[:recorded_hours][cat.ref]
+      %td= @totals[:valid_hours][cat.ref]
     - cat.subcategories.each do |sub|
       %tr
-        %td{style: 'padding-left: 20px'}
-          = sub.name
-        %td
-          = max_value(sub)
-        %td
-	  = @totals[:recorded_hours][sub.ref]
-        %td
-	  = @totals[:valid_hours][sub.ref]
+        %td{style: 'padding-left: 20px'}= sub.name
+        %td= max_value(sub)
+        %td= @totals[:recorded_hours][sub.ref]
+        %td= @totals[:valid_hours][sub.ref]
+  %tr
+    %td
+      %b Total
+    %td
+    %td= @totals[:recorded_sum]
+    %td= @totals[:valid_sum]
+
 

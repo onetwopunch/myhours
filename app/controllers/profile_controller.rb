@@ -26,13 +26,22 @@ class ProfileController < ApplicationController
     if @user
       @user.first_name = params[:first_name]
       @user.last_name = params[:last_name]
-      @user.grad_date = params[:grad_date]
+      @user.grad_date = Entry.js_date(params[:grad_date]) rescue nil
     end
     respond_to do |format|
       format.json { render json: {success: @user.save, errors: @user.errors.messages, entries: @user.entry_array}} 
     end 
   end
 
+  def get_totals
+    start_date = params[:start_date]
+    end_date = params[:end_date]
+    @totals = current_user.totals_between(start_date, end_date)
+    html = render_to_string(partial: 'totals')
+    respond_to do |format|
+      format.json { render json: {html: html}}
+    end
+  end
   
   def add_site
     @user = User.find_by_email(session[:user_id])
@@ -152,7 +161,7 @@ class ProfileController < ApplicationController
     	entry = Entry.create_entry(@user, site, date, note, hours_array).skinny
     rescue Exception => e
       respond_to do |format|
-        format.json { render :json => {success: false, errors: e.message + e.backtrace.to_s} }
+        format.json { render :json => {success: false, errors: e.message} }
       end
       return
     end

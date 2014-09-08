@@ -18,6 +18,7 @@ class Profile
     })
     @bind_user_details_submit()
     @bind_create_entry()
+    @bind_totals()
 
     $('#entry-form-modal').on 'hidden.bs.modal', (e) ->
       $('.entry-category').val('')
@@ -94,6 +95,7 @@ class Profile
             $('#entry-form-modal').modal('hide')
           else
             $('.errors').html(data.errors)
+            $('.errors').show()
             setTimeout () ->
               $('.errors').hide('slow')
               $('.errors').html('')
@@ -125,6 +127,7 @@ class Profile
             $('#manage-entries-modal').modal('hide')
           else
             $('.errors').html(data.errors)
+            $('.errors').show()
             setTimeout () -> 
               $('.errors').hide('slow')
               $('.errors').html('')
@@ -163,5 +166,15 @@ class Profile
           else
             $('#user-info-errors').html(data.errors)
 
+  bind_totals: ->
+    $('#btn-totals').click () ->
+      $.post '/profile/get_totals',
+        start_date: $('#start_date').val()
+        end_date: $('#end_date').val()
+        (data) ->
+          console.log data
+          $('#totals-container').html(data.html)
+    $('#totals-modal').on 'hidden.bs.modal', () ->
+      $('#totals-container').html('')
           
 @Profile = Profile

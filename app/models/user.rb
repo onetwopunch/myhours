@@ -76,7 +76,7 @@ class User < ActiveRecord::Base
 
   def entry_array
     result = []
-    result << {id: -1, title: 'Graduation Date', start: Entry.js_date(grad_date), color: 'red'} if grad_date
+    result << {id: -1, title: 'Graduation Date', start: grad_date, color: 'red'} if grad_date
     entries.each do |e|
       result << {id: e.id, title: "#{e.hours} hours logged", start: e.date}
     end

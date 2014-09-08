@@ -4,14 +4,14 @@
       .modal-header
         %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
         %h4.modal-title Totals
-      .modal-body
+      .modal-body.scroll
         = label_tag :start_date, "Start Date" 
-        = text_field_tag :start_date, "#{Date.today.to_s(:american)}", placeholder: 'Start Date', class: 'form-control my-input date-picker'
+        = text_field_tag :start_date, "#{(Date.today - 7).to_s(:american)}", placeholder: 'Start Date', class: 'form-control my-input date-picker'
         = label_tag :end_date, "End Date"
-        = text_field_tag :end_date, "#{(Date.today + 7).to_s(:american)}", placeholder: 'End Date', class: 'form-control my-input date-picker'
+        = text_field_tag :end_date, "#{Date.today.to_s(:american)}", placeholder: 'End Date', class: 'form-control my-input date-picker'
 
         #totals-container
-          =render 'totals'
       .modal-footer
         %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
+        %button.btn.btn-primary#btn-totals Run Totals
         

@@ -1,21 +1,3 @@
-# g1 = Category.create name: 'Individual Psychotherapy', is_counselling: true
-# g2 = Category.create name: 'Couples, Families, and Children', requirement: 500.0, max: false, is_counselling: true
-# g2.subcategories << Subcategory.create( name: 'Conjoint Hours (First 150 hours are double counted)', requirement: 300.0, max: true)
-
-# g3 = Category.create name: 'Group Psychotherapy or Counseling', requirement: 500.0, max: true, is_counselling: true
-# g4 = Category.create name: 'Telehealth Counseling, including telephone counseling', requirement: 375.0, max: true, is_counselling: true
-
-# g5 = Category.create name: 'Administrative Tasks', requirement: 500.0, max: true, is_counselling: false
-# g5.subcategories << Subcategory.create(name: 'Administrating and evaluating psychological tests', max: true)
-# g5.subcategories << Subcategory.create(name: 'Writing Clinical Reports', max: true)
-# g5.subcategories << Subcategory.create( name: 'Client Centered Advocacy', max: true)
-# g5.subcategories << Subcategory.create(name: 'Writing Progress or Process Notes', max: true)
-
-# g6 = Category.create name: 'Non-Counseling Experience', requirement: 1000.0, max: true, is_counselling: false
-# g6.subcategories << Subcategory.create( name: 'Workshops, Seminars, Training Sessions, and Sonferences', requirement: 250.0, max: true)
-# g6.subcategories << Subcategory.create( name: 'Personal Psychotherapy (Triple Counted Hours)', requirement: 300.0, max: true)
-# g6.subcategories << Subcategory.create( name: 'Direct Supervisor Contact')
-
 class Entry < ActiveRecord::Base
   has_many :user_hours, :dependent => :destroy
   belongs_to :user
@@ -56,11 +38,12 @@ class Entry < ActiveRecord::Base
   end
 
   def self.create_entry(user, site, date, note, hours_array)
-    validate_grad_date(user, hours_array)
     
     entry = Entry.new 
     entry.user = user
     entry.date = date || Time.new.strftime("%Y-%m-%d")
+    validate_grad_date(user, date, hours_array) # Raises exception if limit reached
+    
     entry.site = site || user.default_site
     entry.note = note
     entry.save
@@ -213,20 +196,22 @@ class Entry < ActiveRecord::Base
     end
   end
   
-  def self.validate_grad_date(user, hours_array)
-    attempted_hours = hours_array.map(&:recorded_hours)
-    if Entry.max_before_grad_date_reached(user, attempted_hours)
+  def self.validate_grad_date(user, date, hours_array)
+    attempted_hours = hours_array.map(&:recorded_hours).sum
+    if Entry.max_before_grad_date_reached?(user, date, attempted_hours)
       raise Exception.new("Pre graduation limit reached. 750 max counseling and supervision + all remaining hours categories = 1,300 max pre-degree hours")
     end
   end
   
-  def self.max_before_grad_date_reached(user, attempted)
-    today = Time.new.strftime("%Y-%m-%d")
-    if today < user.grad_date
-      indi_couns = user.hours_per_category(CAT_INDIVIDUAL)
+  def self.max_before_grad_date_reached?(user, date, attempted)
+    puts "DATES: #{Date.parse(date)} < #{Date.parse(user.grad_date)}"
+    if Date.parse(date) < Date.parse(user.grad_date)
+      indi_couns = user.hours_per_category(CAT_INDIVIDUAL) + user.hours_per_subcategory(SUBCAT_SUPERVISOR) + user.hours_per_subcategory(SUBCAT_SUPERVISOR_GROUP)
       indi_reached = indi_couns + attempted > 750
       max_reached = user.hours + attempted > 1300
       return indi_reached || max_reached
+    else
+      false
     end
   end
 end

@@ -34,8 +34,8 @@ MyHours::Application.configure do
     address:              'smtp.gmail.com',
     port:                 587,
     domain:               'gmail.com',
-    user_name:            'passweb.mailer@gmail.com',
-    password:             '2d931510-d99f-494a-8c67-87feb05e1594',
+    user_name:            'myhours.mailer@gmail.com',
+    password:             '9a689f6f4be255034fbe13c27c4ed9e7dd63d92e',
     authentication:       'plain',
     enable_starttls_auto: true  }
   # ActionMailer::Base.default_url_options[:host] = "localhost:3000"

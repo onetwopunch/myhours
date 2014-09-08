@@ -7,6 +7,6 @@ class Dispatcher
     page = $('body').data('page')
     switch page
       when 'profile:index'
-      	new Profile()
+        new Profile()
       when 'login:signup', 'login:index'
       	new Login()
