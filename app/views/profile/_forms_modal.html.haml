@@ -3,10 +3,13 @@
     .modal-content
       .modal-header
         %button.close{"aria-hidden" => "true", "data-dismiss" => "modal", type: "button"} ×
-        %h4.modal-title BBS Forms
+        %h4.modal-title BBS Forms and Information
       .modal-body
-        = link_to 'Weekly Hours Log', 'profile/download_weekly_log'          
-          
+        %ul.bordered-list
+          %li= link_to 'MFT Weekly Summary of Hours of Experience', 'http://www.bbs.ca.gov/pdf/forms/mft/mfwkylog.pdf' 
+          %li= link_to 'MFT Experience Verification', 'http://www.bbs.ca.gov/pdf/forms/mft/exp-mfc.pdf'
+          %li= link_to "MFT FAQ's Related to MFT Trainees and Interns", 'http://www.bbs.ca.gov/pdf/publications/mft_faq.pdf'
+          %li= link_to "FAQ's for Weekly Summary of Hours of Experience", 'http://www.bbs.ca.gov/pdf/forms/mft/faq_mft_expver_summary.pdf'
       .modal-footer
         %button.btn.btn-default{"data-dismiss" => "modal", type: "button"} Close
         
