@@ -107,6 +107,23 @@ class User < ActiveRecord::Base
     entries.map{|e| e.hours }.sum
   end
   
+  def totals_between(s, e)
+    start_date = Entry.js_date(s)
+    end_date = Entry.js_date(e)
+    selected_entries = entries.select{ |e| e.date >= start_date && e.date <= end_date }
+    totals = { valid_sum: 0, recorded_sum: 0, recorded_hours: Hash.new(0), valid_hours: Hash.new(0) }
+    selected_entries.each do |entry|
+      entry.user_hours.each do |uh|
+	ref = uh.category.ref rescue uh.subcategory.ref
+      	totals[:recorded_hours][ref] += uh.recorded_hours
+	totals[:valid_hours][ref] += uh.valid_hours
+	totals[:recorded_sum] += uh.recorded_hours
+	totals[:valid_sum] += uh.valid_hours
+      end
+    end
+    return totals
+  end
+  
   def progress
     '%.2f' % ((hours / 3000) * 100)
   end    

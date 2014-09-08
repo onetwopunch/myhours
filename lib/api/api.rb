@@ -25,7 +25,7 @@ module API
       {test_key: 'test_val'}
     end
 
-    mount UserAPI
+    mount ::API::UserAPI
   end
 end
 

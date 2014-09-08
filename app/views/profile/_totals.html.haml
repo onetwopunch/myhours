@@ -1,0 +1,27 @@
+%table.table-striped
+  %tr
+    %th Category
+    %th Requirement
+    %th Recorded Hours
+    %th Valid Hours
+  - Category.all.each do |cat|   
+    %tr
+      %td
+        %b= cat.name
+      %td
+        = max_value(cat)
+      %td
+	= @totals[:recorded_hours][cat.ref]
+      %td
+	= @totals[:valid_hours][cat.ref]
+    - cat.subcategories.each do |sub|
+      %tr
+        %td{style: 'padding-left: 20px'}
+          = sub.name
+        %td
+          = max_value(sub)
+        %td
+	  = @totals[:recorded_hours][sub.ref]
+        %td
+	  = @totals[:valid_hours][sub.ref]
+

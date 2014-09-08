@@ -12,6 +12,11 @@ class ProfileController < ApplicationController
     gon.new_user = !(@user.grad_date && @user.first_name && @user.last_name)
   end
 
+  def download_weekly_log
+    send_file "#{Rails.root}/public/assets/log_form.pdf",
+      filename: 'log_form.pdf',
+      type: 'application/pdf'
+  end
    
   
   #AJAX Methods

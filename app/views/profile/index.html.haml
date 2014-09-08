@@ -12,10 +12,22 @@
       = render 'progress'
 
   .col-sm-4
-    %button.btn.btn-primary.btn-lg{"data-target" => "#entry-form-modal", "data-toggle" => "modal"}
-      Add Hours
-    %button.btn.btn-warning.btn-lg{"data-target" => "#manage-sites-modal", "data-toggle" => "modal"}
-      Manage Sites
+    .row
+      .col-sm-12
+        %button.btn.btn-primary.btn-lg{"data-target" => "#entry-form-modal", "data-toggle" => "modal", style: 'width:100%'}
+          Add Hours
+    %div{style: 'margin-top:10px'}
+    .row
+      .col-sm-12
+        .btn-group{style: 'width: 100%'}
+          %button.btn.btn-default.btn-lg{"data-target" => "#manage-sites-modal", "data-toggle" => "modal", style: 'width:50%'}
+            Manage Sites
+
+          %button.btn.btn-default.btn-lg{"data-target" => "#forms-modal", "data-toggle" => "modal", style: 'width:25%'}
+            Forms
+          %button.btn.btn-default.btn-lg{"data-target" => "#totals-modal", "data-toggle" => "modal", style: 'width:25%'}
+            Totals
+
 .row
   .col-sm-12
     #calendar
@@ -29,6 +41,10 @@
 = render 'manage_sites_modal'
 
 = render 'manage_entries'
+
+= render 'forms_modal'
+
+= render 'totals_modal'
       
         
         
