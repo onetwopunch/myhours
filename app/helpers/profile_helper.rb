@@ -9,9 +9,9 @@ module ProfileHelper
   
   def recorded_hours(entry, **args)
   	if args[:category]
-      entry.user_hours.find{|uh| uh.category.ref == args[:category] }.recorded_hours rescue 0
+      entry.user_hours.find{|uh| uh.category && uh.category.ref == args[:category] }.recorded_hours rescue 0
     elsif args[:subcategory]
-      entry.user_hours.find{|uh| uh.subcategory.ref == args[:subcategory] }.recorded_hours rescue 0
+      entry.user_hours.find{|uh| uh.subcategory && uh.subcategory.ref == args[:subcategory] }.recorded_hours rescue 0
   	else
     	0
     end      

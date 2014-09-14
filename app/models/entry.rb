@@ -84,7 +84,6 @@ class Entry < ActiveRecord::Base
 	      cat_hour.valid_hours += sc_hour.valid_hours
 	    end
 	    entry.user_hours << sc_hour if sc_hour.save
-	    cat_hour.recorded_hours += sc_hour.recorded_hours
 	  end
 	  hours = user.hours_per_category(CAT_FAMILIES) + cat_hour.recorded_hours
           if hours < cat_hour.category.requirement

@@ -117,8 +117,10 @@ class User < ActiveRecord::Base
 	ref = uh.category.ref rescue uh.subcategory.ref
       	totals[:recorded_hours][ref] += uh.recorded_hours
 	totals[:valid_hours][ref] += uh.valid_hours
-	totals[:recorded_sum] += uh.recorded_hours
-	totals[:valid_sum] += uh.valid_hours
+	if uh.category
+	  totals[:recorded_sum] += uh.recorded_hours
+	  totals[:valid_sum] += uh.valid_hours
+	end
       end
     end
     return totals
