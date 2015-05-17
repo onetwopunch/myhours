@@ -3,9 +3,9 @@ require 'digest/sha1'
 
 class TempPassword < ActiveRecord::Base
 	before_save :create_password
-	
+
   EMAIL_REGEX = /\A[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\z/i
-	validates :email, :presence => true, :length => { :within => 5..100 }, 
+	validates :email, :presence => true, :length => { :within => 5..100 },
 		:format=>EMAIL_REGEX, :confirmation => true
 	# validates :uuid, :presence => true, :uniqueness => true
 
@@ -37,5 +37,21 @@ class TempPassword < ActiveRecord::Base
 		UUID.generator.next_sequence
 		UUID.new.generate
 	end
+
+
+	def send_reset
+		# TODO: move this into a config
+		path = 'http://'
+		path += File.join( Rails.configuration.hostname,
+    	Rails.application.routes.url_helpers.password_change_path(uuid) )
+		puts "PATH: #{path}"
+		puts "EMAIL: #{email}"
+		url = "https://api:key-eba895c8855a1d3df96a2521dcaf0306@api.mailgun.net/v3/sandboxc37cef987575413bb7ace31a8a779715.mailgun.org/messages"
+		mailer = "MyHours Mailer <mailgun@sandboxc37cef987575413bb7ace31a8a779715.mailgun.org>"
+		subj = "Password Reset for MyHours"
+		body = "<h2>Reset Your MyHours Password</h2><p>Reset your password by clicking <a href=\"#{path}\">here</a></p>"
+	  RestClient.post( url, from: mailer, to: email, subject: subj, html: body )
+	end
+
 
 end

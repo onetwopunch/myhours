@@ -1,16 +1,16 @@
 class LoginController < ApplicationController
   before_filter :redirect_to_profile, only: [:index, :signup]
 	def index
-		#log in form		
+		#log in form
 	end
 
 	def authenticate
 		unless session[:user_id]
 			user = User.authenticate(params[:email], params[:password])
 			if user
-				session[:user_id] = user.email	
+				session[:user_id] = user.email
 				redirect_to(:controller=>'profile', :action =>'index')
-			else 
+			else
 				flash[:notice] = "Email/Password combination are incorrect."
 				redirect_to(:action =>'index')
 			end
@@ -19,8 +19,8 @@ class LoginController < ApplicationController
 
 	def check_email_exists
 		email = params[:email]
-		user = User.find_by_email(email)		
-		respond_to do |format|	
+		user = User.find_by_email(email)
+		respond_to do |format|
 			if user
 				puts 'User exisits'
 	   		format.json { render :json => {:response => "user_exists"} }
@@ -28,7 +28,7 @@ class LoginController < ApplicationController
 				puts 'User does not exisit'
 	   		format.json { render :json => {:response => "user_not_exists"} }
 	   	end
-   	end 
+   	end
 	end
 
 
@@ -37,10 +37,10 @@ class LoginController < ApplicationController
     	redirect_to :action => 'index'
 	end
 
-	def signup 
+	def signup
 		@user = User.new
 	end
-	
+
 	def create
 		user = User.create(user_params)
 		if user.valid?
@@ -56,7 +56,7 @@ class LoginController < ApplicationController
 		user = User.find_by_email(params[:email])
 		unhashed = params[:user_password]
 		user.password = unhashed # will be hashed after save
-		
+
 		unless user.save
 			puts "Update save failed"
 		end
@@ -66,7 +66,7 @@ class LoginController < ApplicationController
 			destroyed = TempPassword.destroy_all(:email => new_user.email)
 			puts destroyed.length.to_s + " temp passwords destroyed"
 			redirect_to(:controller=>'profile', :action =>'index')
-		else 
+		else
 			puts "User auth failed after update"
 			redirect_to(:action =>'index')
 		end
@@ -78,7 +78,7 @@ class LoginController < ApplicationController
 			tmp = TempPassword.create(:email => params[:forgot_user_email])
 			if tmp
 				puts tmp.as_json
-				UserMailer.reset_password(tmp).deliver
+				tmp.send_reset
 				redirect_to :action =>'forgot_confirm'
 			else
 				flash[:notice] = "There was an error sending the email. Try again later."

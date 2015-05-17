@@ -9,10 +9,10 @@ group :production do
 	gem 'lunchy', '~> 0.7.0'
 end
 
-group :development do 
+group :development do
   gem 'mysql2', '~> 0.3.16'
 end
-
+gem 'rest-client'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
